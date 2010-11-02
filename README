@@ -1,0 +1,11 @@
+
+	tomcat-slf4j-logback
+
+This projects main and only goal is to allow the following:
+ * redirect all org.apache.commons.logging (repackaged to
+   org.apache.juli.logging) calls to org.slf4j (repackaged to
+   org.apache.juli.logging) - i.e. handle internal tomcat logging
+   with logback
+ * make possible using logback-access with logback-access.xml config
+ * make possible to use independent configuration of slf4j+logback from all web
+   applications
