@@ -1,21 +1,20 @@
+# Tomcat + SLF4J + Logback #
 
-**tomcat-slf4j-logback**
-
-INTRODUCTION
+## Introduction ##
 
 This project allows using SLF4J and Logback in Apache Tomcat absolutely without
 the need for commons-logging, log4j and java.util.logging.
 
 This project's main and only goal is to allow the following:
- * redirect all org.apache.commons.logging (repackaged to
-   org.apache.juli.logging) calls to org.slf4j (repackaged to
-   org.apache.juli.logging.org.slf4j) - i.e. handle internal tomcat logging with
-   slf4j with logback binding
- * make still possible to use logback-access with logback-access.xml config -
-   using standard functionality of logback-access
- * make possible to use independent configuration of slf4j+logback from all web
-   applications which may carry their own slf4j-api, logback-core and
-	logback-classic in WEB-INF/lib directory
+* redirect all `org.apache.commons.logging` (repackaged to
+  `org.apache.juli.logging`) calls to `org.slf4j` (repackaged to
+  `org.apache.juli.logging.org.slf4j`) - i.e. handle internal tomcat logging
+  with slf4j with logback binding
+* make still possible to use logback-access with `logback-access.xml` config -
+  using standard functionality of logback-access
+* make possible to use independent configuration of slf4j+logback from all web
+  applications which may carry their own slf4j-api, logback-core and
+  logback-classic in `WEB-INF/lib` directory
 
 Using only ANT's build.xml file (based on the file provided with Tomcat), proper
 source JARs are downloaded from maven repository and unpacked. Then all classes
