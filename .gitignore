@@ -2,3 +2,6 @@ target/
 *.class
 *~
 *.bak
+_external
+_lib
+_dist
