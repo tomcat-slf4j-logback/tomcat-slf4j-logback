@@ -17,14 +17,15 @@ This project's main and only goal is to allow the following:
   applications which may carry their own slf4j-api, logback-core and
   logback-classic in `WEB-INF/lib` directory
 
-Using only ANT's build.xml file (based on the file provided with Tomcat), proper
-source JARs are downloaded from maven repository and unpacked. Then all classes
-are refactored under org.apache.juli.logging package and then compiled.
+Using only ANT's `build.xml` file (based on the file provided with Tomcat),
+proper source JARs are downloaded from maven repository and unpacked. Then all
+classes are refactored under `org.apache.juli.logging` package and then
+compiled.
 
 To allow web applications to use their own slf4j-api and logback-classic,
 classes used by Tomcat (particularly jcl-over-slf4j) must go into different,
-non-standard packages. According to
-http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions
+non-standard packages. According to [Tomcat
+Documentation](http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions)
 web application looks up classes in their WEB-INF/classes and WEB-INF/lib/*.jar
 before looking them in $TOMCAT_HOME/lib, but after looking them in "system"
 class loader. So Tomcat needs not only to have tomcat-juli replaced with tweaked
