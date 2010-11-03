@@ -72,6 +72,37 @@ And move four JARs from `_dist` directory to `$TOMCAT_HOME/bin` directory.
 Running Tomcat now will use default (very verbose) configuration of
 Logback. To change Logback's configuration, run Tomcat with the
 following system variable (using your favorite method of setting such
-variables - in catalina.sh, setenv.sh or other):
+variables - in `catalina.sh`, `setenv.sh` or other):
 
 	-Djuli-logback.configurationFile=file:<logback.xml location>
+
+
+## Configuration ##
+
+Now you can configure whatever logging technology you want for your web
+applications. I recommend SLF4J and Logback because from now on, it will not
+collide with Tomcat's logging configuration.
+
+While configuring Tomcat's logging, keep in mind that you have to use renamed
+packages in `logback.xml` config file, e.g.:
+
+	<configuration>
+		<appender name="CONSOLE" class="org.apache.juli.logging.ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>%d{HH:mm:ss.SSS} %-5level {%thread} [%logger{20}] : %msg%n</pattern>
+			</encoder>
+		</appender>
+		<logger name="org.apache.catalina.core.ContainerBase.[Catalina].[localhost]" level="INFO" additivity="false">
+			<appender-ref ref="FILE-LOCALHOST" />
+		</logger>
+		<root level="INFO">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</configuration>
+
+Configuration of logback-access doesn't require renamed packages, as the
+required JARs are loaded from _common class loader_.
+
+Sample `logback.xml` reflecting the configuration from standard
+`$TOMCAT_HOME/conf/logging.properties` can be found
+[here](https://github.com/grgrzybek/tomcat-slf4j-logback/blob/master/sample/tomcat-logback.xml).
