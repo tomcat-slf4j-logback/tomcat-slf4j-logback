@@ -6,6 +6,7 @@ This project allows using SLF4J and Logback in Apache Tomcat absolutely without
 the need for commons-logging, log4j and java.util.logging.
 
 This project's main and only goal is to allow the following:
+
 * redirect all `org.apache.commons.logging` (repackaged to
   `org.apache.juli.logging`) calls to `org.slf4j` (repackaged to
   `org.apache.juli.logging.org.slf4j`) - i.e. handle internal tomcat logging
