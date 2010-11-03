@@ -66,9 +66,8 @@ Type:
 
 And move four JARs from _dist directory to $TOMCAT_HOME/bin directory.
 
-Running Tomcat now will use default (very verbose) configuration of Logback. To
-change Logback's confuguration, run Tomcat with the following system variable
-(using your favourite method of setting such variables - in catalina.sh,
-
-setenv.sh or other):
+Running Tomcat now will use default (very verbose) configuration of
+Logback. To change Logback's configuration, run Tomcat with the
+following system variable (using your favorite method of setting such
+variables - in catalina.sh, setenv.sh or other):
 	-Djuli-logback.configurationFile=file:<logback.xml location>
