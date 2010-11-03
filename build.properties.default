@@ -1,0 +1,23 @@
+
+remote.maven2.location = http://uk1.maven.org/maven2
+externals.path = ${basedir}/_external
+dist.path = ${basedir}/_dist
+
+slf4j.version = 1.6.1
+logback.version = 0.9.26
+
+slf4j-api.home = ${externals.path}/slf4j-api-${slf4j.version}
+slf4j-api.src.location = ${remote.maven2.location}/org/slf4j/slf4j-api/${slf4j.version}/slf4j-api-${slf4j.version}-sources.jar
+slf4j-api.src.jar = ${slf4j-api.home}/slf4j-api-${slf4j.version}-sources.jar
+
+jcl-over-slf4j.home = ${externals.path}/jcl-over-slf4j-${slf4j.version}
+jcl-over-slf4j.src.location = ${remote.maven2.location}/org/slf4j/jcl-over-slf4j/${slf4j.version}/jcl-over-slf4j-${slf4j.version}-sources.jar
+jcl-over-slf4j.src.jar = ${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources.jar
+
+logback-core.home = ${externals.path}/logback-core-${logback.version}
+logback-core.src.location = ${remote.maven2.location}/ch/qos/logback/logback-core/${logback.version}/logback-core-${logback.version}-sources.jar
+logback-core.src.jar = ${logback-core.home}/logback-core-${logback.version}-sources.jar
+
+logback-classic.home = ${externals.path}/logback-classic-${logback.version}
+logback-classic.src.location = ${remote.maven2.location}/ch/qos/logback/logback-classic/${logback.version}/logback-classic-${logback.version}-sources.jar
+logback-classic.src.jar = ${logback-classic.home}/logback-classic-${logback.version}-sources.jar

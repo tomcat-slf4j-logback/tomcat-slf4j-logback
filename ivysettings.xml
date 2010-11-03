@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ivysettings>
+	<settings defaultResolver="chained" />
+	<resolvers>
+		<chain name="chained">
+			<ibiblio name="ibiblio" m2compatible="true" />
+			<ibiblio name="java-net-maven2" root="http://download.java.net/maven/2/" m2compatible="true" />
+			<ibiblio name="java-net-maven1" root="http://download.java.net/maven/1" pattern="${java.net.maven.pattern}" m2compatible="false" />
+		</chain>
+	</resolvers>
+</ivysettings>
