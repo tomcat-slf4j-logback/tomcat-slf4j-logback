@@ -106,3 +106,35 @@ required JARs are loaded from _common class loader_.
 Sample `logback.xml` reflecting the configuration from standard
 `$TOMCAT_HOME/conf/logging.properties` can be found
 [here](https://github.com/grgrzybek/tomcat-slf4j-logback/blob/master/sample/tomcat-logback.xml).
+
+
+## Tomcat Customization ##
+
+#### Tomcat 6.0.x ####
+
+After unpacking apache-tomcat-6.0.29.zip, one can run Tomcat by executing
+`$TOMCAT_HOME/bin/startup.sh`. This will cause running Tomcat with standard
+java.util.logging enabled. The standard commandline (on Windows) is:
+
+	"C:\Dev\Java\javase\jdk1.6.0_22\bin\java" \
+		-Djava.util.logging.config.file="c:\Dev\Java\servers\apache-tomcat-6.0.29\conf\logging.properties"
+		-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+		-Djava.endorsed.dirs="c:\Dev\Java\servers\apache-tomcat-6.0.29\endorsed"
+		-classpath "c:\Dev\Java\servers\apache-tomcat-6.0.29\bin\bootstrap.jar"
+		-Dcatalina.base="c:\Dev\Java\servers\apache-tomcat-6.0.29"
+		-Dcatalina.home="c:\Dev\Java\servers\apache-tomcat-6.0.29"
+		-Djava.io.tmpdir="c:\Dev\Java\servers\apache-tomcat-6.0.29\temp"
+		org.apache.catalina.startup.Bootstrap  start
+
+Deleting `$TOMCAT_HOME/conf/logging.properties` will replace
+`-Djava.util.logging.config.file` with `-Dnop` - first step to remove
+j.u.logging. To get rid of `-Djava.util.logging.manager` we must explicitely set
+the following environment property in setenv.sh:
+
+	LOGGING_MANAGER=-Dnop
+
+Finally we must configure our tomcat-slf4j-logback integration:
+
+* place all 4 JAR in `$TOMCAT_HOME/bin`
+* add `-Djuli-logback.configurationFile=file:<logback.xml location>` to
+  `$JAVA_OPTS` in `setenv.sh`
