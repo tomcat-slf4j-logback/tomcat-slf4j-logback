@@ -163,9 +163,9 @@ loader_.
 
 #### Tomcat 7.0.8 ####
 
-Until LBACCESS-17 is resolved, there's a fix in `build.xml which changes one
+Until LBACCESS-17 is resolved, there's a fix in `build.xml` which changes one
 source file in `logback-access-0.9.28` sources to make them compatible with
-changed Valves API from Tomcat 7.
+changed `Valves` API from Tomcat 7.
 
 This results in `logback-access-0.9.28-tomcat-7.0.8.jar` being created in
 `_dist` directory which must be copied to `$TOMCAT_HOME/lib`.
