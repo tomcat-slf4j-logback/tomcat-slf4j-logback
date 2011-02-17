@@ -4,7 +4,8 @@ externals.path = ${basedir}/_external
 dist.path = ${basedir}/_dist
 
 slf4j.version = 1.6.1
-logback.version = 0.9.26
+logback.version = 0.9.28
+tomcat.version = 7.0.8
 
 slf4j-api.home = ${externals.path}/slf4j-api-${slf4j.version}
 slf4j-api.src.location = ${remote.maven2.location}/org/slf4j/slf4j-api/${slf4j.version}/slf4j-api-${slf4j.version}-sources.jar
@@ -21,3 +22,9 @@ logback-core.src.jar = ${logback-core.home}/logback-core-${logback.version}-sour
 logback-classic.home = ${externals.path}/logback-classic-${logback.version}
 logback-classic.src.location = ${remote.maven2.location}/ch/qos/logback/logback-classic/${logback.version}/logback-classic-${logback.version}-sources.jar
 logback-classic.src.jar = ${logback-classic.home}/logback-classic-${logback.version}-sources.jar
+
+logback-access.home = ${externals.path}/logback-access-${logback.version}
+logback-access.src.location = ${remote.maven2.location}/ch/qos/logback/logback-access/${logback.version}/logback-access-${logback.version}-sources.jar
+logback-access.src.jar = ${logback-access.home}/logback-access-${logback.version}-sources.jar
+logback-access.location = ${remote.maven2.location}/ch/qos/logback/logback-access/${logback.version}/logback-access-${logback.version}.jar
+logback-access.jar = ${logback-access.home}/logback-access-${logback.version}.jar

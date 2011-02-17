@@ -2,18 +2,14 @@
 
 <project name="tomcat-slf4j-logback" basedir="." default="dist" xmlns:ivy="antlib:org.apache.ivy.ant">
 
+	<property file="build.properties" />
 	<property file="build.properties.default" />
 
 	<target name="info">
 		<echo>Tomcat + SLF4J + Logback integration</echo>
 	</target>
 
-	<target name="dist" depends="check-depencies">
-		<mkdir dir="${dist.path}" />
-
-		<ivy:settings file="ivysettings.xml" />
-		<ivy:retrieve pattern="_lib/[type]/[artifact]-[revision].[ext]" sync="true" />
-
+	<target name="dist" depends="dependencies,fix-logback-access-for-tomcat7">
 		<!-- slf4j-api -->
 		<antcall target="downloadfile">
 			<param name="sourcefile" value="${slf4j-api.src.location}" />
@@ -33,7 +29,7 @@
 		<delete dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
 		<mkdir dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
 		<javac srcdir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" destdir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" />
+			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" />
 		<copy todir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}">
 			<fileset dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources">
 				<exclude name="META-INF" />
@@ -55,6 +51,13 @@
 		</antcall>
 		<delete dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" />
 		<unjar src="${jcl-over-slf4j.src.jar}" dest="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" />
+		<delete dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
+		<mkdir dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
+		<unjar src="_external/tomcat-juli.jar" dest="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
+			<patternset>
+				<include name="**/ClassLoaderLogManager*.class" />
+			</patternset>
+		</unjar>
 		<replace dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" encoding="UTF-8">
 			<replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
 			<replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
@@ -65,10 +68,8 @@
 		<move todir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/juli">
 			<fileset dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/commons" />
 		</move>
-		<delete dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
-		<mkdir dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
 		<javac srcdir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" destdir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on">
+			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
 			<classpath>
 				<fileset dir="${dist.path}">
 					<include name="*.jar" />
@@ -108,7 +109,7 @@
 		<delete dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
 		<mkdir dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
 		<javac srcdir="${logback-core.home}/logback-core-${logback.version}-sources" destdir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on">
+			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
 			<classpath>
 				<fileset dir="${dist.path}">
 					<include name="*.jar" />
@@ -155,7 +156,7 @@
 		<delete dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		<mkdir dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		<javac srcdir="${logback-classic.home}/logback-classic-${logback.version}-sources" destdir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on">
+			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
 			<classpath>
 				<fileset dir="${dist.path}">
 					<include name="*.jar" />
@@ -178,18 +179,53 @@
 		<jar destfile="${dist.path}/tomcat-juli-logback-classic-${logback.version}.jar">
 			<fileset dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		</jar>
-
 	</target>
-	
-	<target name="check-depencies">
-		<mkdir dir="${externals.path}" />
-		<condition property="jms-present">
-			<or>
-				<available file="_external/jms.jar" />
-				<available file="_external/jms-1.1.jar" />
-			</or>
-		</condition>
-		<fail unless="jms-present" message="Please put JMS API jar into _external directory" />
+
+	<target name="dependencies">
+		<mkdir dir="${dist.path}" />
+
+		<ivy:settings file="ivysettings.xml" />
+		<ivy:retrieve pattern="_lib/[type]/[artifact]-[revision].[ext]" sync="true" />
+	</target>
+
+	<!-- fix until LBACCESS-17 is resolved -->
+	<target name="fix-logback-access-for-tomcat7" depends="dependencies">
+		<antcall target="downloadfile">
+			<param name="sourcefile" value="${logback-access.src.location}" />
+			<param name="destfile" value="${logback-access.src.jar}" />
+			<param name="destdir" value="${logback-access.home}" />
+		</antcall>
+		<antcall target="downloadfile">
+			<param name="sourcefile" value="${logback-access.location}" />
+			<param name="destfile" value="${logback-access.jar}" />
+			<param name="destdir" value="${logback-access.home}" />
+		</antcall>
+		<delete dir="${logback-access.home}/logback-access-${logback.version}-sources" />
+		<unjar src="${logback-access.src.jar}" dest="${logback-access.home}/logback-access-${logback.version}-sources" />
+		<replace dir="${logback-access.home}/logback-access-${logback.version}-sources" encoding="UTF-8">
+			<replacefilter token="public void start() {" value="public void startInternal() { setState(org.apache.catalina.LifecycleState.STARTING);" />
+			<replacefilter token="public void stop() {" value="public void stopInternal() { setState(org.apache.catalina.LifecycleState.STOPPING);" />
+		</replace>
+		<mkdir dir="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}/ch/qos/logback/access/tomcat" />
+		<unjar src="${logback-access.jar}" dest="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}" />
+		<delete file="_lib/jar/catalina-6.0.20.jar" />
+		<javac srcdir="${logback-access.home}/logback-access-${logback.version}-sources/ch/qos/logback/access/tomcat" destdir="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}"
+			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
+			<classpath>
+				<fileset dir="${dist.path}">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="_lib/jar">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="_external">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+		<jar destfile="${dist.path}/logback-access-${logback.version}-tomcat-${tomcat.version}.jar">
+			<fileset dir="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}" />
+		</jar>
 	</target>
 
 	<target name="clean">
