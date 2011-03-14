@@ -189,7 +189,7 @@
 	</target>
 
 	<!-- fix until LBACCESS-17 is resolved -->
-	<target name="fix-logback-access-for-tomcat7" depends="dependencies">
+	<target name="fix-logback-access-for-tomcat7" depends="dependencies,original-tomcat-juli">
 		<antcall target="downloadfile">
 			<param name="sourcefile" value="${logback-access.src.location}" />
 			<param name="destfile" value="${logback-access.src.jar}" />
@@ -246,6 +246,16 @@
 	<target name="testexist">
 		<echo message="Testing for ${destfile}" />
 		<available file="${destfile}" property="exist" />
+	</target>
+
+	<target name="original-tomcat-juli">
+		<echo message="Testing for tomcat-juli.jar" />
+		<condition property="tomcat-juli-present">
+			<or>
+				<available file="_external/tomcat-juli.jar" />
+			</or>
+		</condition>
+		<fail unless="tomcat-juli-present" message="Please put a proper version of tomcat-juli.jar into _externals directory. It is required for generating patched version of logback-access." />
 	</target>
 
 </project>
