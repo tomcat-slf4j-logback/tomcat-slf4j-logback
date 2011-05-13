@@ -5,3 +5,4 @@ target/
 _external
 _lib
 _dist
+build.properties

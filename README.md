@@ -72,6 +72,19 @@ Type:
 
 And move four JARs from `_dist` directory to `$TOMCAT_HOME/bin` directory.
 
+Notice: running `ant` on clean working copy will result in error about lack of
+`tomcat-juli.jar` file, which is needed during the process of tranforming JARs.
+
+More detailed instruction:
+1. edit file `build.properties`, which may contain custom values for properties
+	hardcoded in `build.properties.default`. e.g. `tomcat.version`
+2. run `ant`
+3. place correct version of `tomcat-juli.jar` in `_external`
+4. run `ant` again
+5. move JARs from `_dist` directory to `$TOMCAT_HOME/bin`.
+
+After changing versions (e.g. for Tomcat), run `ant clean`.
+
 Running Tomcat now will use default (very verbose) configuration of Logback. To
 change Logback's configuration, run Tomcat with the following system variable
 (using your favorite method of setting such variables - in `catalina.sh`,
@@ -115,18 +128,18 @@ Sample `logback.xml` reflecting the configuration from standard
 
 #### Tomcat 6.0.x ####
 
-After unpacking `apache-tomcat-6.0.29.tgz`, one can run Tomcat by executing
+After unpacking `apache-tomcat-6.0.x.tgz`, one can run Tomcat by executing
 `$TOMCAT_HOME/bin/startup.sh`. This will cause running Tomcat with standard
-java.util.logging enabled. The standard commandline (on Windows) is:
+java.util.logging enabled. The standard commandline is:
 
-	"C:\Dev\Java\javase\jdk1.6.0_22\bin\java" \
-		-Djava.util.logging.config.file="c:\Dev\Java\servers\apache-tomcat-6.0.29\conf\logging.properties"
+	"java" \
+		-Djava.util.logging.config.file="$TOMCAT_HOME/conf/logging.properties"
 		-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-		-Djava.endorsed.dirs="c:\Dev\Java\servers\apache-tomcat-6.0.29\endorsed"
-		-classpath "c:\Dev\Java\servers\apache-tomcat-6.0.29\bin\bootstrap.jar"
-		-Dcatalina.base="c:\Dev\Java\servers\apache-tomcat-6.0.29"
-		-Dcatalina.home="c:\Dev\Java\servers\apache-tomcat-6.0.29"
-		-Djava.io.tmpdir="c:\Dev\Java\servers\apache-tomcat-6.0.29\temp"
+		-Djava.endorsed.dirs="$TOMCAT_HOME/endorsed"
+		-classpath "$TOMCAT_HOME\bin\bootstrap.jar"
+		-Dcatalina.base="$TOMCAT_HOME"
+		-Dcatalina.home="$TOMCAT_HOME"
+		-Djava.io.tmpdir="$TOMCAT_HOME"
 		org.apache.catalina.startup.Bootstrap start
 
 Deleting `$TOMCAT_HOME/conf/logging.properties` will replace
@@ -161,13 +174,15 @@ by `logback-classic` which is recommended to reside in `WEB-INF/lib`. The only
 additional benefit is that WARs will see `logback-core` through _common class
 loader_.
 
-#### Tomcat 7.0.8 ####
+#### Tomcat 7.0.x ####
 
 Until LBACCESS-17 is resolved, there's a fix in `build.xml` which changes one
 source file in `logback-access-0.9.28` sources to make them compatible with
 changed `Valves` API from Tomcat 7.
 
 This results in `logback-access-0.9.28-tomcat-7.0.8.jar` being created in
-`_dist` directory which must be copied to `$TOMCAT_HOME/lib`.
+`_dist` directory which must be copied to `$TOMCAT_HOME/lib`. For Tomcat version
+below 7.0.0, the fix is not produced, and one can place original
+`logback-access-0.9.28.jar` into `$TOMCAT_HOME/lib`.
 
 Besides that everything else is working exactly as with Tomcat 6.

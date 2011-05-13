@@ -183,13 +183,15 @@
 
 	<target name="dependencies">
 		<mkdir dir="${dist.path}" />
+		<mkdir dir="${externals.path}" />
 
 		<ivy:settings file="ivysettings.xml" />
 		<ivy:retrieve pattern="_lib/[type]/[artifact]-[revision].[ext]" sync="true" />
 	</target>
 
 	<!-- fix until LBACCESS-17 is resolved -->
-	<target name="fix-logback-access-for-tomcat7" depends="dependencies,original-tomcat-juli">
+	<target name="fix-logback-access-for-tomcat7" unless="tomcat-below-version7" depends="dependencies,original-tomcat-juli">
+		<echo>Fixing LBACCESS-17</echo>
 		<antcall target="downloadfile">
 			<param name="sourcefile" value="${logback-access.src.location}" />
 			<param name="destfile" value="${logback-access.src.jar}" />
@@ -202,7 +204,7 @@
 		</antcall>
 		<delete dir="${logback-access.home}/logback-access-${logback.version}-sources" />
 		<unjar src="${logback-access.src.jar}" dest="${logback-access.home}/logback-access-${logback.version}-sources" />
-		<replace dir="${logback-access.home}/logback-access-${logback.version}-sources" encoding="UTF-8">
+		<replace dir="${logback-access.home}/logback-access-${logback.version}-sources/ch/qos/logback/access/tomcat" encoding="UTF-8">
 			<replacefilter token="public void start() {" value="public void startInternal() { setState(org.apache.catalina.LifecycleState.STARTING);" />
 			<replacefilter token="public void stop() {" value="public void stopInternal() { setState(org.apache.catalina.LifecycleState.STOPPING);" />
 		</replace>
@@ -233,7 +235,7 @@
 		<delete dir="_lib" />
 		<delete failonerror="false" includeemptydirs="true">
 			<fileset dir="_external">
-				<exclude name="jms*" />
+				<exclude name="tomcat-juli.jar" />
 			</fileset>
 		</delete>
 	</target>
@@ -255,6 +257,10 @@
 				<available file="_external/tomcat-juli.jar" />
 			</or>
 		</condition>
+		<condition property="tomcat-below-version7">
+			<matches pattern="^[^789].*$" string="${tomcat.version}" />
+		</condition>
+		<echo>Tomcat version below 7.0.0: ${tomcat-below-version7}</echo>
 		<fail unless="tomcat-juli-present" message="Please put a proper version of tomcat-juli.jar into _externals directory. It is required for generating patched version of logback-access." />
 	</target>
 
