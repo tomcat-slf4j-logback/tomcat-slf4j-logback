@@ -76,6 +76,7 @@ Notice: running `ant` on clean working copy will result in error about lack of
 `tomcat-juli.jar` file, which is needed during the process of tranforming JARs.
 
 More detailed instruction:
+
 1. edit file `build.properties`, which may contain custom values for properties
 	hardcoded in `build.properties.default`. e.g. `tomcat.version`
 2. run `ant`
