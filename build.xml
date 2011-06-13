@@ -205,8 +205,8 @@
 		<delete dir="${logback-access.home}/logback-access-${logback.version}-sources" />
 		<unjar src="${logback-access.src.jar}" dest="${logback-access.home}/logback-access-${logback.version}-sources" />
 		<replace dir="${logback-access.home}/logback-access-${logback.version}-sources/ch/qos/logback/access/tomcat" encoding="UTF-8">
-			<replacefilter token="public void start() {" value="public void startInternal() { setState(org.apache.catalina.LifecycleState.STARTING);" />
-			<replacefilter token="public void stop() {" value="public void stopInternal() { setState(org.apache.catalina.LifecycleState.STOPPING);" />
+			<replacefilter token="public void start() {" value="public void startInternal() throws org.apache.catalina.LifecycleException { setState(org.apache.catalina.LifecycleState.STARTING);" />
+			<replacefilter token="public void stop() {" value="public void stopInternal() throws org.apache.catalina.LifecycleException { setState(org.apache.catalina.LifecycleState.STOPPING);" />
 		</replace>
 		<mkdir dir="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}/ch/qos/logback/access/tomcat" />
 		<unjar src="${logback-access.jar}" dest="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}" />
