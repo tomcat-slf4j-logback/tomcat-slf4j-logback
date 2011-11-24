@@ -7,6 +7,7 @@ one of the packages available from [this
 location](https://github.com/grgrzybek/tomcat-slf4j-logback/downloads).
 
 After downloading copy (from the archive):
+
 * `bin/*.jar` to `$CATALINA_HOME/bin` (replacing existing `tomcat-juli.jar`)
 * `bin/setenv.sh` or `bin\setenv.bat` to `$CATALINA_HOME/bin` (this script
   contains proper variable name and doesn't require any changes, unless you have
@@ -15,6 +16,7 @@ After downloading copy (from the archive):
 
 Copy (from e.g. Maven Central or [logback
 site](http://logback.qos.ch/download.html)):
+
 * `logback-core-1.0.0.jar` to `$CATALINA_HOME/lib`
 * `logback-access-1.0.0.jar` to `$CATALINA_HOME/lib`
 
