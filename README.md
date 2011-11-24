@@ -1,5 +1,45 @@
 # Tomcat + SLF4J + Logback #
 
+## Quick Start ##
+
+If you quickly want to configure Tomcat to use Slf4J and Logback, just download
+one of the packages available from [this
+location](https://github.com/grgrzybek/tomcat-slf4j-logback/downloads).
+
+After downloading copy (from the archive):
+* `bin/*.jar` to `$CATALINA_HOME/bin` (replacing existing `tomcat-juli.jar`)
+* `bin/setenv.sh` or `bin\setenv.bat` to `$CATALINA_HOME/bin` (this script
+  contains proper variable name and doesn't require any changes, unless you have
+  your own version of `setenv.sh`/`setenv.bat` script)
+* `conf/logback*.xml` to `$CATALINA_HOME/conf`
+
+Copy (from e.g. Maven Central or [logback
+site](http://logback.qos.ch/download.html)):
+* `logback-core-1.0.0.jar` to `$CATALINA_HOME/lib`
+* `logback-access-1.0.0.jar` to `$CATALINA_HOME/lib`
+
+Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off
+`java.util.logging` completely.
+
+`conf/logback.xml` tries to reflect original Tomcat logging configuration. Feel
+free to change it.
+
+Add:
+
+	<Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true" filename="${catalina.home}/conf/logback-access-localhost.xml" />
+
+to `$CATALINA_HOME\conf\server.xml`.
+
+Remove:
+
+	<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+		prefix="localhost_access_log." suffix=".txt"
+		pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
+from `$CATALINA_HOME\conf\server.xml`.
+
+Final step: run `$CATALINA_HOME/bin/startup.sh` (or `startup.bat`). Voila!
+
 ## Introduction ##
 
 This project allows using SLF4J and Logback in Apache Tomcat absolutely without
@@ -10,7 +50,7 @@ This project's main and only goal is to allow the following:
 * redirect all `org.apache.commons.logging` (repackaged to
   `org.apache.juli.logging`) calls to `org.slf4j` (repackaged to
   `org.apache.juli.logging.org.slf4j`) - i.e. handle internal tomcat logging
-  with slf4j with logback binding,
+  with slf4j and logback binding,
 * make still possible to use logback-access with `logback-access.xml` config -
   using standard functionality of logback-access,
 * make possible to use independent configuration of slf4j+logback from all web
@@ -19,15 +59,15 @@ This project's main and only goal is to allow the following:
 
 Using only ANT's `build.xml` file (based on the file provided with Tomcat),
 proper source JARs are downloaded from maven repository and unpacked. Then all
-classes are refactored under `org.apache.juli.logging` package and subpackages
-and then compiled.
+classes are refactored under `org.apache.juli.logging` package, subpackages and
+then compiled.
 
 To allow web applications to use their own slf4j-api and logback-classic,
 classes used by Tomcat (particularly jcl-over-slf4j) must go into different,
 non-standard packages. According to [Tomcat
 Documentation](http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions)
 web application looks up classes in their `WEB-INF/classes` directory and
-`WEB-INF/lib/*.jar` files before looking them in `$TOMCAT_HOME/lib`, but
+`WEB-INF/lib/*.jar` files before looking them in `$CATALINA_HOME/lib`, but
 **after** looking them in _system class loader_. So Tomcat needs not only to
 have tomcat-juli replaced with tweaked jcl-over-slf4j but also the remaining
 JARs (slf4j-api, logback-core and logback-classic) must be refactored into
@@ -49,20 +89,20 @@ There are four JARs involved in the process:
   process. It is eventually compiled into `tomcat-juli.jar` - this name is
   mandatory, because it is directly referenced during Tomcat's startup process
   while constructing _system class loader_. This JAR is transformed and placed
-  in `$TOMCAT_HOME/bin/tomcat-juli.jar` file.
+  in `$CATALINA_HOME/bin/tomcat-juli.jar` file.
 * *slf4j-api* - main SLF4J JAR. Transformed into
-  `$TOMCAT_HOME/bin/tomcat-juli-slf4j-api-<version>.jar` file.
+  `$CATALINA_HOME/bin/tomcat-juli-slf4j-api-<version>.jar` file.
 * *logback-core* - core Logback JAR. Transformed into
-  `$TOMCAT_HOME/bin/tomcat-juli-logback-core-<version>.jar` file.
+  `$CATALINA_HOME/bin/tomcat-juli-logback-core-<version>.jar` file.
 * *logback-classic* - actual SLF4J binding. Transformed into
-  `$TOMCAT_HOME/bin/tomcat-juli-logback-classic-<version>.jar` file.
+  `$CATALINA_HOME/bin/tomcat-juli-logback-classic-<version>.jar` file.
 
 
 ## Installation ##
 
 Before launching the build, make sure Ivy is installed (place proper
 `ivy-X.Y.Z.jar` into `$ANT_HOME/lib` directory). Place `tomcat-juli.jar` from
-`$TOMCAT_HOME/bin` of the Tomcat installation of your choice into `_external`
+`$CATALINA_HOME/bin` of the Tomcat installation of your choice into `_external`
 directory - this is required, because we need few (namely: one) classes from the
 jar that is going to be replaced.
 
@@ -70,7 +110,7 @@ Type:
 
 	ant
 
-And move four JARs from `_dist` directory to `$TOMCAT_HOME/bin` directory.
+And move four JARs from `_dist` directory to `$CATALINA_HOME/bin` directory.
 
 Notice: running `ant` on clean working copy will result in error about lack of
 `tomcat-juli.jar` file, which is needed during the process of tranforming JARs.
@@ -82,7 +122,7 @@ More detailed instruction:
 2. run `ant`
 3. place correct version of `tomcat-juli.jar` in `_external`
 4. run `ant` again
-5. move JARs from `_dist` directory to `$TOMCAT_HOME/bin`.
+5. move JARs from `_dist` directory to `$CATALINA_HOME/bin`.
 
 After changing versions (e.g. for Tomcat), run `ant clean`.
 
@@ -121,7 +161,7 @@ Configuration of logback-access doesn't require renamed packages, as the
 required JARs are loaded from _common class loader_.
 
 Sample `logback.xml` reflecting the configuration from standard
-`$TOMCAT_HOME/conf/logging.properties` can be found
+`$CATALINA_HOME/conf/logging.properties` can be found
 [here](https://github.com/grgrzybek/tomcat-slf4j-logback/blob/master/sample/tomcat-logback.xml).
 
 
@@ -130,20 +170,20 @@ Sample `logback.xml` reflecting the configuration from standard
 #### Tomcat 6.0.x ####
 
 After unpacking `apache-tomcat-6.0.x.tgz`, one can run Tomcat by executing
-`$TOMCAT_HOME/bin/startup.sh`. This will cause running Tomcat with standard
+`$CATALINA_HOME/bin/startup.sh`. This will cause running Tomcat with standard
 java.util.logging enabled. The standard commandline is:
 
 	"java" \
-		-Djava.util.logging.config.file="$TOMCAT_HOME/conf/logging.properties"
+		-Djava.util.logging.config.file="$CATALINA_HOME/conf/logging.properties"
 		-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-		-Djava.endorsed.dirs="$TOMCAT_HOME/endorsed"
-		-classpath "$TOMCAT_HOME\bin\bootstrap.jar"
-		-Dcatalina.base="$TOMCAT_HOME"
-		-Dcatalina.home="$TOMCAT_HOME"
-		-Djava.io.tmpdir="$TOMCAT_HOME"
+		-Djava.endorsed.dirs="$CATALINA_HOME/endorsed"
+		-classpath "$CATALINA_HOME\bin\bootstrap.jar"
+		-Dcatalina.base="$CATALINA_HOME"
+		-Dcatalina.home="$CATALINA_HOME"
+		-Djava.io.tmpdir="$CATALINA_HOME"
 		org.apache.catalina.startup.Bootstrap start
 
-Deleting `$TOMCAT_HOME/conf/logging.properties` will replace
+Deleting `$CATALINA_HOME/conf/logging.properties` will replace
 `-Djava.util.logging.config.file` with `-Dnop` - first step to remove
 `j.u.logging`. To get rid of `-Djava.util.logging.manager` we must explicitely set
 the following environment property in setenv.sh:
@@ -152,13 +192,13 @@ the following environment property in setenv.sh:
 
 Finally we must configure our tomcat-slf4j-logback integration:
 
-* place all 4 JARs in `$TOMCAT_HOME/bin`
+* place all 4 JARs in `$CATALINA_HOME/bin`
 * add `-Djuli-logback.configurationFile=file:<logback.xml location>` to
   `$JAVA_OPTS` in `setenv.sh`
 
 Now Tomcat's internal logging goes through `org.apache.juli.logging.org.slf4j`
 and `org.apache.juli.logging.ch.qos.logback` to appenders configured in
-`$TOMCAT_HOME/conf/logback.xml` (or whatever file you set
+`$CATALINA_HOME/conf/logback.xml` (or whatever file you set
 `juli-logback.configurationFile` variable to).
 
 The final step is to configure `logback-access`. Now we don't have to deal with
@@ -167,9 +207,9 @@ package manipulation. Just add:
 	<Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true"
 		filename="${catalina.home}/conf/logback-access-localhost.xml" />
 
-to `$TOMCAT_HOME/conf/server.xml`, place properly configured
-`logback-access-localhost.xml` on `$TOMCAT_HOME/conf` and place `logback-core`
-and `logback-access` JARs into `$TOMCAT_HOME/lib`. This won't cause problems
+to `$CATALINA_HOME/conf/server.xml`, place properly configured
+`logback-access-localhost.xml` on `$CATALINA_HOME/conf` and place `logback-core`
+and `logback-access` JARs into `$CATALINA_HOME/lib`. This won't cause problems
 with individual WARs' slf4j+logback configuration, because `logback.xml` is read
 by `logback-classic` which is recommended to reside in `WEB-INF/lib`. The only
 additional benefit is that WARs will see `logback-core` through _common class
@@ -177,13 +217,5 @@ loader_.
 
 #### Tomcat 7.0.x ####
 
-Until LBACCESS-17 is resolved, there's a fix in `build.xml` which changes one
-source file in `logback-access-0.9.29` sources to make them compatible with
-changed `Valves` API from Tomcat 7.
-
-This results in `logback-access-0.9.29-tomcat-7.0.16.jar` being created in
-`_dist` directory which must be copied to `$TOMCAT_HOME/lib`. For Tomcat version
-below 7.0.0, the fix is not produced, and one can place original
-`logback-access-0.9.29.jar` into `$TOMCAT_HOME/lib`.
-
-Besides that everything else is working exactly as with Tomcat 6.
+With logback-1.0.0 the LBACCESS-17 is finally resolved, so there's no need to
+fix anything in logback-access :).
