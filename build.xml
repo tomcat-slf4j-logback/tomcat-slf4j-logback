@@ -9,7 +9,7 @@
 		<echo>Tomcat + SLF4J + Logback integration</echo>
 	</target>
 
-	<target name="dist" depends="dependencies,fix-logback-access-for-tomcat7">
+	<target name="dist" depends="dependencies">
 		<!-- slf4j-api -->
 		<antcall target="downloadfile">
 			<param name="sourcefile" value="${slf4j-api.src.location}" />
@@ -187,47 +187,6 @@
 
 		<ivy:settings file="ivysettings.xml" />
 		<ivy:retrieve pattern="_lib/[type]/[artifact]-[revision].[ext]" sync="true" />
-	</target>
-
-	<!-- fix until LBACCESS-17 is resolved -->
-	<target name="fix-logback-access-for-tomcat7" unless="tomcat-below-version7" depends="dependencies,original-tomcat-juli">
-		<echo>Fixing LBACCESS-17</echo>
-		<antcall target="downloadfile">
-			<param name="sourcefile" value="${logback-access.src.location}" />
-			<param name="destfile" value="${logback-access.src.jar}" />
-			<param name="destdir" value="${logback-access.home}" />
-		</antcall>
-		<antcall target="downloadfile">
-			<param name="sourcefile" value="${logback-access.location}" />
-			<param name="destfile" value="${logback-access.jar}" />
-			<param name="destdir" value="${logback-access.home}" />
-		</antcall>
-		<delete dir="${logback-access.home}/logback-access-${logback.version}-sources" />
-		<unjar src="${logback-access.src.jar}" dest="${logback-access.home}/logback-access-${logback.version}-sources" />
-		<replace dir="${logback-access.home}/logback-access-${logback.version}-sources/ch/qos/logback/access/tomcat" encoding="UTF-8">
-			<replacefilter token="public void start() {" value="public void startInternal() throws org.apache.catalina.LifecycleException { setState(org.apache.catalina.LifecycleState.STARTING);" />
-			<replacefilter token="public void stop() {" value="public void stopInternal() throws org.apache.catalina.LifecycleException { setState(org.apache.catalina.LifecycleState.STOPPING);" />
-		</replace>
-		<mkdir dir="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}/ch/qos/logback/access/tomcat" />
-		<unjar src="${logback-access.jar}" dest="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}" />
-		<delete file="_lib/jar/catalina-6.0.20.jar" />
-		<javac srcdir="${logback-access.home}/logback-access-${logback.version}-sources/ch/qos/logback/access/tomcat" destdir="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
-			<classpath>
-				<fileset dir="${dist.path}">
-					<include name="*.jar" />
-				</fileset>
-				<fileset dir="_lib/jar">
-					<include name="*.jar" />
-				</fileset>
-				<fileset dir="_external">
-					<include name="*.jar" />
-				</fileset>
-			</classpath>
-		</javac>
-		<jar destfile="${dist.path}/logback-access-${logback.version}-tomcat-${tomcat.version}.jar">
-			<fileset dir="${logback-access.home}/logback-access-${logback.version}-tomcat-${tomcat.version}" />
-		</jar>
 	</target>
 
 	<target name="clean">
