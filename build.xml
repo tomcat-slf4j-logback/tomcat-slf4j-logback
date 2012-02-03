@@ -56,6 +56,7 @@
 		<unjar src="_external/tomcat-juli.jar" dest="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
 			<patternset>
 				<include name="**/ClassLoaderLogManager*.class" />
+				<include name="**/UserDataHelper*.class" />
 			</patternset>
 		</unjar>
 		<replace dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" encoding="UTF-8">
