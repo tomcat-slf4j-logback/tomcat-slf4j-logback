@@ -4,8 +4,8 @@ externals.path = ${basedir}/_external
 dist.path = ${basedir}/_dist
 
 slf4j.version = 1.6.4
-logback.version = 1.0.0
-tomcat.version = 7.0.22
+logback.version = 1.0.1
+tomcat.version = 7.0.26
 
 slf4j-api.home = ${externals.path}/slf4j-api-${slf4j.version}
 slf4j-api.src.location = ${remote.maven2.location}/org/slf4j/slf4j-api/${slf4j.version}/slf4j-api-${slf4j.version}-sources.jar
