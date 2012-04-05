@@ -221,3 +221,24 @@ loader_.
 
 With logback-1.0.0 the LBACCESS-17 is finally resolved, so there's no need to
 fix anything in logback-access :).
+
+
+## Using Tomcat in Eclipse ##
+
+1. Go to Window › Preferences › Server › Runtime Environments and add your
+	server runtime as always
+1. Go to Servers view and add server instance as always
+1. Open server definition (RMB, Open or `F3`) and click <u>open launch
+	configuration</u>
+1. On _Arguments_ tab in _VM arguments_ add
+	`-Djuli-logback.configurationFile="<absolute tomcat home
+	path>\conf\logback.xml"`
+
+That's all. While creating server runtime instance, eclipse generates VM
+arguments using absolute paths (no variables), so just copy the Tomcat home path
+and add `-Djuli-logback.configurationFile` argument. There's no need to
+configure `LOGGING_MANAGER=-Dnop` environment variable (I'm not quite sure
+why...).
+
+Remember - Tomcat installation must be configured according to **Quick Start**.
+
