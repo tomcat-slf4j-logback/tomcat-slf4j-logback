@@ -29,7 +29,7 @@
 		<delete dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
 		<mkdir dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
 		<javac srcdir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" destdir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" />
+			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" />
 		<copy todir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}">
 			<fileset dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources">
 				<exclude name="META-INF" />
@@ -70,7 +70,7 @@
 			<fileset dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/commons" />
 		</move>
 		<javac srcdir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" destdir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
+			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
 			<classpath>
 				<fileset dir="${dist.path}">
 					<include name="*.jar" />
@@ -110,7 +110,7 @@
 		<delete dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
 		<mkdir dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
 		<javac srcdir="${logback-core.home}/logback-core-${logback.version}-sources" destdir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
+			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
 			<classpath>
 				<fileset dir="${dist.path}">
 					<include name="*.jar" />
@@ -157,7 +157,7 @@
 		<delete dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		<mkdir dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		<javac srcdir="${logback-classic.home}/logback-classic-${logback.version}-sources" destdir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}"
-			source="1.5" target="1.5" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
+			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
 			<classpath>
 				<fileset dir="${dist.path}">
 					<include name="*.jar" />
