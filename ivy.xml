@@ -9,7 +9,7 @@
 	<dependencies>
 		<dependency org="javax.mail" name="mail" rev="1.4.5" />
 		<dependency org="javax.jms" name="jms" rev="1.1" />
-		<dependency org="janino" name="janino" rev="2.5.10" />
+		<dependency org="org.codehaus.janino" name="janino" rev="2.5.16" />
 		<dependency org="javax.servlet" name="servlet-api" rev="2.5" />
 		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="7.0.27" />
 		<dependency org="ch.qos.logback" name="logback-access" rev="1.0.6" />
