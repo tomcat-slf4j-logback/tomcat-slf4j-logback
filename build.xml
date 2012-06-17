@@ -10,6 +10,13 @@
 	</target>
 
 	<target name="dist" depends="dependencies">
+		<!-- tomcat-juli -->
+		<antcall target="downloadfile">
+			<param name="sourcefile" value="${tomcat-juli.location}" />
+			<param name="destfile" value="${tomcat-juli.jar}" />
+			<param name="destdir" value="${tomcat-juli.home}" />
+		</antcall>
+
 		<!-- slf4j-api -->
 		<antcall target="downloadfile">
 			<param name="sourcefile" value="${slf4j-api.src.location}" />
@@ -53,7 +60,7 @@
 		<unjar src="${jcl-over-slf4j.src.jar}" dest="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" />
 		<delete dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
 		<mkdir dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
-		<unjar src="_external/tomcat-juli.jar" dest="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
+		<unjar src="${tomcat-juli.jar}" dest="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
 			<patternset>
 				<include name="**/ClassLoaderLogManager*.class" />
 				<include name="**/UserDataHelper*.class" />
@@ -214,7 +221,7 @@
 		<echo message="Testing for tomcat-juli.jar" />
 		<condition property="tomcat-juli-present">
 			<or>
-				<available file="_external/tomcat-juli.jar" />
+				<available file="${tomcat-juli.jar}" />
 			</or>
 		</condition>
 		<condition property="tomcat-below-version7">
