@@ -27,3 +27,7 @@ logback-access.src.location = ${remote.maven2.location}/ch/qos/logback/logback-a
 logback-access.src.jar = ${logback-access.home}/logback-access-${logback.version}-sources.jar
 logback-access.location = ${remote.maven2.location}/ch/qos/logback/logback-access/${logback.version}/logback-access-${logback.version}.jar
 logback-access.jar = ${logback-access.home}/logback-access-${logback.version}.jar
+
+tomcat-juli.home = ${externals.path}/tomcat-juli-${tomcat.version}
+tomcat-juli.location = ${remote.maven2.location}/org/apache/tomcat/tomcat-juli/${tomcat.version}/tomcat-juli-${tomcat.version}.jar
+tomcat-juli.jar = ${tomcat-juli.home}/tomcat-juli-${tomcat.version}.jar
