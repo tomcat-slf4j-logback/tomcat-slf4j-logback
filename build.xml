@@ -200,11 +200,7 @@
 	<target name="clean">
 		<delete dir="_dist" />
 		<delete dir="_lib" />
-		<delete failonerror="false" includeemptydirs="true">
-			<fileset dir="_external">
-				<exclude name="tomcat-juli.jar" />
-			</fileset>
-		</delete>
+		<delete dir="_external" />
 	</target>
 
 	<target name="downloadfile" unless="exist" depends="testexist">
