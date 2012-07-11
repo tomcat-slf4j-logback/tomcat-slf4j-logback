@@ -1,10 +1,11 @@
+
 remote.maven2.location = http://uk1.maven.org/maven2
 externals.path = ${basedir}/_external
 dist.path = ${basedir}/_dist
 
 slf4j.version = 1.6.6
 logback.version = 1.0.6
-tomcat.version = 7.0.28
+tomcat.version = 7.0.29
 
 slf4j-api.home = ${externals.path}/slf4j-api-${slf4j.version}
 slf4j-api.src.location = ${remote.maven2.location}/org/slf4j/slf4j-api/${slf4j.version}/slf4j-api-${slf4j.version}-sources.jar
