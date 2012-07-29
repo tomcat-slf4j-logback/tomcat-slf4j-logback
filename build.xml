@@ -152,6 +152,7 @@
 			<replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
 			<replacefilter token="ch/qos/logback" value="org/apache/juli/logging/ch/qos/logback" />
 			<replacefilter token="&quot;logback.configurationFile&quot;" value="&quot;juli-logback.configurationFile&quot;" />
+			<replacefilter token="logback.ContextSelector" value="juli-logback.ContextSelector" />
 		</replace>
 		<mkdir dir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/ch" />
 		<move todir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/ch">
