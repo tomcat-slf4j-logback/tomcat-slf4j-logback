@@ -6,3 +6,4 @@ _external
 _lib
 _dist
 build.properties
+apache-tomcat-*/
