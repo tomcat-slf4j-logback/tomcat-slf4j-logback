@@ -4,7 +4,7 @@ externals.path = ${basedir}/_external
 dist.path = ${basedir}/_dist
 
 slf4j.version = 1.6.6
-logback.version = 1.0.6
+logback.version = 1.0.7
 tomcat.version = 7.0.29
 
 slf4j-api.home = ${externals.path}/slf4j-api-${slf4j.version}
