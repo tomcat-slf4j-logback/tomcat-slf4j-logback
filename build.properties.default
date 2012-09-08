@@ -20,5 +20,5 @@ logback-classic.src.jar = ${logback-classic.home}/logback-classic-${logback.vers
 logback-access.home = ${externals.path}/source/ch.qos.logback/${logback.version}
 logback-access.src.jar = ${logback-access.home}/logback-access-${logback.version}.jar
 
-tomcat-juli.home = ${externals.path}/source/org.apache.tomcat/${tomcat.version}
+tomcat-juli.home = _lib/jar/org.apache.tomcat/${tomcat.version}
 tomcat-juli.jar = ${tomcat-juli.home}/tomcat-juli-${tomcat.version}.jar
