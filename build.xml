@@ -31,20 +31,7 @@
 	</target>
 
 	<target name="dist" depends="clean, install-ivy, dependencies, report">
-		<!-- tomcat-juli -->
-		<antcall target="downloadfile">
-			<param name="sourcefile" value="${tomcat-juli.location}" />
-			<param name="destfile" value="${tomcat-juli.jar}" />
-			<param name="destdir" value="${tomcat-juli.home}" />
-		</antcall>
-
 		<!-- slf4j-api -->
-		<antcall target="downloadfile">
-			<param name="sourcefile" value="${slf4j-api.src.location}" />
-			<param name="destfile" value="${slf4j-api.src.jar}" />
-			<param name="destdir" value="${slf4j-api.home}" />
-		</antcall>
-		<delete dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" />
 		<unjar src="${slf4j-api.src.jar}" dest="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" />
 		<replace dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" encoding="UTF-8">
 			<replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
@@ -54,7 +41,6 @@
 		<move todir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/apache/juli/logging/org/slf4j">
 			<fileset dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/slf4j" />
 		</move>
-		<delete dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
 		<mkdir dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
 		<javac srcdir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" destdir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}"
 			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" />
@@ -72,14 +58,7 @@
 		</jar>
 
 		<!-- jcl-over-slf4j -->
-		<antcall target="downloadfile">
-			<param name="sourcefile" value="${jcl-over-slf4j.src.location}" />
-			<param name="destfile" value="${jcl-over-slf4j.src.jar}" />
-			<param name="destdir" value="${jcl-over-slf4j.home}" />
-		</antcall>
-		<delete dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" />
 		<unjar src="${jcl-over-slf4j.src.jar}" dest="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" />
-		<delete dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
 		<mkdir dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
 		<unjar src="${tomcat-juli.jar}" dest="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
 			<patternset>
@@ -120,12 +99,6 @@
 		</jar>
 
 		<!-- logback core -->
-		<antcall target="downloadfile">
-			<param name="sourcefile" value="${logback-core.src.location}" />
-			<param name="destfile" value="${logback-core.src.jar}" />
-			<param name="destdir" value="${logback-core.home}" />
-		</antcall>
-		<delete dir="${logback-core.home}/logback-core-${logback.version}-sources" />
 		<unjar src="${logback-core.src.jar}" dest="${logback-core.home}/logback-core-${logback.version}-sources" />
 		<replace dir="${logback-core.home}/logback-core-${logback.version}-sources" encoding="UTF-8">
 			<replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
@@ -135,7 +108,6 @@
 		<move todir="${logback-core.home}/logback-core-${logback.version}-sources/org/apache/juli/logging/ch">
 			<fileset dir="${logback-core.home}/logback-core-${logback.version}-sources/ch" />
 		</move>
-		<delete dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
 		<mkdir dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
 		<javac srcdir="${logback-core.home}/logback-core-${logback.version}-sources" destdir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}"
 			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
@@ -160,12 +132,6 @@
 		</jar>
 
 		<!-- logback classic -->
-		<antcall target="downloadfile">
-			<param name="sourcefile" value="${logback-classic.src.location}" />
-			<param name="destfile" value="${logback-classic.src.jar}" />
-			<param name="destdir" value="${logback-classic.home}" />
-		</antcall>
-		<delete dir="${logback-classic.home}/logback-classic-${logback.version}-sources" />
 		<unjar src="${logback-classic.src.jar}" dest="${logback-classic.home}/logback-classic-${logback.version}-sources" />
 		<replace dir="${logback-classic.home}/logback-classic-${logback.version}-sources" encoding="UTF-8">
 			<replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
@@ -182,8 +148,6 @@
 		<move todir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/org/slf4j/impl">
 			<fileset dir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/slf4j/impl" />
 		</move>
-		<delete dir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/slf4j" />
-		<delete dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		<mkdir dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		<javac srcdir="${logback-classic.home}/logback-classic-${logback.version}-sources" destdir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}"
 			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
@@ -218,6 +182,10 @@
 		<ivy:settings file="${basedir}/ivysettings.xml" />
 		<ivy:resolve file="${basedir}/ivy.xml" />
 		<ivy:retrieve pattern="_lib/[type]/[organisation]/[revision]/[artifact]-[revision].[ext]" sync="true" />
+
+		<ivy:settings file="${basedir}/ivysettings.xml" />
+		<ivy:resolve file="${basedir}/ivywork.xml" />
+		<ivy:retrieve pattern="_external/[type]/[organisation]/[revision]/[artifact]-[revision].[ext]" sync="true" type="source" />
 	</target>
 
 	<target name="clean">
@@ -232,34 +200,10 @@
 		<delete dir="${ivy.cache.dir}" />
 	</target>
 
-	<target name="downloadfile" unless="exist" depends="testexist">
-		<mkdir dir="${destdir}" />
-		<get src="${sourcefile}" dest="${destfile}" />
-	</target>
-
 	<target name="report">
 		<mkdir dir="${basedir}/_report" />
 		<ivy:resolve type="${ivy.resolve.types}" />
 		<ivy:report todir="${basedir}/_report" />
-	</target>
-
-	<target name="testexist">
-		<echo message="Testing for ${destfile}" />
-		<available file="${destfile}" property="exist" />
-	</target>
-
-	<target name="original-tomcat-juli">
-		<echo message="Testing for tomcat-juli.jar" />
-		<condition property="tomcat-juli-present">
-			<or>
-				<available file="${tomcat-juli.jar}" />
-			</or>
-		</condition>
-		<condition property="tomcat-below-version7">
-			<matches pattern="^[^789].*$" string="${tomcat.version}" />
-		</condition>
-		<echo>Tomcat version below 7.0.0: ${tomcat-below-version7}</echo>
-		<fail unless="tomcat-juli-present" message="Please put a proper version of tomcat-juli.jar into _externals directory. It is required for generating patched version of logback-access." />
 	</target>
 
 </project>

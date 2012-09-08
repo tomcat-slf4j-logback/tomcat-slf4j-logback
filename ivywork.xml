@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ivy-module version="2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+
+	<info organisation="grgr" module="tomcat-slf4j-logback" />
+
+	<dependencies>
+		<dependency org="org.slf4j" name="jcl-over-slf4j" rev="1.7.0" transitive="false"/>
+		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.0" transitive="false"/>
+		<dependency org="ch.qos.logback" name="logback-access" rev="1.0.7" transitive="false"/>
+		<dependency org="ch.qos.logback" name="logback-classic" rev="1.0.7" transitive="false"/>
+		<dependency org="ch.qos.logback" name="logback-core" rev="1.0.7" transitive="false"/>
+		<dependency org="org.apache.tomcat" name="tomcat-juli" rev="7.0.30" transitive="false"/>
+	</dependencies>
+
+</ivy-module>
+
