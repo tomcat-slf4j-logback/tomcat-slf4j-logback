@@ -12,7 +12,6 @@
 		<dependency org="ch.qos.logback" name="logback-access" rev="1.0.7" transitive="false"/>
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.0.7" transitive="false"/>
 		<dependency org="ch.qos.logback" name="logback-core" rev="1.0.7" transitive="false"/>
-		<dependency org="org.apache.tomcat" name="tomcat-juli" rev="7.0.30" transitive="false"/>
 	</dependencies>
 
 </ivy-module>
