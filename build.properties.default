@@ -1,7 +1,7 @@
 externals.path = ${basedir}/_external
 dist.path = ${basedir}/_dist
 
-slf4j.version = 1.7.0
+slf4j.version = 1.7.1
 logback.version = 1.0.7
 tomcat.version = 7.0.30
 
