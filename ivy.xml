@@ -8,12 +8,12 @@
 
 	<dependencies>
 		<dependency org="javax.mail" name="mail" rev="1.4.5" />
-		<dependency org="javax.jms" name="jms" rev="1.1" />
+		<dependency org="javax.jms" name="jms-api" rev="1.1-rev-1" />
 		<dependency org="org.codehaus.janino" name="janino" rev="2.6.1" />
 		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" />
-		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="7.0.30" />
+		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="7.0.32" />
 		<dependency org="ch.qos.logback" name="logback-access" rev="1.0.7" />
-		<dependency org="org.codehaus.groovy" name="groovy-all" rev="2.0.2" />
+		<dependency org="org.codehaus.groovy" name="groovy-all" rev="2.0.5" />
 	</dependencies>
 
 </ivy-module>
