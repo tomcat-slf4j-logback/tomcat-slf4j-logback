@@ -4,6 +4,10 @@ Next Release
 Misc
 ----
 
+* [#12](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/12): Updated Tomcat and Groovy - [@hazendaz](https://github.com/hazendaz).
+
+* [#8](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/8): Minor Corrections - [@hazendaz](https://github.com/hazendaz).
+
 * [#7](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/7): Slf4j & Ivy Updates - [@hazendaz](https://github.com/hazendaz).
   * Source artifacts are no longer downloaded from explicit Maven repository. They're Ivy dependencies.
 
