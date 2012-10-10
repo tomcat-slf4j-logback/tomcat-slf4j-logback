@@ -3,7 +3,7 @@ dist.path = ${basedir}/_dist
 
 slf4j.version = 1.7.1
 logback.version = 1.0.7
-tomcat.version = 7.0.30
+tomcat.version = 7.0.32
 
 slf4j-api.home = ${externals.path}/source/org.slf4j/${slf4j.version}
 slf4j-api.src.jar = ${slf4j-api.home}/slf4j-api-${slf4j.version}.jar
