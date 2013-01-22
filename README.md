@@ -17,8 +17,8 @@ After downloading copy (from the archive):
 Copy (from e.g. Maven Central or [logback
 site](http://logback.qos.ch/download.html)):
 
-* `logback-core-1.0.0.jar` to `$CATALINA_HOME/lib`
-* `logback-access-1.0.0.jar` to `$CATALINA_HOME/lib`
+* `logback-core-1.0.9.jar` to `$CATALINA_HOME/lib`
+* `logback-access-1.0.9.jar` to `$CATALINA_HOME/lib`
 
 Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off
 `java.util.logging` completely.
@@ -102,11 +102,9 @@ There are four JARs involved in the process:
 
 ## Installation ##
 
-Before launching the build, make sure Ivy is installed (place proper
-`ivy-X.Y.Z.jar` into `$ANT_HOME/lib` directory). Place `tomcat-juli.jar` from
-`$CATALINA_HOME/bin` of the Tomcat installation of your choice into `_external`
-directory - this is required, because we need few (namely: one) classes from the
-jar that is going to be replaced.
+Launching the build doesn't require installed Ivy anymore - everything will be
+downloaded upon build. Also proper `tomcat-juli.jar` version will be downloaded
+from Maven Central.
 
 Type:
 
@@ -114,16 +112,11 @@ Type:
 
 And move four JARs from `_dist` directory to `$CATALINA_HOME/bin` directory.
 
-Notice: running `ant` on clean working copy will result in error about lack of
-`tomcat-juli.jar` file, which is needed during the process of tranforming JARs.
-
 More detailed instruction:
 
 1. edit file `build.properties`, which may contain custom values for properties
 	hardcoded in `build.properties.default`. e.g. `tomcat.version`
 2. run `ant`
-3. place correct version of `tomcat-juli.jar` in `_external`
-4. run `ant` again
 5. move JARs from `_dist` directory to `$CATALINA_HOME/bin`.
 
 After changing versions (e.g. for Tomcat), run `ant clean`.
@@ -241,4 +234,3 @@ configure `LOGGING_MANAGER=-Dnop` environment variable (I'm not quite sure
 why...).
 
 Remember - Tomcat installation must be configured according to **Quick Start**.
-

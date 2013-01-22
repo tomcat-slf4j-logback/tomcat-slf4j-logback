@@ -9,7 +9,7 @@
 		<echo>Tomcat + SLF4J + Logback integration</echo>
 	</target>
 
-	<property name="ivy.install.version" value="2.3.0-rc2" />
+	<property name="ivy.install.version" value="2.3.0" />
 	<property name="ivy.jar.dir" value="${basedir}/org.apache.ivy/${ivy.install.version}" />
 	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-${ivy.install.version}.jar" />
 	<target name="download-ivy" unless="skip.download">
