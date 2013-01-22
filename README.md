@@ -6,6 +6,8 @@ If you quickly want to configure Tomcat to use Slf4J and Logback, just download
 one of the packages available from [this
 location](https://github.com/grgrzybek/tomcat-slf4j-logback/downloads).
 
+Note: I hope to find some other place to keep these distributions...
+
 After downloading copy (from the archive):
 
 * `bin/*.jar` to `$CATALINA_HOME/bin` (replacing existing `tomcat-juli.jar`)
