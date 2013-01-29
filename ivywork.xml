@@ -7,11 +7,11 @@
 	<info organisation="grgr" module="tomcat-slf4j-logback" />
 
 	<dependencies>
-		<dependency org="org.slf4j" name="jcl-over-slf4j" rev="1.7.2" transitive="false"/>
-		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.2" transitive="false"/>
-		<dependency org="ch.qos.logback" name="logback-access" rev="1.0.9" transitive="false"/>
-		<dependency org="ch.qos.logback" name="logback-classic" rev="1.0.9" transitive="false"/>
-		<dependency org="ch.qos.logback" name="logback-core" rev="1.0.9" transitive="false"/>
+		<dependency org="org.slf4j" name="jcl-over-slf4j" rev="${slf4j.version}" transitive="false"/>
+		<dependency org="org.slf4j" name="slf4j-api" rev="${slf4j.version}" transitive="false"/>
+		<dependency org="ch.qos.logback" name="logback-access" rev="${logback.version}" transitive="false"/>
+		<dependency org="ch.qos.logback" name="logback-classic" rev="${logback.version}" transitive="false"/>
+		<dependency org="ch.qos.logback" name="logback-core" rev="${logback.version}" transitive="false"/>
 	</dependencies>
 
 </ivy-module>
