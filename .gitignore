@@ -4,9 +4,8 @@ target/
 *.bak
 *.swp
 _external
-_lib
 _dist
 _report
 build.properties
 apache-tomcat-*/
-org.apache.ivy/
+

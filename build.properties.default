@@ -1,24 +1,22 @@
 externals.path = ${basedir}/_external
+ivy.cache=${user.home}/.ivy2/cache
 dist.path = ${basedir}/_dist
 
 slf4j.version = 1.7.2
 logback.version = 1.0.9
-tomcat.version = 7.0.35
+tomcat.version = 7.0.37
 
 slf4j-api.home = ${externals.path}/source/org.slf4j/${slf4j.version}
-slf4j-api.src.jar = ${slf4j-api.home}/slf4j-api-${slf4j.version}.jar
+slf4j-api.src.jar = ${ivy.cache}/org.slf4j/slf4j-api/sources/slf4j-api-${slf4j.version}-sources.jar
 
 jcl-over-slf4j.home = ${externals.path}/source/org.slf4j/${slf4j.version}
-jcl-over-slf4j.src.jar = ${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}.jar
+jcl-over-slf4j.src.jar = ${ivy.cache}/org.slf4j/jcl-over-slf4j/sources/jcl-over-slf4j-${slf4j.version}-sources.jar
 
 logback-core.home = ${externals.path}/source/ch.qos.logback/${logback.version}
-logback-core.src.jar = ${logback-core.home}/logback-core-${logback.version}.jar
+logback-core.src.jar = ${ivy.cache}/ch.qos.logback/logback-core/sources/logback-core-${logback.version}-sources.jar
 
 logback-classic.home = ${externals.path}/source/ch.qos.logback/${logback.version}
-logback-classic.src.jar = ${logback-classic.home}/logback-classic-${logback.version}.jar
+logback-classic.src.jar = ${ivy.cache}/ch.qos.logback/logback-classic/sources/logback-classic-${logback.version}-sources.jar
 
-logback-access.home = ${externals.path}/source/ch.qos.logback/${logback.version}
-logback-access.src.jar = ${logback-access.home}/logback-access-${logback.version}.jar
-
-tomcat-juli.home = _lib/jar/org.apache.tomcat/${tomcat.version}
+tomcat-juli.home = ${ivy.cache}/org.apache.tomcat/tomcat-juli/jars
 tomcat-juli.jar = ${tomcat-juli.home}/tomcat-juli-${tomcat.version}.jar
