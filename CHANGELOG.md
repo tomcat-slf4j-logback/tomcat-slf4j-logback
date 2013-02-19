@@ -3,8 +3,15 @@ Next Release
 
 Misc
 ----
+* [#15](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/8): Ivy and Third Party Updates - [@hazendaz](https://github.com/hazendaz).
+  * Updated all third party jars to latest
+  * Reworked ivy layout to not copy local from cache - simply use cache for all items
+
+* [#14](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/14): Parametrization of ivy*.xml - (@grgrzybek](https://github.com/grgrzybek).
 
 * [#12](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/12): Updated Tomcat and Groovy - [@hazendaz](https://github.com/hazendaz).
+
+* [#12](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/10): Updated slf4j and Groovy - [@hazendaz](https://github.com/hazendaz).
 
 * [#8](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/8): Minor Corrections - [@hazendaz](https://github.com/hazendaz).
 
@@ -20,10 +27,8 @@ Misc
 
 * [#3](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/3): refactor logback.ContextSelector to juli-logback.ContextSelector - [@dretzlaff](https://github.com/dretzlaff).
 
-* [#2](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/2): Updated versions of Ivy dependencies - [@hazendaz](https://github.com/hazendaz).
+* [#2](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/2): Tomcat Update - [@hazendaz](https://github.com/hazendaz).
   * Added CHANGELOG.md
-
-* [#1](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/1): Upgraded Ant build and Ivy - [@hazendaz](https://github.com/hazendaz).
   * Updated slf4j to 1.6.6
   * Updated logback to 1.0.6
   * Updated tomcat to 7.0.29
@@ -32,3 +37,5 @@ Misc
   * Updated dependency janino to 2.5.16
   * Updated dependency groovy to 2.0.0
   * Modified tomcat juli inclusion changes from [@arnou](https://github.com/arnou)
+
+* [#1](https://github.com/grgrzybek/tomcat-slf4j-logback/issues/1): Include tomcat-juli.jar in external - (@grgrzybek](https://github.com/grgrzybek).

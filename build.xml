@@ -10,7 +10,7 @@
 	</target>
 
 	<property name="ivy.install.version" value="2.3.0" />
-	<property name="ivy.jar.dir" value="${basedir}/org.apache.ivy/${ivy.install.version}" />
+	<property name="ivy.jar.dir" value="${user.home}/.ivy2/cache/org.apache.ivy/ivy/jars" />
 	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-${ivy.install.version}.jar" />
 	<target name="download-ivy" unless="skip.download">
 		<mkdir dir="${ivy.jar.dir}" />
@@ -19,18 +19,7 @@
 		<get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true" />
 	</target>
 
-	<target name="install-ivy" depends="download-ivy" description="--> install ivy">
-		<!-- try to load ivy here from local ivy dir, in case the user has not already dropped
-			it into ant's lib dir (note that the latter copy will always take precedence).
-			We will not fail as long as local lib dir exists (it may be empty) and
-			ivy is in at least one of ant's lib dir or the local lib dir. -->
-		<path id="ivy.lib.path">
-			<fileset dir="${ivy.jar.dir}" includes="*.jar" />
-		</path>
-		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
-	</target>
-
-	<target name="dist" depends="clean, install-ivy, dependencies, report">
+	<target name="dist" depends="clean, download-ivy, dependencies, report">
 		<!-- slf4j-api -->
 		<unjar src="${slf4j-api.src.jar}" dest="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" />
 		<replace dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" encoding="UTF-8">
@@ -110,13 +99,10 @@
 		</move>
 		<mkdir dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
 		<javac srcdir="${logback-core.home}/logback-core-${logback.version}-sources" destdir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}"
-			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
+			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" classpathref="default.classpath">
 			<classpath>
 				<fileset dir="${dist.path}">
 					<include name="*.jar" />
-				</fileset>
-				<fileset dir="_lib/jar">
-					<include name="**/*.jar" />
 				</fileset>
 			</classpath>
 		</javac>
@@ -150,15 +136,9 @@
 		</move>
 		<mkdir dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
 		<javac srcdir="${logback-classic.home}/logback-classic-${logback.version}-sources" destdir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}"
-			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
+			source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" classpathref="default.classpath">
 			<classpath>
 				<fileset dir="${dist.path}">
-					<include name="*.jar" />
-				</fileset>
-				<fileset dir="_lib/jar">
-					<include name="**/*.jar" />
-				</fileset>
-				<fileset dir="_external">
 					<include name="*.jar" />
 				</fileset>
 			</classpath>
@@ -181,16 +161,11 @@
 
 		<ivy:settings file="${basedir}/ivysettings.xml" />
 		<ivy:resolve file="${basedir}/ivy.xml" />
-		<ivy:retrieve pattern="_lib/[type]/[organisation]/[revision]/[artifact]-[revision].[ext]" sync="true" />
-
-		<ivy:settings file="${basedir}/ivysettings.xml" />
-		<ivy:resolve file="${basedir}/ivywork.xml" />
-		<ivy:retrieve pattern="_external/[type]/[organisation]/[revision]/[artifact]-[revision].[ext]" sync="true" type="source" />
+		<ivy:cachepath pathid="default.classpath" />
 	</target>
 
 	<target name="clean">
 		<delete dir="${basedir}/_dist" />
-		<delete dir="${basedir}/_lib" />
 		<delete dir="${basedir}/_external" />
 		<delete dir="${basedir}/_report" />
 	</target>
