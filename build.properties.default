@@ -2,8 +2,8 @@ externals.path = ${basedir}/_external
 ivy.cache=${user.home}/.ivy2/cache
 dist.path = ${basedir}/_dist
 
-slf4j.version = 1.7.2
-logback.version = 1.0.9
+slf4j.version = 1.7.4
+logback.version = 1.0.10
 tomcat.version = 7.0.37
 
 slf4j-api.home = ${externals.path}/source/org.slf4j/${slf4j.version}
