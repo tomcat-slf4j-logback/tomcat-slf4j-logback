@@ -4,9 +4,9 @@
 
 If you quickly want to configure Tomcat to use Slf4J and Logback, just download
 one of the packages available from [this
-location](https://github.com/grgrzybek/tomcat-slf4j-logback/downloads).
+location](https://sourceforge.net/projects/tc-slf4jlogback/files/).
 
-Note: I hope to find some other place to keep these distributions...
+**NEW**: Artifacts may be downloaded from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/).
 
 After downloading copy (from the archive):
 
