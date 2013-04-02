@@ -3,7 +3,7 @@ Next Release
 
 Misc
 ----
-* [#16](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/9): Build Updates - [@hazendaz](https://github.com/hazendaz).
+* [#17](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/9): Build Updates - [@hazendaz](https://github.com/hazendaz).
   * Added missing condition property to skip ivy downloads
   * Switched taskdef to more modern componentdef
   * Updated mail, jms, and groovy to more recent copies - all minor revisions
