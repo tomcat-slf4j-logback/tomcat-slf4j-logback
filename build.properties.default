@@ -3,7 +3,7 @@ ivy.cache=${user.home}/.ivy2/cache
 dist.path = ${basedir}/_dist
 
 slf4j.version = 1.7.5
-logback.version = 1.0.11
+logback.version = 1.0.12
 tomcat.version = 7.0.39
 
 slf4j-api.home = ${externals.path}/source/org.slf4j/${slf4j.version}
