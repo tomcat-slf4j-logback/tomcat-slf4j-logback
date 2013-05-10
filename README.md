@@ -6,7 +6,7 @@ If you quickly want to configure Tomcat to use Slf4J and Logback, just download
 one of the packages available from [this
 location](https://sourceforge.net/projects/tc-slf4jlogback/files/).
 
-The latest version (Tomcat 7.0.39, Slf4j 1.7.5, Logback 1.0.12) may be
+The latest version (Tomcat 7.0.40, Slf4j 1.7.5, Logback 1.0.12) may be
 downloaded from
 [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/).
 
