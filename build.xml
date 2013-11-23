@@ -2,194 +2,193 @@
 
 <project name="tomcat-slf4j-logback" basedir="." default="dist" xmlns:ivy="antlib:org.apache.ivy.ant">
 
-	<property file="build.properties" />
-	<property file="build.properties.default" />
+    <property file="build.properties" />
+    <property file="build.properties.default" />
 
-	<target name="info">
-		<echo>Tomcat + SLF4J + Logback integration</echo>
-	</target>
+    <target name="info">
+        <echo>Tomcat + SLF4J + Logback integration</echo>
+    </target>
 
-	<property name="ivy.install.version" value="2.3.0" />
-	<property name="ivy.jar.dir" value="${user.home}/.ivy2/cache/org.apache.ivy/ivy/jars" />
-	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-${ivy.install.version}.jar" />
-	<condition property="skip.download">
-		<available file="${ivy.jar.file}" type="file" />
-	</condition>
+    <property name="ivy.install.version" value="2.3.0" />
+    <property name="ivy.jar.dir" value="${user.home}/.ivy2/cache/org.apache.ivy/ivy/jars" />
+    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-${ivy.install.version}.jar" />
+    <condition property="skip.download">
+        <available file="${ivy.jar.file}" type="file" />
+    </condition>
 
-	<target name="download-ivy" unless="skip.download">
-		<mkdir dir="${ivy.jar.dir}" />
-		<!-- download Ivy from web site so that it can be used even without any special installation -->
-		<echo message="installing ivy..." />
-		<get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true" />
-	</target>
+    <target name="download-ivy" unless="skip.download">
+        <mkdir dir="${ivy.jar.dir}" />
+        <!-- download Ivy from web site so that it can be used even without any special installation -->
+        <echo message="installing ivy..." />
+        <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true" />
+    </target>
 
-	<target name="ivy" depends="download-ivy">
-		<!-- try to load ivy here from local ivy dir, in case the user has not already dropped
-			it into ant's lib dir (note that the latter copy will always take precedence).
-			We will not fail as long as local lib dir exists (it may be empty) and
-			ivy is in at least one of ant's lib dir or the local lib dir. -->
-		<path id="ivy.lib.path">
-			<fileset dir="${ivy.jar.dir}" includes="*.jar" />
-		</path>
-		<componentdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
-	</target>
+    <target name="ivy" depends="download-ivy">
+        <!-- try to load ivy here from local ivy dir, in case the user has not already dropped
+            it into ant's lib dir (note that the latter copy will always take precedence).
+            We will not fail as long as local lib dir exists (it may be empty) and
+            ivy is in at least one of ant's lib dir or the local lib dir. -->
+        <path id="ivy.lib.path">
+            <fileset dir="${ivy.jar.dir}" includes="*.jar" />
+        </path>
+        <componentdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+    </target>
 
-	<target name="dist" depends="clean, ivy, dependencies, report">
-		<!-- slf4j-api -->
-		<unjar src="${slf4j-api.src.jar}" dest="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" />
-		<replace dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" encoding="UTF-8">
-			<replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
-			<replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
-		</replace>
-		<mkdir dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/apache/juli/logging/org/slf4j" />
-		<move todir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/apache/juli/logging/org/slf4j">
-			<fileset dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/slf4j" />
-		</move>
-		<mkdir dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
-		<javac srcdir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" destdir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" />
-		<copy todir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}">
-			<fileset dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources">
-				<exclude name="META-INF" />
-				<exclude name="META-INF/*" />
-				<exclude name="**/*.java" />
-			</fileset>
-		</copy>
-		<jar destfile="${dist.path}/tomcat-juli-slf4j-api-${slf4j.version}.jar">
-			<fileset dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}">
-				<exclude name="org/apache/juli/logging/org/slf4j/impl/*.class" />
-			</fileset>
-		</jar>
+    <target name="dist" depends="clean, ivy, dependencies, report">
+        <!-- slf4j-api -->
+        <unjar src="${slf4j-api.src.jar}" dest="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" />
+        <replace dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" encoding="UTF-8">
+            <replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
+            <replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
+        </replace>
+        <mkdir dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/apache/juli/logging/org/slf4j" />
+        <move todir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/apache/juli/logging/org/slf4j">
+            <fileset dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources/org/slf4j" />
+        </move>
+        <mkdir dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" />
+        <javac srcdir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources" destdir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" />
+        <copy todir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}">
+            <fileset dir="${slf4j-api.home}/slf4j-api-${slf4j.version}-sources">
+                <exclude name="META-INF" />
+                <exclude name="META-INF/*" />
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+        <jar destfile="${dist.path}/tomcat-juli-slf4j-api-${slf4j.version}.jar">
+            <fileset dir="${slf4j-api.home}/tomcat-juli-slf4j-api-${slf4j.version}">
+                <exclude name="org/apache/juli/logging/org/slf4j/impl/*.class" />
+            </fileset>
+        </jar>
 
-		<!-- jcl-over-slf4j -->
-		<unjar src="${jcl-over-slf4j.src.jar}" dest="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" />
-		<mkdir dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
-		<unjar src="${tomcat-juli.jar}" dest="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
-			<patternset>
-				<include name="**/ClassLoaderLogManager*.class" />
-				<include name="**/UserDataHelper*.class" />
-			</patternset>
-		</unjar>
-		<replace dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" encoding="UTF-8">
-			<replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
-			<replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
-			<replacefilter token="org.apache.commons" value="org.apache.juli" />
-			<replacefilter token="org/apache/commons" value="org/apache/juli" />
-		</replace>
-		<mkdir dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/juli" />
-		<move todir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/juli">
-			<fileset dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/commons" />
-		</move>
-		<javac srcdir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" destdir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
-			<classpath>
-				<fileset dir="${dist.path}">
-					<include name="*.jar" />
-				</fileset>
-			</classpath>
-		</javac>
-		<copy todir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
-			<fileset dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources">
-				<exclude name="META-INF" />
-				<exclude name="META-INF/*" />
-				<exclude name="**/*.java" />
-			</fileset>
-		</copy>
-		<jar destfile="${dist.path}/tomcat-juli.jar">
-			<fileset dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
-			<manifest>
-				<attribute name="Class-Path" value="tomcat-juli-slf4j-api-${slf4j.version}.jar tomcat-juli-logback-core-${logback.version}.jar tomcat-juli-logback-classic-${logback.version}.jar ../conf/logback" />
-			</manifest>
-		</jar>
+        <!-- jcl-over-slf4j -->
+        <unjar src="${jcl-over-slf4j.src.jar}" dest="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" />
+        <mkdir dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
+        <unjar src="${tomcat-juli.jar}" dest="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
+            <patternset>
+                <include name="**/ClassLoaderLogManager*.class" />
+                <include name="**/UserDataHelper*.class" />
+            </patternset>
+        </unjar>
+        <replace dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" encoding="UTF-8">
+            <replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
+            <replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
+            <replacefilter token="org.apache.commons" value="org.apache.juli" />
+            <replacefilter token="org/apache/commons" value="org/apache/juli" />
+        </replace>
+        <mkdir dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/juli" />
+        <move todir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/juli">
+            <fileset dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources/org/apache/commons" />
+        </move>
+        <javac srcdir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources" destdir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false">
+            <classpath>
+                <fileset dir="${dist.path}">
+                    <include name="*.jar" />
+                </fileset>
+            </classpath>
+        </javac>
+        <copy todir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}">
+            <fileset dir="${jcl-over-slf4j.home}/jcl-over-slf4j-${slf4j.version}-sources">
+                <exclude name="META-INF" />
+                <exclude name="META-INF/*" />
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+        <jar destfile="${dist.path}/tomcat-juli.jar">
+            <fileset dir="${jcl-over-slf4j.home}/tomcat-juli-jcl-over-slf4j-${slf4j.version}" />
+            <manifest>
+                <attribute name="Class-Path" value="tomcat-juli-slf4j-api-${slf4j.version}.jar tomcat-juli-logback-core-${logback.version}.jar tomcat-juli-logback-classic-${logback.version}.jar ../conf/logback" />
+            </manifest>
+        </jar>
 
-		<!-- logback core -->
-		<unjar src="${logback-core.src.jar}" dest="${logback-core.home}/logback-core-${logback.version}-sources" />
-		<replace dir="${logback-core.home}/logback-core-${logback.version}-sources" encoding="UTF-8">
-			<replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
-			<replacefilter token="ch/qos/logback" value="org/apache/juli/logging/ch/qos/logback" />
-		</replace>
-		<mkdir dir="${logback-core.home}/logback-core-${logback.version}-sources/org/apache/juli/logging/ch" />
-		<move todir="${logback-core.home}/logback-core-${logback.version}-sources/org/apache/juli/logging/ch">
-			<fileset dir="${logback-core.home}/logback-core-${logback.version}-sources/ch" />
-		</move>
-		<mkdir dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
-		<javac srcdir="${logback-core.home}/logback-core-${logback.version}-sources" destdir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" classpathref="default.classpath">
-			<classpath>
-				<fileset dir="${dist.path}">
-					<include name="*.jar" />
-				</fileset>
-			</classpath>
-		</javac>
-		<copy todir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}">
-			<fileset dir="${logback-core.home}/logback-core-${logback.version}-sources">
-				<exclude name="META-INF" />
-				<exclude name="META-INF/*" />
-				<exclude name="**/*.java" />
-			</fileset>
-		</copy>
-		<jar destfile="${dist.path}/tomcat-juli-logback-core-${logback.version}.jar">
-			<fileset dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
-		</jar>
+        <!-- logback core -->
+        <unjar src="${logback-core.src.jar}" dest="${logback-core.home}/logback-core-${logback.version}-sources" />
+        <replace dir="${logback-core.home}/logback-core-${logback.version}-sources" encoding="UTF-8">
+            <replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
+            <replacefilter token="ch/qos/logback" value="org/apache/juli/logging/ch/qos/logback" />
+        </replace>
+        <mkdir dir="${logback-core.home}/logback-core-${logback.version}-sources/org/apache/juli/logging/ch" />
+        <move todir="${logback-core.home}/logback-core-${logback.version}-sources/org/apache/juli/logging/ch">
+            <fileset dir="${logback-core.home}/logback-core-${logback.version}-sources/ch" />
+        </move>
+        <mkdir dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
+        <javac srcdir="${logback-core.home}/logback-core-${logback.version}-sources" destdir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" classpathref="default.classpath">
+            <classpath>
+                <fileset dir="${dist.path}">
+                    <include name="*.jar" />
+                </fileset>
+            </classpath>
+        </javac>
+        <copy todir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}">
+            <fileset dir="${logback-core.home}/logback-core-${logback.version}-sources">
+                <exclude name="META-INF" />
+                <exclude name="META-INF/*" />
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+        <jar destfile="${dist.path}/tomcat-juli-logback-core-${logback.version}.jar">
+            <fileset dir="${logback-core.home}/tomcat-juli-logback-core-${logback.version}" />
+        </jar>
 
-		<!-- logback classic -->
-		<unjar src="${logback-classic.src.jar}" dest="${logback-classic.home}/logback-classic-${logback.version}-sources" />
-		<replace dir="${logback-classic.home}/logback-classic-${logback.version}-sources" encoding="UTF-8">
-			<replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
-			<replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
-			<replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
-			<replacefilter token="ch/qos/logback" value="org/apache/juli/logging/ch/qos/logback" />
-			<replacefilter token="&quot;logback.configurationFile&quot;" value="&quot;juli-logback.configurationFile&quot;" />
-			<replacefilter token="logback.ContextSelector" value="juli-logback.ContextSelector" />
-		</replace>
-		<mkdir dir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/ch" />
-		<move todir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/ch">
-			<fileset dir="${logback-classic.home}/logback-classic-${logback.version}-sources/ch" />
-		</move>
-		<move todir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/org/slf4j/impl">
-			<fileset dir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/slf4j/impl" />
-		</move>
-		<mkdir dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
-		<javac srcdir="${logback-classic.home}/logback-classic-${logback.version}-sources" destdir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" classpathref="default.classpath">
-			<classpath>
-				<fileset dir="${dist.path}">
-					<include name="*.jar" />
-				</fileset>
-			</classpath>
-		</javac>
-		<copy todir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}">
-			<fileset dir="${logback-classic.home}/logback-classic-${logback.version}-sources">
-				<exclude name="META-INF" />
-				<exclude name="META-INF/*" />
-				<exclude name="**/*.java" />
-			</fileset>
-		</copy>
-		<jar destfile="${dist.path}/tomcat-juli-logback-classic-${logback.version}.jar">
-			<fileset dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
-		</jar>
-	</target>
+        <!-- logback classic -->
+        <unjar src="${logback-classic.src.jar}" dest="${logback-classic.home}/logback-classic-${logback.version}-sources" />
+        <replace dir="${logback-classic.home}/logback-classic-${logback.version}-sources" encoding="UTF-8">
+            <replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
+            <replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
+            <replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
+            <replacefilter token="ch/qos/logback" value="org/apache/juli/logging/ch/qos/logback" />
+            <replacefilter token="&quot;logback.configurationFile&quot;" value="&quot;juli-logback.configurationFile&quot;" />
+            <replacefilter token="logback.ContextSelector" value="juli-logback.ContextSelector" />
+        </replace>
+        <mkdir dir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/ch" />
+        <move todir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/ch">
+            <fileset dir="${logback-classic.home}/logback-classic-${logback.version}-sources/ch" />
+        </move>
+        <move todir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/apache/juli/logging/org/slf4j/impl">
+            <fileset dir="${logback-classic.home}/logback-classic-${logback.version}-sources/org/slf4j/impl" />
+        </move>
+        <mkdir dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
+        <javac srcdir="${logback-classic.home}/logback-classic-${logback.version}-sources" destdir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" source="1.6" target="1.6" nowarn="true" encoding="UTF-8" debug="on" includeAntRuntime="false" classpathref="default.classpath">
+            <classpath>
+                <fileset dir="${dist.path}">
+                    <include name="*.jar" />
+                </fileset>
+            </classpath>
+        </javac>
+        <copy todir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}">
+            <fileset dir="${logback-classic.home}/logback-classic-${logback.version}-sources">
+                <exclude name="META-INF" />
+                <exclude name="META-INF/*" />
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+        <jar destfile="${dist.path}/tomcat-juli-logback-classic-${logback.version}.jar">
+            <fileset dir="${logback-classic.home}/tomcat-juli-logback-classic-${logback.version}" />
+        </jar>
+    </target>
 
-	<target name="dependencies">
-		<mkdir dir="${dist.path}" />
-		<mkdir dir="${externals.path}" />
+    <target name="dependencies">
+        <mkdir dir="${dist.path}" />
+        <mkdir dir="${externals.path}" />
 
-		<ivy:settings file="${basedir}/ivysettings.xml" />
-		<ivy:resolve file="${basedir}/ivy.xml" />
-		<ivy:cachepath pathid="default.classpath" />
-	</target>
+        <ivy:settings file="${basedir}/ivysettings.xml" />
+        <ivy:resolve file="${basedir}/ivy.xml" />
+        <ivy:cachepath pathid="default.classpath" />
+    </target>
 
-	<target name="clean">
-		<delete dir="${basedir}/_dist" />
-		<delete dir="${basedir}/_external" />
-		<delete dir="${basedir}/_report" />
-	</target>
+    <target name="clean">
+        <delete dir="${basedir}/_dist" />
+        <delete dir="${basedir}/_external" />
+        <delete dir="${basedir}/_report" />
+    </target>
 
-	<target name="cleanCache">
-		<echo message="deleting ivy cache directory..." />
-		<delete dir="${ivy.cache.dir}" />
-	</target>
+    <target name="cleanCache">
+        <echo message="deleting ivy cache directory..." />
+        <delete dir="${ivy.cache.dir}" />
+    </target>
 
-	<target name="report">
-		<mkdir dir="${basedir}/_report" />
-		<ivy:resolve type="${ivy.resolve.types}" />
-		<ivy:report todir="${basedir}/_report" />
-	</target>
-
+    <target name="report">
+        <mkdir dir="${basedir}/_report" />
+        <ivy:resolve type="${ivy.resolve.types}" />
+        <ivy:report todir="${basedir}/_report" />
+    </target>
 </project>
