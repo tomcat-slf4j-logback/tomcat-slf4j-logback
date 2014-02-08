@@ -10,7 +10,7 @@ downloaded from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/f
 
 After downloading copy (from the archive):
 
-* `bin/*.jar` to `$CATALINA_HOME/bin` (replacing existing `tomcat-juli.jar`)
+* `bin/tomcat-juli.jar` to `$CATALINA_HOME/bin` (replacing existing `tomcat-juli.jar`)
 * `bin/setenv.sh` or `bin\setenv.bat` to `$CATALINA_HOME/bin` (this script contains proper variable name
 and doesn't require any changes, unless you have your own version of `setenv.sh`/`setenv.bat` script)
 * `conf/logback*.xml` to `$CATALINA_HOME/conf`
@@ -43,8 +43,8 @@ Final step: run `$CATALINA_HOME/bin/startup.sh` (or `startup.bat`). Voila!
 
 ## Introduction ##
 
-This project allows using SLF4J and Logback in Apache Tomcat absolutely without
-the need for commons-logging, log4j, and java.util.logging.
+This project allows using SLF4J and Logback in Apache Tomcat absolutely without the need for commons-
+logging, log4j, and java.util.logging.
 
 This project's main and only goal is to allow the following:
 
@@ -56,9 +56,8 @@ This project's main and only goal is to allow the following:
 * make possible to use independent configuration of slf4j+logback from all web applications which may carry
   their own slf4j-api, logback-core, and logback-classic in their `WEB-INF/lib` directory.
 
-Using only Mavens `pom.xml` file, proper source JARs are downloaded from maven
-repository and unpacked. Then all classes are refactored under `org.apache.juli.logging`
-package/subpackages and then compiled.
+Using only Mavens `pom.xml` file, proper source JARs are downloaded from maven repository and unpacked.
+Then all classes are refactored under `org.apache.juli.logging` package/subpackages and then compiled.
 
 To allow web applications to use their own slf4j-api and logback-classic, classes used by Tomcat (particularly
 jcl-over-slf4j) must go into different, non-standard packages. According to 
@@ -75,13 +74,14 @@ applications despite of having dedicated, classpath-based `logback.xml` configur
 
 There are four JARs involved in the process transformed into `org.apache.juli.logging` exactly the same way
 as commons-logging is transformed in Tomcat's build process. It is eventually compiled into `tomcat-juli.jar`
- - this name is mandatory, because it is directly referenced during Tomcat's startup process while constructing
-_system class loader_. This JAR is transformed and placed in `$CATALINA_HOME/bin/tomcat-juli.jar` file.:
+ - 'Tomcat-juli' is mandatory, because it is directly referenced during Tomcat's startup process while
+   constructing _system class loader_. This JAR is transformed and placed in
+   `$CATALINA_HOME/bin/tomcat-juli.jar` file.:
 
 * *jcl-over-slf4j* - commons logging over SLF4J JAR.
 * *slf4j-api* - main SLF4J JAR.
 * *logback-core* - core Logback JAR.
-* *logback-classic* - actual SLF4J binding.
+* *logback-classic* - actual SLF4J binding JAR.
 
 
 ## Installation ##
@@ -144,7 +144,7 @@ can be found [here](https://github.com/grgrzybek/tomcat-slf4j-logback/blob/maste
 
 #### Tomcat 6.0.x 7.0.x 8.0.x ####
 
-After unpacking `apache-tomcat-6.0.x.tgz`, 'apache-tomcat-7.0.x-tgz', or 'apache-tomcat-8.0.x-tgz', one can
+After unpacking `apache-tomcat-6.0.x.tgz`, `apache-tomcat-7.0.x-tgz`, or `apache-tomcat-8.0.x-tgz`, one can
 run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running Tomcat with standard
 java.util.logging enabled. The standard commandline is:
 
