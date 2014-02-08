@@ -1,11 +1,4 @@
+.classpath
+.project
+.settings
 target/
-*.class
-*~
-*.bak
-*.swp
-_external
-_dist
-_report
-build.properties
-apache-tomcat-*/
-
