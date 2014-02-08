@@ -3,6 +3,12 @@ Next Release
 
 Misc
 ----
+* [#18](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/10): Build Updates - [@hazendaz](https://github.com/hazendaz).
+  * Mavenized project
+  * License included as link in pom for site page
+  * Ant/Ivy settings removed
+  * Reworked README.md
+
 * [#17](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/9): Build Updates - [@hazendaz](https://github.com/hazendaz).
   * Added missing condition property to skip ivy downloads
   * Switched taskdef to more modern componentdef
