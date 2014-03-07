@@ -65,7 +65,7 @@
 
         <groovy.version>2.2.2</groovy.version>
         <janino.version>2.6.1</janino.version>
-        <jansi.versision>1.11</jansi.verssion>
+        <jansi.version>1.11</jansi.version>
         <jms.version>3.1.2.2</jms.version>
         <logback.version>1.1.1</logback.version>
         <mail.version>1.5.1</mail.version>
@@ -155,7 +155,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-              <id>central</id>
+            <id>central</id>
             <url>http://central</url>
         </pluginRepository>
     </pluginRepositories>
@@ -252,6 +252,59 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.1</version>
+                </plugin>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
+                    build itself. -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.apache.maven.plugins
+                                        </groupId>
+                                        <artifactId>
+                                            maven-dependency-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [2.8,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>
+                                                unpack-dependencies
+                                            </goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.apache.maven.plugins
+                                        </groupId>
+                                        <artifactId>
+                                            maven-antrun-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [1.7,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>run</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -371,8 +424,8 @@
                                 </move>
                             </target>
                         </configuration>
-                     </execution>
-                     <execution>
+                    </execution>
+                    <execution>
                         <id>replace-logback-classic</id>
                         <phase>generate-resources</phase>
                         <goals>
@@ -396,7 +449,7 @@
                                 </move>
                             </target>
                         </configuration>
-                     </execution>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
