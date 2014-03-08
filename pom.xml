@@ -485,6 +485,9 @@
                             <Implementation-Title>${project.name}</Implementation-Title>
                             <Implementation-Version>${project.version} ${maven.build.timestamp}</Implementation-Version>
                             <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
+                            <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
+                            <Slf4j-Version>${slf4j.version}</Slf4j-Version>
+                            <Logback-Version>${logback.version}</Logback-Version>
                         </manifestEntries>
                     </archive>
                 </configuration>
