@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.grgrzybek</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -71,12 +71,6 @@
         <mail.version>1.5.1</mail.version>
         <slf4j.version>1.7.6</slf4j.version>
         <tomcat.version>7.0.52</tomcat.version>
-
-        <jcl-over-slf4j-sources>${project.build.directory}/source/jcl-over-slf4j-sources-jar</jcl-over-slf4j-sources>
-        <slf4j-api-sources>${project.build.directory}/source/slf4j-api-sources-jar</slf4j-api-sources>
-        <logback-core-sources>${project.build.directory}/source/logback-core-sources-jar</logback-core-sources>
-        <logback-classic-sources>${project.build.directory}/source/logback-classic-sources-jar</logback-classic-sources>
-        <tomcat-juli-sources>${project.build.directory}/source/tomcat-juli-sources-jar</tomcat-juli-sources>
     </properties>
     <dependencies>
         <dependency>
@@ -174,11 +168,6 @@
                     <version>2.4</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>1.8</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>2.5</version>
@@ -246,12 +235,17 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.16</version>
+                    <version>2.17</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>jarjar-maven-plugin</artifactId>
+                    <version>1.8</version>
                 </plugin>
                 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
                     build itself. -->
@@ -264,38 +258,11 @@
                             <pluginExecutions>
                                 <pluginExecution>
                                     <pluginExecutionFilter>
-                                        <groupId>
-                                            org.apache.maven.plugins
-                                        </groupId>
-                                        <artifactId>
-                                            maven-dependency-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [2.8,)
-                                        </versionRange>
+                                        <groupId>org.sonatype.plugins</groupId>
+                                        <artifactId>jarjar-maven-plugin</artifactId>
+                                        <versionRange>[1.8,)</versionRange>
                                         <goals>
-                                            <goal>
-                                                unpack-dependencies
-                                            </goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>
-                                            org.apache.maven.plugins
-                                        </groupId>
-                                        <artifactId>
-                                            maven-antrun-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [1.7,)
-                                        </versionRange>
-                                        <goals>
-                                            <goal>run</goal>
+                                            <goal>jarjar</goal>
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
@@ -325,150 +292,61 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>jarjar-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>src-dependencies</id>
-                        <phase>generate-resources</phase>
+                        <id>tomcat-juli-classes</id>
+                        <phase>compile</phase>
                         <goals>
-                            <goal>unpack-dependencies</goal>
+                            <goal>jarjar</goal>
                         </goals>
                         <configuration>
-                            <includeArtifactIds>jcl-over-slf4j, slf4j-api, logback-classic,
-                                logback-core</includeArtifactIds>
-                            <classifier>sources</classifier>
-                            <failOnMissingClassifierArtifact>true</failOnMissingClassifierArtifact>
-                            <outputDirectory>${project.build.directory}/source</outputDirectory>
-                            <stripVersion>true</stripVersion>
-                            <useSubDirectoryPerArtifact>true</useSubDirectoryPerArtifact>
+                            <includes>
+                                <include>org.apache.tomcat:tomcat-juli</include>
+                            </includes>
+                            <rules>
+                                <keep>
+                                    <pattern>org.apache.juli.ClassLoaderLogManager**</pattern>
+                                </keep>
+                            </rules>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>class-dependencies</id>
-                        <phase>generate-resources</phase>
+                        <id>slf4j-logback-classes</id>
+                        <phase>compile</phase>
                         <goals>
-                            <goal>unpack-dependencies</goal>
+                            <goal>jarjar</goal>
                         </goals>
                         <configuration>
-                            <includeArtifactIds>tomcat-juli</includeArtifactIds>
-                            <includes>**/ClassLoaderLogManager.java</includes>
-                            <classifier>sources</classifier>
-                            <failOnMissingClassifierArtifact>true</failOnMissingClassifierArtifact>
-                            <outputDirectory>${project.build.directory}/source</outputDirectory>
-                            <stripVersion>true</stripVersion>
-                            <useSubDirectoryPerArtifact>true</useSubDirectoryPerArtifact>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>replace-slf4j-api</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <delete>
-                                    <fileset dir="${slf4j-api-sources}/org/slf4j/impl" />
-                                </delete>
-                                <replace dir="${slf4j-api-sources}" encoding="UTF-8">
-                                    <replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
-                                    <replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
-                                </replace>
-                                <move todir="${slf4j-api-sources}/org/apache/juli/logging/org/slf4j">
-                                    <fileset dir="${slf4j-api-sources}/org/slf4j" />
-                                </move>
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>replace-jcl-over-slf4j</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <replace dir="${jcl-over-slf4j-sources}" encoding="UTF-8">
-                                    <replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
-                                    <replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
-                                    <replacefilter token="org.apache.commons" value="org.apache.juli" />
-                                    <replacefilter token="org/apache/commons" value="org/apache/juli" />
-                                </replace>
-                                <move todir="${jcl-over-slf4j-sources}/org/apache/juli">
-                                    <fileset dir="${jcl-over-slf4j-sources}/org/apache/commons" />
-                                </move>
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>replace-logback-core</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <replace dir="${logback-core-sources}" encoding="UTF-8">
-                                    <replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
-                                    <replacefilter token="ch/qos/logback" value="org/apache/juli/logging/ch/qos/logback" />
-                                </replace>
-                                <move todir="${logback-core-sources}/org/apache/juli/logging/ch">
-                                    <fileset dir="${logback-core-sources}/ch" />
-                                </move>
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>replace-logback-classic</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <replace dir="${logback-classic-sources}" encoding="UTF-8">
-                                    <replacefilter token="org.slf4j" value="org.apache.juli.logging.org.slf4j" />
-                                    <replacefilter token="org/slf4j" value="org/apache/juli/logging/org/slf4j" />
-                                    <replacefilter token="ch.qos.logback" value="org.apache.juli.logging.ch.qos.logback" />
-                                    <replacefilter token="ch/qos/logback" value="org/apache/juli/logging/ch/qos/logback" />
-                                    <replacefilter token="logback.configurationFile" value="juli-logback.configurationFile" />
-                                    <replacefilter token="logback.ContextSelector" value="juli-logback.ContextSelector" />
-                                </replace>
-                                <move todir="${logback-classic-sources}/org/apache/juli/logging/ch">
-                                    <fileset dir="${logback-classic-sources}/ch" />
-                                </move>
-                                <move todir="${logback-classic-sources}/org/apache/juli/logging/org/slf4j">
-                                    <fileset dir="${logback-classic-sources}/org/slf4j" />
-                                </move>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${jcl-over-slf4j-sources}</source>
-                                <source>${slf4j-api-sources}</source>
-                                <source>${logback-core-sources}</source>
-                                <source>${logback-classic-sources}</source>
-                                <source>${tomcat-juli-sources}</source>
-                            </sources>
+                            <includes>
+                                <include>org.slf4j:jcl-over-slf4j</include>
+                                <include>org.slf4j:slf4j-api</include>
+                                <include>ch.qos.logback:logback-classic</include>
+                                <include>ch.qos.logback:logback-core</include>
+                            </includes>
+                            <rules>
+                                <rule>
+                                    <pattern>org.apache.commons.logging.**</pattern>
+                                    <result>org.apache.juli.logging.@1</result>
+                                </rule>
+                                <rule>
+                                    <pattern>org.slf4j.**</pattern>
+                                    <result>org.apache.juli.logging.org.slf4j.@1</result>
+                                </rule>
+                                <rule>
+                                    <pattern>ch.qos.logback.**</pattern>
+                                    <result>org.apache.juli.logging.ch.qos.logback.@1</result>
+                                </rule>
+                                <rule>
+                                    <pattern>logback.configurationFile</pattern>
+                                    <result>juli-logback.configurationFile</result>
+                                </rule>
+                                <rule>
+                                    <pattern>logback.ContextSelector</pattern>
+                                    <result>juli-logback.ContextSelector</result>
+                                </rule>
+                            </rules>
                         </configuration>
                     </execution>
                 </executions>
@@ -491,30 +369,6 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

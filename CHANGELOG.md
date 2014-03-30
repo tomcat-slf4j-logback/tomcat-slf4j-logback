@@ -3,18 +3,33 @@ Next Release
 
 Misc
 ----
-* [#18](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/10): Build Updates - [@hazendaz](https://github.com/hazendaz).
+* [#25](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/25): Maven Finalization [@hazendaz](https://github.com/hazendaz).
+  * Replaced majority of plugins with jarjar which more quickly builds project in about 5 seconds
+  * Still using single jar, now includes all maven artifacts for slf4j/logback/tomcat-juli
+  * Dropped support of building out javadoc & sources as jarjar is working against classes only
+
+* [#24](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/24): Maven [@hazendaz](https://github.com/hazendaz).
+  * Additional tweaks to maven setup
+
+* [#23](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/23): POM Updates [@hazendaz](https://github.com/hazendaz).
+  * Applied #21 to maven build
+
+* [#22](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/22): Changing version to fix #21 - [@dgomesbr](https://github.com/dgomesbr).
+  * Request to upgrade tomcat due to cve-2014-0050. However, this had zero impact to this project as this only deals with classloader
+  * of tomcat-juli.
+
+* [#20](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/20): Build Updates - [@hazendaz](https://github.com/hazendaz).
   * Mavenized project
   * License included as link in pom for site page
   * Ant/Ivy settings removed
   * Reworked README.md
 
-* [#17](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/9): Build Updates - [@hazendaz](https://github.com/hazendaz).
+* [#17](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/17): Build Updates - [@hazendaz](https://github.com/hazendaz).
   * Added missing condition property to skip ivy downloads
   * Switched taskdef to more modern componentdef
   * Updated mail, jms, and groovy to more recent copies - all minor revisions
 
-* [#15](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/8): Ivy and Third Party Updates - [@hazendaz](https://github.com/hazendaz).
+* [#15](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/15): Ivy and Third Party Updates - [@hazendaz](https://github.com/hazendaz).
   * Updated all third party jars to latest
   * Reworked ivy layout to not copy local from cache - simply use cache for all items
 
@@ -22,7 +37,7 @@ Misc
 
 * [#12](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/12): Updated Tomcat and Groovy - [@hazendaz](https://github.com/hazendaz).
 
-* [#12](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/10): Updated slf4j and Groovy - [@hazendaz](https://github.com/hazendaz).
+* [#10](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/10): Updated slf4j and Groovy - [@hazendaz](https://github.com/hazendaz).
 
 * [#8](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/8): Minor Corrections - [@hazendaz](https://github.com/hazendaz).
 
