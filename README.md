@@ -1,5 +1,23 @@
 # Tomcat + SLF4J + Logback #
 
+## Notice ##
+
+The current ant/ivy build will soon be replaced with a maven build.  A maven branch currently
+exists and is ready for user feedback.  The build time is rather quick.  One major change 
+will be occurring with this.  Currently this project requires 4 jars to be placed
+into tomcat/bin directory.  Once the maven build is merged into master, it will
+simply contain a single shaded jar file for tomcat-juli containing all that everyone is
+familiar with.  No other changes are necessary.
+
+Additionally, sourceforge builds have not been updated recently.  Grzegorz has been quite
+busy and I have picked up building out this conversion to maven.  We hope to have this
+resolved shortly.  In the meantime, feel free to pull down the maven branch and give it
+a try.
+
+Additionally, as it has been raised multiple times, there are no current plans to move
+this to maven central.  However, that might be an option for those that want to run
+embedded tomcat.  This will be determined at a later time.
+
 ## Quick Start ##
 
 If you quickly want to configure Tomcat to use Slf4J and Logback, just download
