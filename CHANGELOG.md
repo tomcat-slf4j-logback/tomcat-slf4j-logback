@@ -3,6 +3,9 @@ Next Release
 
 Misc
 ----
+* [#28](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/25): Maven Finalization [@hazendaz](https://github.com/hazendaz).
+  * Added assembly to build out releases for sourceforge
+
 * [#25](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/25): Maven Finalization [@hazendaz](https://github.com/hazendaz).
   * Replaced majority of plugins with jarjar which more quickly builds project in about 5 seconds
   * Still using single jar, now includes all maven artifacts for slf4j/logback/tomcat-juli
