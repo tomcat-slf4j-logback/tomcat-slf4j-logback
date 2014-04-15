@@ -3,7 +3,7 @@ Next Release
 
 Misc
 ----
-* [#29](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/25): Maven Shade Plugin [@hazendaz](https://github.com/hazendaz).
+* [#29](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/29): Maven Shade Plugin [@hazendaz](https://github.com/hazendaz).
   * Switched to maven shade plugin due to null issues with jarjar
   * Added all licenses to jar build
   * Restored source generation
