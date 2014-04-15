@@ -3,7 +3,14 @@ Next Release
 
 Misc
 ----
-* [#28](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/25): Maven Finalization [@hazendaz](https://github.com/hazendaz).
+* [#29](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/29): Maven Shade Plugin [@hazendaz](https://github.com/hazendaz).
+  * Switched to maven shade plugin due to null issues with jarjar
+  * Added all licenses to jar build
+  * Restored source generation
+  * Cleaner maven manifest build (prior way was from legacy ant build which duplicate items)
+  * Updated license files
+
+* [#28](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/28): Maven Finalization [@hazendaz](https://github.com/hazendaz).
   * Added assembly to build out releases for sourceforge
 
 * [#25](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/25): Maven Finalization [@hazendaz](https://github.com/hazendaz).
