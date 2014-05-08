@@ -3,6 +3,13 @@ Next Release
 
 Misc
 ----
+* [#30](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/30): Maven Shade Plugin [@hazendaz](https://github.com/hazendaz).
+  * Corrected POM order of assembly & shade plugin as order matters to generate assembly
+  * Modified assembly to include source & jar in separate folders
+  * Added enforcer plugin to enforce use of maven 3
+  * Added git plugins
+  * Added more information to manifest
+
 * [#29](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/29): Maven Shade Plugin [@hazendaz](https://github.com/hazendaz).
   * Switched to maven shade plugin due to null issues with jarjar
   * Added all licenses to jar build
