@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20140510" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>tomcat-slf4j-logback - Project Plugin Management</title>
+    <title>tomcat-slf4j-logback - Generated Reports</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.1.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -67,6 +67,18 @@
                                   <li>      <a href="project-summary.html"  title="Project Summary">Project Summary</a>
 </li>
                                   <li>      <a href="dependencies.html"  title="Dependencies">Dependencies</a>
+</li>
+                              </ul>
+            </li>
+                  
+                      <li class="dropdown-submenu">
+                                      <a href="project-reports.html"  title="Project Reports">Project Reports</a>
+              <ul class="dropdown-menu">
+                                  <li>      <a href="property-updates-report.html"  title="Property Updates Report">Property Updates Report</a>
+</li>
+                                  <li>      <a href="plugin-updates-report.html"  title="Plugin Updates Report">Plugin Updates Report</a>
+</li>
+                                  <li>      <a href="dependency-updates-report.html"  title="Dependency Updates Report">Dependency Updates Report</a>
 </li>
                               </ul>
             </li>
@@ -130,101 +142,38 @@
                     
                 <ul class="nav nav-list">
                     <li class="nav-header">Project Documentation</li>
-                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                        
       <li>
   
                           <a href="project-info.html" title="Project Information">
-          <i class="icon-chevron-down"></i>
+          <i class="icon-chevron-right"></i>
         Project Information</a>
-                    <ul class="nav nav-list">
-                    
-      <li>
-  
-                          <a href="index.html" title="About">
-          <i class="none"></i>
-        About</a>
-            </li>
-                    
+                  </li>
+                                                                                                          
       <li class="active">
   
-            <a href="#"><i class="none"></i>Plugin Management</a>
-          </li>
+            <a href="#"><i class="icon-chevron-down"></i>Project Reports</a>
+                  <ul class="nav nav-list">
                     
       <li>
   
-                          <a href="distribution-management.html" title="Distribution Management">
+                          <a href="property-updates-report.html" title="Property Updates Report">
           <i class="none"></i>
-        Distribution Management</a>
+        Property Updates Report</a>
             </li>
                     
       <li>
   
-                          <a href="dependency-info.html" title="Dependency Information">
+                          <a href="plugin-updates-report.html" title="Plugin Updates Report">
           <i class="none"></i>
-        Dependency Information</a>
+        Plugin Updates Report</a>
             </li>
                     
       <li>
   
-                          <a href="source-repository.html" title="Source Repository">
+                          <a href="dependency-updates-report.html" title="Dependency Updates Report">
           <i class="none"></i>
-        Source Repository</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="mail-lists.html" title="Mailing Lists">
-          <i class="none"></i>
-        Mailing Lists</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="issue-tracking.html" title="Issue Tracking">
-          <i class="none"></i>
-        Issue Tracking</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="integration.html" title="Continuous Integration">
-          <i class="none"></i>
-        Continuous Integration</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="plugins.html" title="Project Plugins">
-          <i class="none"></i>
-        Project Plugins</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="license.html" title="Project License">
-          <i class="none"></i>
-        Project License</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="team-list.html" title="Project Team">
-          <i class="none"></i>
-        Project Team</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="project-summary.html" title="Project Summary">
-          <i class="none"></i>
-        Project Summary</a>
-            </li>
-                    
-      <li>
-  
-                          <a href="dependencies.html" title="Dependencies">
-          <i class="none"></i>
-        Dependencies</a>
+        Dependency Updates Report</a>
             </li>
               </ul>
         </li>
@@ -250,100 +199,23 @@
         <div id="bodyColumn"  class="span9" >
                                   
             <div class="section">
-<h2>Project Plugin Management<a name="Project_Plugin_Management"></a></h2><a name="Project_Plugin_Management"></a>
+<h2>Generated Reports<a name="Generated_Reports"></a></h2>
+<p>This document provides an overview of the various reports that are automatically generated by <a class="externalLink" href="http://maven.apache.org">Maven</a> . Each report is briefly described below.</p>
+<div class="section">
+<h3>Overview<a name="Overview"></a></h3>
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>GroupId</th>
-<th>ArtifactId</th>
-<th>Version</th></tr>
+<th>Document</th>
+<th>Description</th></tr>
 <tr class="b">
-<td>com.github.github</td>
-<td><a class="externalLink" href="https://github.com/github/maven-plugins">site-maven-plugin</a></td>
-<td>0.9</td></tr>
+<td><a href="property-updates-report.html">Property Updates Report</a></td>
+<td>Provides details of properties which control versions of dependencies and/or plugins, and indicates any newer versions which are available.</td></tr>
 <tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-antrun-plugin/">maven-antrun-plugin</a></td>
-<td>1.7</td></tr>
+<td><a href="plugin-updates-report.html">Plugin Updates Report</a></td>
+<td>Provides details of the plugins used by this project which have newer versions available.</td></tr>
 <tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-assembly-plugin/">maven-assembly-plugin</a></td>
-<td>2.4</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-changes-plugin/">maven-changes-plugin</a></td>
-<td>2.10</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-clean-plugin/">maven-clean-plugin</a></td>
-<td>2.5</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-compiler-plugin/">maven-compiler-plugin</a></td>
-<td>3.1</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-dependency-plugin/">maven-dependency-plugin</a></td>
-<td>2.8</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</a></td>
-<td>2.8.1</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/enforcer/maven-enforcer-plugin">maven-enforcer-plugin</a></td>
-<td>1.3.1</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-install-plugin/">maven-install-plugin</a></td>
-<td>2.5.1</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-jar-plugin/">maven-jar-plugin</a></td>
-<td>2.4</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</a></td>
-<td>2.9.1</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/jxr/maven-jxr-plugin/">maven-jxr-plugin</a></td>
-<td>2.4</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-project-info-reports-plugin/">maven-project-info-reports-plugin</a></td>
-<td>2.7</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-release/maven-release-plugin/">maven-release-plugin</a></td>
-<td>2.5</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-resources-plugin/">maven-resources-plugin</a></td>
-<td>2.6</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td>http://maven.apache.org/scm-archives/scm-LATEST//maven-scm-plugin</td>
-<td>1.9</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-shade-plugin/">maven-shade-plugin</a></td>
-<td>2.3</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-source-plugin/">maven-source-plugin</a></td>
-<td>2.2.1</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/surefire/maven-surefire-plugin">maven-surefire-plugin</a></td>
-<td>2.17</td></tr>
-<tr class="b">
-<td>org.codehaus.mojo</td>
-<td><a class="externalLink" href="http://mojo.codehaus.org/versions-maven-plugin">versions-maven-plugin</a></td>
-<td>2.1</td></tr>
-<tr class="a">
-<td>pl.project13.maven</td>
-<td><a class="externalLink" href="http://www.blog.project13.pl">git-commit-id-plugin</a></td>
-<td>2.1.9</td></tr></table></div>
+<td><a href="dependency-updates-report.html">Dependency Updates Report</a></td>
+<td>Provides details of the dependencies which have updated versions available.</td></tr></table></div></div>
                   </div>
             </div>
           </div>
