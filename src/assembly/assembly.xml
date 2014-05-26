@@ -4,7 +4,7 @@
     <formats>
         <format>zip</format>
     </formats>
-    <includeBaseDirectory>true</includeBaseDirectory>
+    <includeBaseDirectory>false</includeBaseDirectory>
     <dependencySets>
         <dependencySet>
             <unpack>false</unpack>
@@ -40,6 +40,7 @@
             <includes>
                 <include>logback-access-localhost.xml</include>
                 <include>logback.xml</include>
+                <include>server.xml</include>
             </includes>
         </fileSet>
         <fileSet>

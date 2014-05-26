@@ -7,7 +7,7 @@
     </prerequisites>
     <groupId>org.grgrzybek</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <packaging>jar</packaging>
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -54,10 +54,22 @@
     </issueManagement>
     <licenses>
         <license>
-            <name>The Apache Software License, Version 2.0</name>
+            <name>Tomcat License</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>manual</distribution>
             <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+            <name>Logback License</name>
+            <url>http://logback.qos.ch/license.html</url>
+            <distribution>manual</distribution>
+            <comments>Dual-licensed under the EPL v1.0 and the LGPL 2.1</comments>
+        </license>
+        <license>
+            <name>Slf4j License</name>
+            <url>http://slf4j.org/license.html</url>
+            <distribution>manual</distribution>
+            <comments>MIT license</comments>
         </license>
     </licenses>
     <scm>
@@ -68,22 +80,21 @@
     </scm>
     <properties>
         <github.global.server>github</github.global.server>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <groovy.version>2.3.0</groovy.version>
+        <groovy.version>2.3.1</groovy.version>
         <janino.version>2.6.1</janino.version>
         <jansi.version>1.11</jansi.version>
         <jms.version>3.1.2.2</jms.version>
         <logback.version>1.1.2</logback.version>
         <mail.version>1.5.2</mail.version>
         <slf4j.version>1.7.7</slf4j.version>
-        <tomcat.version>7.0.53</tomcat.version>
+        <tomcat.version>7.0.54</tomcat.version>
     </properties>
     <dependencies>
         <dependency>
@@ -279,7 +290,7 @@
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>3.2.0.201312181205-r</version>
+                            <version>3.3.2.201404171909-r</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
