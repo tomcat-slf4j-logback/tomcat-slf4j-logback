@@ -3,6 +3,12 @@ Next Release
 
 Misc
 ----
+* [#33](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/33): Merged Maven to Master [@hazendaz](https://github.com/hazendaz).
+  * Maven build merged to master removing prior ant/ivy build
+
+* [#32](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/32): GitHub Site Pages [@hazendaz](https://github.com/hazendaz).
+  * Added GitHub Site Pages
+
 * [#30](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/30): Maven Shade Plugin [@hazendaz](https://github.com/hazendaz).
   * Corrected POM order of assembly & shade plugin as order matters to generate assembly
   * Modified assembly to include source & jar in separate folders
