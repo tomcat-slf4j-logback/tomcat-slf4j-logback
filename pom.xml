@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
-    <prerequisites>
-        <maven>3.0.4</maven>
-    </prerequisites>
+
     <groupId>org.grgrzybek</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
     <version>1.0.4</version>
     <packaging>jar</packaging>
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
+
     <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
     <inceptionYear>2010</inceptionYear>
+
+    <prerequisites>
+        <maven>3.0.5</maven>
+    </prerequisites>
+
     <organization>
         <name>grgrzybek</name>
         <url>https://github.com/grgrzybek/</url>
@@ -48,10 +53,12 @@
             </properties>
         </contributor>
     </contributors>
+
     <issueManagement>
         <system>Github</system>
         <url>https://github.com/grgrzybek/tomcat-slf4j-logback/issues</url>
     </issueManagement>
+
     <licenses>
         <license>
             <name>Tomcat License</name>
@@ -72,12 +79,14 @@
             <comments>MIT license</comments>
         </license>
     </licenses>
+
     <scm>
         <connection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</developerConnection>
         <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
         <tag>HEAD</tag>
     </scm>
+
     <properties>
         <github.global.server>github</github.global.server>
         <maven.compiler.source>1.6</maven.compiler.source>
@@ -94,8 +103,11 @@
         <logback.version>1.1.2</logback.version>
         <mail.version>1.5.2</mail.version>
         <slf4j.version>1.7.7</slf4j.version>
-        <tomcat.version>7.0.54</tomcat.version>
+        <tomcat.version>8.0.9</tomcat.version>
+
+        <maven.min-version>3.0.5</maven.min-version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>javax.mail</groupId>
@@ -158,6 +170,7 @@
             <version>${jansi.version}</version>
         </dependency>
     </dependencies>
+
     <build>
         <finalName>tomcat-juli</finalName>
         <pluginManagement>
@@ -364,6 +377,12 @@
                                         <include>META-INF/NOTICE</include>
                                     </includes>
                                 </filter>
+                                <filter>
+                                    <artifact>org.slf4j:jcl-over-slf4j</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/services/**</exclude>
+                                    </excludes>
+                                </filter>
                             </filters>
                             <relocations>
                                 <relocation>
@@ -397,6 +416,10 @@
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>META-INF/LICENSE-slf4j.txt</resource>
                                     <file>${project.basedir}/src/assembly/LICENSE-slf4j.txt</file>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                    <resource>META-INF/services/org.apache.commons.logging.LogFactory</resource>
+                                    <file>${project.basedir}/src/assembly/services/org.apache.commons.logging.LogFactory</file>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -448,7 +471,7 @@
                 <artifactId>site-maven-plugin</artifactId>
                 <configuration>
                     <message>Creating site for ${project.version}</message>
-                    <generateSitemap>true</generateSitemap>
+                    <!--<generateSitemap>true</generateSitemap>-->
                 </configuration>
                 <executions>
                     <execution>
@@ -513,6 +536,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
+                <version>2.10</version>
                 <reportSets>
                     <reportSet>
                         <reports>
