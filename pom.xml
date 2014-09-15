@@ -557,9 +557,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <configuration>
-                    <allowSnapshots>true</allowSnapshots>
-                </configuration>
             </plugin>
         </plugins>
     </reporting>
