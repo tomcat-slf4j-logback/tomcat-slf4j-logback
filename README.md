@@ -1,5 +1,7 @@
 ﻿# Tomcat + SLF4J + Logback #
 
+[![Build Status](https://travis-ci.org/grgrzybek/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/grgrzybek/tomcat-slf4j-logback)
+
 ## Quick Start ##
 
 If you quickly want to configure Tomcat to use Slf4J and Logback, just download latest package available
