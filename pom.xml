@@ -348,6 +348,10 @@
                 <artifactId>git-commit-id-plugin</artifactId>
                 <configuration>
                     <dotGitDirectory>.git</dotGitDirectory>
+                    <!-- Fixes occassional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+                    <gitDescribe>
+                        <skip>true</skip>
+                    </gitDescribe>
                 </configuration>
                 <executions>
                     <execution>
