@@ -183,7 +183,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.4.1</version>
+                    <version>2.5</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -502,19 +502,19 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
+                <configuration>
+                    <rules>
+                        <requireMavenVersion>
+                            <version>[${maven.min-version},)</version>
+                        </requireMavenVersion>
+                    </rules>
+                </configuration>
                 <executions>
                     <execution>
                         <id>enforce-maven</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>[${maven.min-version},)</version>
-                                </requireMavenVersion>
-                            </rules>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>enforce-clean</id>
@@ -522,13 +522,6 @@
                         <goals>
                             <goal>enforce</goal>
                         </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>[${maven.min-version},)</version>
-                                </requireMavenVersion>
-                            </rules>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>enforce-site</id>
@@ -536,13 +529,6 @@
                         <goals>
                             <goal>enforce</goal>
                         </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>[${maven.min-version},)</version>
-                                </requireMavenVersion>
-                            </rules>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
