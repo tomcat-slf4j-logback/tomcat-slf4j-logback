@@ -1,6 +1,6 @@
 ﻿# Tomcat + SLF4J + Logback #
 
-[![Build Status](https://travis-ci.org/grgrzybek/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/grgrzybek/tomcat-slf4j-logback)
+[![Build Status](https://travis-ci.org/hazendaz/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/hazendaz/tomcat-slf4j-logback)
 
 ## Quick Start ##
 
