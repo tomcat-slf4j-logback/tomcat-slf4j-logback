@@ -15,7 +15,7 @@
     <inceptionYear>2010</inceptionYear>
 
     <prerequisites>
-        <maven>3.0.5</maven>
+        <maven>3.1.1</maven>
     </prerequisites>
 
     <organization>
@@ -92,33 +92,22 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+        <maven.min-version>3.1.1</maven.min-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <groovy.version>2.3.7</groovy.version>
-        <janino.version>2.7.6</janino.version>
-        <jansi.version>1.11</jansi.version>
-        <jms.version>3.1.2.2</jms.version>
         <logback.version>1.1.2</logback.version>
-        <mail.version>1.5.2</mail.version>
         <slf4j.version>1.7.7</slf4j.version>
-        <tomcat.version>8.0.15</tomcat.version>
 
-        <maven.min-version>3.0.5</maven.min-version>
+        <!-- Tomcat 7 Series -->
+        <tomcat.version>7.0.57</tomcat.version>
+
+        <!-- Tomcat 8 Series -->
+        <!-- <tomcat.version>8.0.15</tomcat.version> -->
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>${mail.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.main.javaee-api</groupId>
-            <artifactId>javax.jms</artifactId>
-            <version>${jms.version}</version>
-        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-access</artifactId>
@@ -134,26 +123,23 @@
             <artifactId>logback-core</artifactId>
             <version>${logback.version}</version>
         </dependency>
+
+        <!-- For tomcat-juli -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-catalina</artifactId>
+            <artifactId>tomcat-juli</artifactId>
             <version>${tomcat.version}</version>
         </dependency>
+
+        <!-- For embedded tomcat juli -->
+        <!--
         <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>${groovy.version}</version>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-logging-juli</artifactId>
+            <version>${tomcat.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.janino</groupId>
-            <artifactId>janino</artifactId>
-            <version>${janino.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.janino</groupId>
-            <artifactId>commons-compiler</artifactId>
-            <version>${janino.version}</version>
-        </dependency>
+        -->
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
@@ -164,15 +150,15 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.fusesource.jansi</groupId>
-            <artifactId>jansi</artifactId>
-            <version>${jansi.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
+        <!-- For tomcat juli -->
         <finalName>tomcat-juli</finalName>
+
+        <!-- For embedded tomcat juli -->
+        <!-- <finalName>tomcat-embed-logging-juli</finalName> -->
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -378,7 +364,12 @@
                             <shadeSourcesContent>true</shadeSourcesContent>
                             <artifactSet>
                                 <includes>
+                                    <!-- For tomcat juli -->
                                     <include>org.apache.tomcat:tomcat-juli</include>
+
+                                    <!-- For embedded tomcat juli -->
+                                    <!-- <include>org.apache.tomcat.embed:tomcat-embed-logging-juli</include> -->
+
                                     <include>org.slf4j:jcl-over-slf4j</include>
                                     <include>org.slf4j:slf4j-api</include>
                                     <include>ch.qos.logback:logback-classic</include>
@@ -386,6 +377,7 @@
                                 </includes>
                             </artifactSet>
                             <filters>
+                                <!-- For tomcat juli -->
                                 <filter>
                                     <artifact>org.apache.tomcat:tomcat-juli</artifact>
                                     <includes>
@@ -395,6 +387,19 @@
                                         <include>META-INF/NOTICE</include>
                                     </includes>
                                 </filter>
+
+                                <!-- For embedded tomcat juli -->
+                                <!-- 
+                                <filter>
+                                    <artifact>org.apache.tomcat.embed:tomcat-embed-logging-juli</artifact>
+                                    <includes>
+                                        <include>org/apache/juli/ClassLoaderLogManager**</include>
+                                        <include>META-INF/LICENSE</include>
+                                        <include>META-INF/NOTICE</include>
+                                    </includes>
+                                </filter>
+                                -->
+
                                 <filter>
                                     <artifact>org.slf4j:jcl-over-slf4j</artifact>
                                     <excludes>
