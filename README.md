@@ -2,15 +2,22 @@
 
 [![Build Status](https://travis-ci.org/hazendaz/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/hazendaz/tomcat-slf4j-logback)
 
+## NOTICE ##
+
+Build pom is configured to allow for building out the tomcat embedded juli version but as of 11/14/2014 has not be tested.  Please feel
+free to test this functionality and report back.
+
 ## Quick Start ##
 
 If you quickly want to configure Tomcat to use Slf4J and Logback, just download latest package available
 from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/) and explode zip file directly
 into $CATALINA_HOME.  Beware! - doing so will replace server.xml with default version and logging valve.
 
-The latest version (Tomcat 8.0.14, Slf4j 1.7.7, Logback 1.1.2) may be downloaded from
+The latest version (Tomcat 7.0.57 or 8.0.15, Slf4j 1.7.7, Logback 1.1.2) may be downloaded from
 [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/).  Previous versions are available
-as well.  Prior versions are not predefined for direct exploding into $CATALINA_HOME.
+as well.
+
+Some rather old versions are not predefined for direct exploding into $CATALINA_HOME.
 
 The following directions are for manual setup.
 
