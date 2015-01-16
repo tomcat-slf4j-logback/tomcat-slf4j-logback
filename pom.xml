@@ -104,7 +104,7 @@
         <tomcat.version>7.0.57</tomcat.version>
 
         <!-- Tomcat 8 Series -->
-        <!-- <tomcat.version>8.0.15</tomcat.version> -->
+        <!-- <tomcat.version>8.0.17</tomcat.version> -->
     </properties>
 
     <dependencies>
