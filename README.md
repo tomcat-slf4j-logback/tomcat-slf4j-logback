@@ -13,7 +13,7 @@ If you quickly want to configure Tomcat to use Slf4J and Logback, just download 
 from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/) and explode zip file directly
 into $CATALINA_HOME.  Beware! - doing so will replace server.xml with default version and logging valve.
 
-The latest version (Tomcat 7.0.57 or 8.0.15, Slf4j 1.7.7, Logback 1.1.2) may be downloaded from
+The latest version (Tomcat 7.0.57 or 8.0.17, Slf4j 1.7.10, Logback 1.1.2) may be downloaded from
 [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/).  Previous versions are available
 as well.
 
