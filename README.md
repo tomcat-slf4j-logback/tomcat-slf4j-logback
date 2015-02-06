@@ -116,6 +116,8 @@ Type:
 
     mvn clean install
 
+If you want to do a build for different Tomcat versions, just append `-Dtomcat.version=x.x.x` option.
+
 And move tomcat-juli JAR from `target` directory to `$CATALINA_HOME/bin` directory.
 
 More detailed instruction:

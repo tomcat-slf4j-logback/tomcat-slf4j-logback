@@ -101,10 +101,10 @@
         <slf4j.version>1.7.10</slf4j.version>
 
         <!-- Tomcat 7 Series -->
-        <tomcat.version>7.0.57</tomcat.version>
+        <tomcat.version>7.0.59</tomcat.version>
 
         <!-- Tomcat 8 Series -->
-        <!-- <tomcat.version>8.0.17</tomcat.version> -->
+        <!-- <tomcat.version>8.0.18</tomcat.version> -->
     </properties>
 
     <dependencies>
