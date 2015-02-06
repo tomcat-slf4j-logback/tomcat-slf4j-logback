@@ -13,7 +13,7 @@ If you quickly want to configure Tomcat to use Slf4J and Logback, just download 
 from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/) and explode zip file directly
 into $CATALINA_HOME.  Beware! - doing so will replace server.xml with default version and logging valve.
 
-The latest version (Tomcat 7.0.57 or 8.0.17, Slf4j 1.7.10, Logback 1.1.2) may be downloaded from
+The latest version (Tomcat 7.0.59 or 8.0.18, Slf4j 1.7.10, Logback 1.1.2) may be downloaded from
 [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/).  Previous versions are available
 as well.
 
@@ -29,11 +29,8 @@ and doesn't require any changes, unless you have your own version of `setenv.sh`
 * `conf/logback*.xml` to `$CATALINA_HOME/conf`
 * `conf/server.xml` to `$CATALINA_HOME/conf` (this file contains proper valve and doesn't require any
 changes, unless you have your own version of `server.xml`)
-
-Copy (from e.g. [Maven Central](http://search.maven.org/) or [logback site](http://logback.qos.ch/download.html)):
-
-* `logback-core-1.1.2.jar` to `$CATALINA_HOME/lib`
-* `logback-access-1.1.2.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-core-1.1.2.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-access-1.1.2.jar` to `$CATALINA_HOME/lib`
 
 Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off `java.util.logging` completely.
 
@@ -46,7 +43,7 @@ Add:
     <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true"
        filename="${catalina.home}/conf/logback-access-localhost.xml" />
 
-to `$CATALINA_HOME\conf\server.xml`.
+to `$CATALINA_HOME/conf/server.xml`.
 
 Remove:
 
@@ -54,7 +51,7 @@ Remove:
         prefix="localhost_access_log." suffix=".txt"
         pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 
-from `$CATALINA_HOME\conf\server.xml`.
+from `$CATALINA_HOME/conf/server.xml`.
 
 Final step: run `$CATALINA_HOME/bin/startup.sh` (or `startup.bat`). Voila!
 
@@ -62,7 +59,7 @@ Final step: run `$CATALINA_HOME/bin/startup.sh` (or `startup.bat`). Voila!
 
 Site page is located [here](http://grgrzybek.github.io/tomcat-slf4j-logback/)
 
-## Introduction ##
+## Details ##
 
 This project allows using SLF4J and Logback in Apache Tomcat absolutely without the need for commons-
 logging, log4j, and java.util.logging.
@@ -85,8 +82,8 @@ jcl-over-slf4j) must go into different, non-standard packages. According to
 [Tomcat Documentation](http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions)
 web application looks up classes in their `WEB-INF/classes` directory and `WEB-INF/lib/*.jar` files before looking
 them in `$CATALINA_HOME/lib`, but **after** looking them in _system class loader_. So Tomcat needs only to
-have tomcat-juli replaced with tweaked jcl-over-slf4j, slf4j-api, logback-core, and logback-classic refactored
-into different packages.
+have `tomcat-juli` replaced with versions of `jcl-over-slf4j`, `slf4j-api`, `logback-core`, and `logback-classic`
+refactored into different packages.
 
 Finally, in order to keep the classpath clean, I've chosen the method of selecting Logback's configuration file
 using `juli-logback.configurationFile` system property. It is renamed in source files during _refactoring_
@@ -95,7 +92,7 @@ applications despite of having dedicated, classpath-based `logback.xml` configur
 
 There are four JARs involved in the process transformed into `org.apache.juli.logging` exactly the same way
 as commons-logging is transformed in Tomcat's build process. It is eventually compiled into `tomcat-juli.jar`
- - 'Tomcat-juli' is mandatory, because it is directly referenced during Tomcat's startup process while
+ - `tomcat-juli` is mandatory, because it is directly referenced during Tomcat's startup process while
    constructing _system class loader_. This JAR is transformed and placed in
    `$CATALINA_HOME/bin/tomcat-juli.jar` file.:
 
@@ -124,8 +121,8 @@ More detailed instruction:
 
 1. edit file `pom.xml` to update tomcat/slf4j/logback dependencies
 2. run `mvn clean install` to build jar, javadoc, and source
-3. run 'mvn site' to generate site page
-4. move tomcat-juli JAR from `target` directory to `$CATALINA_HOME/bin`.
+3. run `mvn site` to generate site page
+4. move `tomcat-juli.jar` from `target` directory to `$CATALINA_HOME/bin`.
 
 After changing versions (e.g. for Tomcat), run `mvn clean install`.
 
@@ -170,7 +167,7 @@ can be found in conf/logback.xml from [archive](https://sourceforge.net/projects
 
 #### Tomcat 6.0.x 7.0.x 8.0.x ####
 
-After unpacking `apache-tomcat-6.0.x.tgz`, `apache-tomcat-7.0.x-tgz`, or `apache-tomcat-8.0.x-tgz`, one can
+After unpacking `apache-tomcat-6.0.x.tgz`, `apache-tomcat-7.0.x.tgz`, or `apache-tomcat-8.0.x.tgz`, one can
 run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running Tomcat with standard
 java.util.logging enabled. The standard commandline is:
 
@@ -185,10 +182,7 @@ java.util.logging enabled. The standard commandline is:
         org.apache.catalina.startup.Bootstrap start
 
 Deleting `$CATALINA_HOME/conf/logging.properties` will replace `-Djava.util.logging.config.file` with
-`-Dnop` - first step to remove `j.u.logging`. To get rid of `-Djava.util.logging.manager` we must explicitely
-set the following environment property in setenv.sh:
-
-    LOGGING_MANAGER=-Dnop
+`-Dnop`.
 
 Finally we must configure our tomcat-slf4j-logback integration:
 
@@ -216,10 +210,9 @@ will see `logback-core` through _common class loader_.
 1. Go to Servers view and add server instance as always
 1. Open server definition (RMB, Open or `F3`) and click <u>open launch configuration</u>
 1. On _Arguments_ tab in _VM arguments_ add
-    `-Djuli-logback.configurationFile="<absolute tomcat home path>\conf\logback.xml"`
+    `-Djuli-logback.configurationFile="<absolute tomcat home path>/conf/logback.xml"`
 
 That's all. While creating server runtime instance, eclipse generates VM arguments using absolute paths (no
-variables), so just copy the Tomcat home path and add `-Djuli-logback.configurationFile` argument. There's
-no need to configure `LOGGING_MANAGER=-Dnop` environment variable (I'm not quite sure why...).
+variables), so just copy the Tomcat home path and add `-Djuli-logback.configurationFile` argument.
 
 Remember - Tomcat installation must be configured according to **Quick Start**.
