@@ -234,46 +234,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <configuration>
-                            <descriptor>${project.basedir}/src/assembly/assembly-tomcat6.xml</descriptor>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>make-assembly</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                                </manifest>
-                                <manifestEntries>
-                                    <Build-Time>${maven.build.timestamp}</Build-Time>
-                                    <Git-Revision>${git.commit.id}</Git-Revision>
-                                    <Tomcat-Classloader-Version>${tomcat6.version}</Tomcat-Classloader-Version>
-                                    <Slf4j-Version>${slf4j.version}</Slf4j-Version>
-                                    <Logback-Version>${logback-for-tomcat6.version}</Logback-Version>
-                                    <Os-Name>${os.name}</Os-Name>
-                                    <Os-Arch>${os.arch}</Os-Arch>
-                                    <Os-Version>${os.version}</Os-Version>
-                                    <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                                    <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                                </manifestEntries>
-                            </archive>
-                        </configuration>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -404,43 +364,13 @@
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <configuration>
-                            <descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
-                        </configuration>
                         <executions>
                             <execution>
-                                <id>make-assembly</id>
                                 <phase>package</phase>
                                 <goals>
-                                    <goal>single</goal>
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                                </manifest>
-                                <manifestEntries>
-                                    <Build-Time>${maven.build.timestamp}</Build-Time>
-                                    <Git-Revision>${git.commit.id}</Git-Revision>
-                                    <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
-                                    <Slf4j-Version>${slf4j.version}</Slf4j-Version>
-                                    <Logback-Version>${logback.version}</Logback-Version>
-                                    <Os-Name>${os.name}</Os-Name>
-                                    <Os-Arch>${os.arch}</Os-Arch>
-                                    <Os-Version>${os.version}</Os-Version>
-                                    <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                                    <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                                </manifestEntries>
-                            </archive>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
@@ -607,6 +537,22 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <configuration>
                     <excludeDefaultDirectories>true</excludeDefaultDirectories>
@@ -687,6 +633,31 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Build-Time>${maven.build.timestamp}</Build-Time>
+                            <!-- Git Commit Id property is auto generated -->
+                            <Git-Revision>${git.commit.id}</Git-Revision>
+                            <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
+                            <Slf4j-Version>${slf4j.version}</Slf4j-Version>
+                            <Logback-Version>${logback.version}</Logback-Version>
+                            <Os-Name>${os.name}</Os-Name>
+                            <Os-Arch>${os.arch}</Os-Arch>
+                            <Os-Version>${os.version}</Os-Version>
+                            <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                            <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>
