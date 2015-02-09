@@ -7,7 +7,7 @@
     <groupId>org.grgrzybek</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
     <packaging>jar</packaging>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -107,6 +107,7 @@
         <logback-for-tomcat6.version>0.9.30</logback-for-tomcat6.version>
         <slf4j.version>1.7.10</slf4j.version>
 
+        <tomcat6.version>6.0.43</tomcat6.version>
         <tomcat7.version>7.0.59</tomcat7.version>
         <tomcat8.version>8.0.18</tomcat8.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
