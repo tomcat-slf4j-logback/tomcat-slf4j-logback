@@ -110,8 +110,6 @@
         <tomcat7.version>7.0.59</tomcat7.version>
         <tomcat8.version>8.0.18</tomcat8.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
-
-        <git.commit.id />
     </properties>
 
     <profiles>
