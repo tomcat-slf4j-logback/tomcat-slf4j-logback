@@ -115,9 +115,6 @@
     <profiles>
         <profile>
             <id>tomcat6</id>
-            <properties>
-                <tomcat6.version>6.0.43</tomcat6.version>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.tomcat</groupId>
@@ -242,9 +239,6 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <tomcat.version>${tomcat8.version}</tomcat.version>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.tomcat</groupId>
