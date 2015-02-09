@@ -167,7 +167,6 @@
                                     <shadeSourcesContent>true</shadeSourcesContent>
                                     <artifactSet>
                                         <includes>
-                                            <!-- For tomcat juli -->
                                             <include>org.apache.tomcat:juli</include>
 
                                             <include>org.slf4j:jcl-over-slf4j</include>
@@ -177,7 +176,6 @@
                                         </includes>
                                     </artifactSet>
                                     <filters>
-                                        <!-- For tomcat juli -->
                                         <filter>
                                             <artifact>org.apache.tomcat:juli</artifact>
                                             <includes>
@@ -293,14 +291,6 @@
                     <artifactId>tomcat-juli</artifactId>
                     <version>${tomcat.version}</version>
                 </dependency>
-                <!-- For embedded tomcat juli -->
-                <!--
-                <dependency>
-                    <groupId>org.apache.tomcat.embed</groupId>
-                    <artifactId>tomcat-embed-logging-juli</artifactId>
-                    <version>${tomcat.version}</version>
-                </dependency>
-                -->
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-api</artifactId>
@@ -344,11 +334,7 @@
                                     <shadeSourcesContent>true</shadeSourcesContent>
                                     <artifactSet>
                                         <includes>
-                                            <!-- For tomcat juli -->
                                             <include>org.apache.tomcat:tomcat-juli</include>
-
-                                            <!-- For embedded tomcat juli -->
-                                            <!-- <include>org.apache.tomcat.embed:tomcat-embed-logging-juli</include> -->
 
                                             <include>org.slf4j:jcl-over-slf4j</include>
                                             <include>org.slf4j:slf4j-api</include>
@@ -357,7 +343,6 @@
                                         </includes>
                                     </artifactSet>
                                     <filters>
-                                        <!-- For tomcat juli -->
                                         <filter>
                                             <artifact>org.apache.tomcat:tomcat-juli</artifact>
                                             <includes>
@@ -367,18 +352,6 @@
                                                 <include>META-INF/NOTICE</include>
                                             </includes>
                                         </filter>
-
-                                        <!-- For embedded tomcat juli -->
-                                        <!--
-                                        <filter>
-                                            <artifact>org.apache.tomcat.embed:tomcat-embed-logging-juli</artifact>
-                                            <includes>
-                                                <include>org/apache/juli/ClassLoaderLogManager**</include>
-                                                <include>META-INF/LICENSE</include>
-                                                <include>META-INF/NOTICE</include>
-                                            </includes>
-                                        </filter>
-                                        -->
 
                                         <filter>
                                             <artifact>org.slf4j:jcl-over-slf4j</artifact>
@@ -475,11 +448,7 @@
     </profiles>
 
     <build>
-        <!-- For tomcat juli -->
         <finalName>tomcat-juli</finalName>
-
-        <!-- For embedded tomcat juli -->
-        <!-- <finalName>tomcat-embed-logging-juli</finalName> -->
 
         <pluginManagement>
             <plugins>
