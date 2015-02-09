@@ -121,11 +121,6 @@
             <dependencies>
                 <dependency>
                     <groupId>org.apache.tomcat</groupId>
-                    <artifactId>catalina</artifactId>
-                    <version>${tomcat6.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.tomcat</groupId>
                     <artifactId>juli</artifactId>
                     <version>${tomcat6.version}</version>
                 </dependency>
