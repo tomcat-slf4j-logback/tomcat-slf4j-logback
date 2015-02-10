@@ -107,6 +107,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <logback.version>1.1.2</logback.version>
+        <logback-for-tomcat6.version>0.9.30</logback-for-tomcat6.version>
         <slf4j.version>1.7.10</slf4j.version>
 
         <tomcat7.version>7.0.59</tomcat7.version>
@@ -115,34 +116,6 @@
 
         <git.commit.id />
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-access</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-    </dependencies>
 
     <profiles>
         <profile>
@@ -160,6 +133,31 @@
                     <groupId>org.apache.tomcat</groupId>
                     <artifactId>juli</artifactId>
                     <version>${tomcat6.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>${slf4j.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <version>${slf4j.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-core</artifactId>
+                    <version>${logback-for-tomcat6.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                    <version>${logback-for-tomcat6.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-access</artifactId>
+                    <version>${logback-for-tomcat6.version}</version>
                 </dependency>
             </dependencies>
             <build>
@@ -180,10 +178,7 @@
                                     <artifactSet>
                                         <includes>
                                             <!-- For tomcat juli -->
-                                            <include>org.apache.tomcat:tomcat-juli</include>
-
-                                            <!-- For embedded tomcat juli -->
-                                            <!-- <include>org.apache.tomcat.embed:tomcat-embed-logging-juli</include> -->
+                                            <include>org.apache.tomcat:juli</include>
 
                                             <include>org.slf4j:jcl-over-slf4j</include>
                                             <include>org.slf4j:slf4j-api</include>
@@ -194,10 +189,9 @@
                                     <filters>
                                         <!-- For tomcat juli -->
                                         <filter>
-                                            <artifact>org.apache.tomcat:tomcat-juli</artifact>
+                                            <artifact>org.apache.tomcat:juli</artifact>
                                             <includes>
                                                 <include>org/apache/juli/ClassLoaderLogManager**</include>
-                                                <include>org/apache/juli/WebappProperties.class</include>
                                                 <include>META-INF/LICENSE</include>
                                                 <include>META-INF/NOTICE</include>
                                             </includes>
@@ -256,7 +250,7 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-assembly-plugin</artifactId>
                         <configuration>
-                            <descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
+                            <descriptor>${project.basedir}/src/assembly/assembly-tomcat6.xml</descriptor>
                         </configuration>
                         <executions>
                             <execution>
@@ -280,9 +274,9 @@
                                 <manifestEntries>
                                     <Build-Time>${maven.build.timestamp}</Build-Time>
                                     <Git-Revision>${git.commit.id}</Git-Revision>
-                                    <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
+                                    <Tomcat-Classloader-Version>${tomcat6.version}</Tomcat-Classloader-Version>
                                     <Slf4j-Version>${slf4j.version}</Slf4j-Version>
-                                    <Logback-Version>${logback.version}</Logback-Version>
+                                    <Logback-Version>${logback-for-tomcat6.version}</Logback-Version>
                                     <Os-Name>${os.name}</Os-Name>
                                     <Os-Arch>${os.arch}</Os-Arch>
                                     <Os-Version>${os.version}</Os-Version>
@@ -317,6 +311,31 @@
                     <version>${tomcat.version}</version>
                 </dependency>
                 -->
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>${slf4j.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <version>${slf4j.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-core</artifactId>
+                    <version>${logback.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                    <version>${logback.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-access</artifactId>
+                    <version>${logback.version}</version>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>

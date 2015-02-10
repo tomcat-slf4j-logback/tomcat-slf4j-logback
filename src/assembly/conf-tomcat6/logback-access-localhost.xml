@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <property name="max.retention.days" value="60" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.access.PatternLayoutEncoder">
+            <pattern>common</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ACCESS-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/localhost-access.log</file>
+        <append>true</append>
+        <encoder class="ch.qos.logback.access.PatternLayoutEncoder">
+            <charset>utf-8</charset>
+            <pattern>common</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/archive/localhost-access-%d{yyyyMMdd}-%i.log.zip</fileNamePattern> 
+            <maxHistory>${max.retention.days}</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize> 
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender-ref ref="ACCESS-LOG" />
+
+</configuration>
