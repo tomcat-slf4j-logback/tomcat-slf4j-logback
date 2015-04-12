@@ -110,7 +110,7 @@
         <tomcat6.version>6.0.43</tomcat6.version>
         <tomcat7.version>7.0.59</tomcat7.version>
         <tomcat8.version>8.0.21</tomcat8.version>
-        <tomcat.version>${tomcat6.version}</tomcat.version>
+        <tomcat.version>${tomcat7.version}</tomcat.version>
     </properties>
 
     <profiles>
