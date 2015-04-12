@@ -3,6 +3,9 @@ Next Release
 
 Misc
 ----
+* [#57](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/57): Embedded breakout [@hazendaz](https://github.com/hazendaz).
+  * Embedded support was listed mixed throughout and commented out.  Now it is a profile as 'embedded'
+
 * [#33](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/33): Merged Maven to Master [@hazendaz](https://github.com/hazendaz).
   * Maven build merged to master removing prior ant/ivy build
 
