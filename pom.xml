@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.grgrzybek</groupId>
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+        <relativePath />
+    </parent>
+
+    <groupId>com.github.grgrzybek</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
     <packaging>jar</packaging>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
 
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -61,7 +67,7 @@
     </contributors>
 
     <issueManagement>
-        <system>Github</system>
+        <system>GitHub</system>
         <url>https://github.com/grgrzybek/tomcat-slf4j-logback/issues</url>
     </issueManagement>
 
@@ -94,6 +100,7 @@
     </scm>
 
     <properties>
+        <copyright>2015</copyright>
         <github.global.server>github</github.global.server>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
@@ -464,6 +471,48 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>eclipse</id>
+            <activation>
+                <property>
+                    <name>m2e.version</name>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <!--This plugin's configuration is used to store 
+                            Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+                        <plugin>
+                            <groupId>org.eclipse.m2e</groupId>
+                            <artifactId>lifecycle-mapping</artifactId>
+                            <version>1.0.0</version>
+                            <configuration>
+                                <lifecycleMappingMetadata>
+                                    <pluginExecutions>
+                                        <pluginExecutions>
+                                            <pluginExecution>
+                                                <pluginExecutionFilter>
+                                                    <groupId>org.apache.maven.plugins</groupId>
+                                                    <artifactId>maven-enforcer-plugin</artifactId>
+                                                    <versionRange>[1.4,)</versionRange>
+                                                    <goals>
+                                                        <goal>enforce</goal>
+                                                    </goals>
+                                                </pluginExecutionFilter>
+                                                <action>
+                                                    <ignore />
+                                                </action>
+                                            </pluginExecution>
+                                        </pluginExecutions>
+                                    </pluginExecutions>
+                                </lifecycleMappingMetadata>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
     </profiles>
 
     <build>
@@ -479,7 +528,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.5.3</version>
+                    <version>2.5.4</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -510,6 +559,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>1.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -582,7 +636,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.1</version>
+                    <version>2.2</version>
                 </plugin>
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
@@ -719,6 +773,7 @@
                         </manifest>
                         <manifestEntries>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
+                            <copyright>${copyright}</copyright>
                             <!-- Git Commit Id property is auto generated -->
                             <Git-Revision>${git.commit.id}</Git-Revision>
                             <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
