@@ -1,6 +1,8 @@
 Next Release
 ============
 
+NOTE: Embedded tomcat piece is still not officially in working order.  Anyone using embedded, please try to get this working...
+
 Misc
 ----
 * [#57](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/57): Embedded breakout [@hazendaz](https://github.com/hazendaz).

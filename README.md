@@ -13,7 +13,7 @@ If you quickly want to configure Tomcat to use Slf4J and Logback, just download 
 from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/) and explode zip file directly
 into $CATALINA_HOME.  Beware! - doing so will replace server.xml with default version and logging valve.
 
-The latest version (Tomcat 7.0.59 or 8.0.18, Slf4j 1.7.10, Logback 1.1.2) may be downloaded from
+The latest version (Tomcat 7.0.62 or 8.0.22, Slf4j 1.7.12, Logback 1.1.3) may be downloaded from
 [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/).  Previous versions are available
 as well.
 
@@ -29,8 +29,8 @@ and doesn't require any changes, unless you have your own version of `setenv.sh`
 * `conf/logback*.xml` to `$CATALINA_HOME/conf`
 * `conf/server.xml` to `$CATALINA_HOME/conf` (this file contains proper valve and doesn't require any
 changes, unless you have your own version of `server.xml`)
-* `lib/logback-core-1.1.2.jar` to `$CATALINA_HOME/lib`
-* `lib/logback-access-1.1.2.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-core-1.1.3.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-access-1.1.3.jar` to `$CATALINA_HOME/lib`
 
 Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off `java.util.logging` completely.
 
