@@ -490,21 +490,19 @@
                             <configuration>
                                 <lifecycleMappingMetadata>
                                     <pluginExecutions>
-                                        <pluginExecutions>
-                                            <pluginExecution>
-                                                <pluginExecutionFilter>
-                                                    <groupId>org.apache.maven.plugins</groupId>
-                                                    <artifactId>maven-enforcer-plugin</artifactId>
-                                                    <versionRange>[1.4,)</versionRange>
-                                                    <goals>
-                                                        <goal>enforce</goal>
-                                                    </goals>
-                                                </pluginExecutionFilter>
-                                                <action>
-                                                    <ignore />
-                                                </action>
-                                            </pluginExecution>
-                                        </pluginExecutions>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>org.apache.maven.plugins</groupId>
+                                                <artifactId>maven-enforcer-plugin</artifactId>
+                                                <versionRange>[1.4,)</versionRange>
+                                                <goals>
+                                                    <goal>enforce</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <ignore />
+                                            </action>
+                                        </pluginExecution>
                                     </pluginExecutions>
                                 </lifecycleMappingMetadata>
                             </configuration>
@@ -732,6 +730,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
+                <!-- Seems like maven bug when trying to exclude enforce in mapping lifecycle -->
+                <version>1.4</version>
                 <configuration>
                     <rules>
                         <requireMavenVersion>
