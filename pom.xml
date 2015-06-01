@@ -116,8 +116,8 @@
 
         <tomcat6.version>6.0.44</tomcat6.version>
         <tomcat7.version>7.0.62</tomcat7.version>
-        <tomcat8.version>8.0.22</tomcat8.version>
-        <tomcat.version>${tomcat7.version}</tomcat.version>
+        <tomcat8.version>8.0.23</tomcat8.version>
+        <tomcat.version>${tomcat8.version}</tomcat.version>
     </properties>
 
     <profiles>
@@ -664,7 +664,7 @@
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>3.7.1.201504261725-r</version>
+                            <version>4.0.0.201505260635-rc2</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
