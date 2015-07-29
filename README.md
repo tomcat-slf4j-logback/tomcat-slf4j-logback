@@ -1,5 +1,6 @@
 ﻿# Tomcat + SLF4J + Logback #
 
+[![Download tomcat-slf4j-logback](https://img.shields.io/sourceforge/dw/tc-slf4jlogback.svg)](https://sourceforge.net/projects/tc-slf4jlogback/files/latest/download)
 [![Build Status](https://travis-ci.org/hazendaz/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/hazendaz/tomcat-slf4j-logback)
 
 ## NOTICE ##
