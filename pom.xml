@@ -12,7 +12,7 @@
     <groupId>com.github.grgrzybek</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
     <packaging>jar</packaging>
-    <version>1.2.1</version>
+    <version>1.2.2-SNAPSHOT</version>
 
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -95,7 +95,7 @@
         <connection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</developerConnection>
         <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
-        <tag>tomcat-slf4j-logback-1.2.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
