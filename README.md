@@ -18,10 +18,8 @@ The latest version (Tomcat 6.0.44, 7.0.62, or 8.0.24, Slf4j 1.7.12, Logback 1.1.
 [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/).  Previous versions are available
 as well.
 
-SourceForge is becoming a pain...so switching direction.  We are now releasing builds to 'releases' available here
-starting with tomcat 7.0.63.
-
-[releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
+All future versions will be released on github releases.  The latest versions
+(Tomcat 7.0.64 or 8.0.26, Slf4j 1.7.12, Logback 1.1.3) may be downloaded from [releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
 
 Some rather old versions are not predefined for direct exploding into $CATALINA_HOME.
 
