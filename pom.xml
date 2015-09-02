@@ -115,7 +115,7 @@
 
         <tomcat6.version>6.0.44</tomcat6.version>
         <tomcat7.version>7.0.64</tomcat7.version>
-        <tomcat8.version>8.0.24</tomcat8.version>
+        <tomcat8.version>8.0.26</tomcat8.version>
         <tomcat.version>${tomcat7.version}</tomcat.version>
     </properties>
 
