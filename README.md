@@ -2,6 +2,7 @@
 
 [![Download tomcat-slf4j-logback](https://img.shields.io/sourceforge/dw/tc-slf4jlogback.svg)](https://sourceforge.net/projects/tc-slf4jlogback/files/latest/download)
 [![Build Status](https://travis-ci.org/hazendaz/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/hazendaz/tomcat-slf4j-logback)
+[![Dependency Status](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142)
 
 ## NOTICE ##
 
