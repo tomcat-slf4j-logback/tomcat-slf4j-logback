@@ -129,7 +129,7 @@
 
         <tomcat6.version>6.0.44</tomcat6.version>
         <tomcat7.version>7.0.64</tomcat7.version>
-        <tomcat8.version>8.0.26</tomcat8.version>
+        <tomcat8.version>8.0.27</tomcat8.version>
         <tomcat.version>${tomcat7.version}</tomcat.version>
     </properties>
 
@@ -686,7 +686,7 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>2.1.15</version>
+                    <version>2.2.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -711,7 +711,7 @@
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>4.0.1.201506240215-r</version>
+                            <version>4.1.0.201509280440-r</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
