@@ -129,7 +129,7 @@
 
         <tomcat6.version>6.0.44</tomcat6.version>
         <tomcat7.version>7.0.65</tomcat7.version>
-        <tomcat8.version>8.0.29</tomcat8.version>
+        <tomcat8.version>8.0.30</tomcat8.version>
         <tomcat9.version>9.0.0.M1</tomcat9.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
     </properties>
