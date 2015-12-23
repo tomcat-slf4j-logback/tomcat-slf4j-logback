@@ -702,7 +702,7 @@
                         <dependency>
                             <groupId>com.googlecode.javaewah</groupId>
                             <artifactId>JavaEWAH</artifactId>
-                            <version>1.1.1</version>
+                            <version>1.1.4</version>
                         </dependency>
                         <dependency>
                             <groupId>com.jcraft</groupId>
@@ -712,7 +712,7 @@
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>4.1.0.201509280440-r</version>
+                            <version>4.1.1.201511131810-r</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
