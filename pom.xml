@@ -127,7 +127,7 @@
         <logback-for-tomcat6.version>0.9.30</logback-for-tomcat6.version>
         <slf4j.version>1.7.16</slf4j.version>
 
-        <tomcat6.version>6.0.44</tomcat6.version>
+        <tomcat6.version>6.0.45</tomcat6.version>
         <tomcat7.version>7.0.67</tomcat7.version>
         <tomcat8.version>8.0.30</tomcat8.version>
         <tomcat9.version>9.0.0.M1</tomcat9.version>
