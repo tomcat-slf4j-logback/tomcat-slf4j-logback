@@ -57,6 +57,23 @@ from `$CATALINA_HOME/conf/server.xml`.
 
 Final step: run `$CATALINA_HOME/bin/startup.sh` (or `startup.bat`). Voila!
 
+## Maven Central Distribution ##
+
+Maven central distribution is primarily for users building tomcat distributions.
+
+For developers to release, source jar and zip need deleted on distribution before release can proceed.
+
+For users to get release, use dependency as follows.
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+
+The tomcat-slfj4-logback binary must be renamed as tomcat-juli to use within a tomcat build.
+
 ## Site Page ##
 
 Site page is located [here](http://grgrzybek.github.io/tomcat-slf4j-logback/)
