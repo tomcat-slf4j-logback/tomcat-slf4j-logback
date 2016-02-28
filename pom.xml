@@ -5,7 +5,11 @@
     <groupId>com.github.grgrzybek</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
     <packaging>jar</packaging>
-    <version>1.2.3-SNAPSHOT</version>
+
+    <!-- <version>6.0.45-SNAPSHOT</version> -->
+    <version>7.0.68-SNAPSHOT</version>
+    <!-- <version>8.0.32-SNAPSHOT</version> -->
+    <!-- <version>9.0.0.M3-SNAPSHOT</version> -->
 
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -128,10 +132,10 @@
         <slf4j.version>1.7.16</slf4j.version>
 
         <tomcat6.version>6.0.45</tomcat6.version>
-        <tomcat7.version>7.0.67</tomcat7.version>
+        <tomcat7.version>7.0.68</tomcat7.version>
         <tomcat8.version>8.0.32</tomcat8.version>
         <tomcat9.version>9.0.0.M3</tomcat9.version>
-        <tomcat.version>${tomcat8.version}</tomcat.version>
+        <tomcat.version>${tomcat7.version}</tomcat.version>
     </properties>
 
     <profiles>
