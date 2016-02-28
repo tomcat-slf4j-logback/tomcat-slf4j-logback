@@ -8,7 +8,7 @@
 
     <!-- <version>6.0.45-SNAPSHOT</version> -->
     <!-- <version>7.0.69-SNAPSHOT</version> -->
-    <version>8.0.32</version>
+    <version>8.0.33-SNAPSHOT</version>
     <!-- <version>9.0.0.M3-SNAPSHOT</version> -->
 
     <name>tomcat-slf4j-logback</name>
@@ -113,7 +113,7 @@
         <connection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</developerConnection>
         <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
-        <tag>tomcat-slf4j-logback-8.0.32</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
