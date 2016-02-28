@@ -71,6 +71,7 @@ For users to get release, use dependency as follows.
     <artifactId>tomcat-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>
+```
 
 The tomcat-slfj4-logback binary must be renamed as tomcat-juli to use within a tomcat build.
 
