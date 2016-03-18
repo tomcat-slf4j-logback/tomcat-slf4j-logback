@@ -9,7 +9,7 @@
     <!-- <version>6.0.45-SNAPSHOT</version> -->
     <!-- <version>7.0.69-SNAPSHOT</version> -->
     <version>8.0.33-SNAPSHOT</version>
-    <!-- <version>9.0.0.M3-SNAPSHOT</version> -->
+    <!-- <version>9.0.0.M4-SNAPSHOT</version> -->
 
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -134,7 +134,7 @@
         <tomcat6.version>6.0.45</tomcat6.version>
         <tomcat7.version>7.0.68</tomcat7.version>
         <tomcat8.version>8.0.32</tomcat8.version>
-        <tomcat9.version>9.0.0.M3</tomcat9.version>
+        <tomcat9.version>9.0.0.M4</tomcat9.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
     </properties>
 
