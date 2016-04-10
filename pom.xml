@@ -129,11 +129,11 @@
 
         <logback.version>1.1.7</logback.version>
         <logback-for-tomcat6.version>0.9.30</logback-for-tomcat6.version>
-        <slf4j.version>1.7.20</slf4j.version>
+        <slf4j.version>1.7.21</slf4j.version>
 
         <tomcat6.version>6.0.45</tomcat6.version>
         <tomcat7.version>7.0.68</tomcat7.version>
-        <tomcat8.version>8.0.32</tomcat8.version>
+        <tomcat8.version>8.0.33</tomcat8.version>
         <tomcat9.version>9.0.0.M4</tomcat9.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
     </properties>
@@ -569,7 +569,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changes-plugin</artifactId>
-                    <version>2.11</version>
+                    <version>2.12</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -691,7 +691,7 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>2.2.0</version>
+                    <version>2.2.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
