@@ -31,8 +31,8 @@ and doesn't require any changes, unless you have your own version of `setenv.sh`
 * `conf/logback*.xml` to `$CATALINA_HOME/conf`
 * `conf/server.xml` to `$CATALINA_HOME/conf` (this file contains proper valve and doesn't require any
 changes, unless you have your own version of `server.xml`)
-* `lib/logback-core-1.1.3.jar` to `$CATALINA_HOME/lib`
-* `lib/logback-access-1.1.3.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-core-1.1.7.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-access-1.1.7.jar` to `$CATALINA_HOME/lib`
 
 Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off `java.util.logging` completely.
 
@@ -190,11 +190,11 @@ can be found in conf/logback.xml from [archive](https://sourceforge.net/projects
 
 ## Tomcat Customization ##
 
-#### Tomcat 6.0.x 7.0.x 8.0.x ####
+#### Tomcat 6.0.x 7.0.x 8.0.x 8.5.x 9.0.x ####
 
-After unpacking `apache-tomcat-6.0.x.tgz`, `apache-tomcat-7.0.x.tgz`, or `apache-tomcat-8.0.x.tgz`, one can
-run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running Tomcat with standard
-java.util.logging enabled. The standard commandline is:
+After unpacking `apache-tomcat-6.0.x.tgz`, `apache-tomcat-7.0.x.tgz`, `apache-tomcat-8.0.x.tgz`, `apache-tomcat-8.5.x.tgz`
+or `apache-tomcat-9.0.x.tgz` one can run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running
+Tomcat with standard java.util.logging enabled. The standard commandline is:
 
     "java" \
         -Djava.util.logging.config.file="$CATALINA_HOME/conf/logging.properties"
