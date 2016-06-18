@@ -2,8 +2,8 @@
 <project name="${project.name}" xmlns="http://maven.apache.org/DECORATION/1.6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd">
     <bannerLeft>
-        <src>http://tomcat.apache.org/images/tomcat.png</src>
-        <href>http://tomcat.apache.org/</href>
+        <src>https://tomcat.apache.org/images/tomcat.png</src>
+        <href>https://tomcat.apache.org/</href>
     </bannerLeft>
     <bannerRight>
         <src>http://logback.qos.ch/images/logos/lblogo.jpg</src>
@@ -22,7 +22,7 @@
     </custom>
     <body>
         <links>
-            <item name="Tomcat Slf4j Logback" href="http://github.com/grgrzybek/tomcat-slf4j-logback" />
+            <item name="Tomcat Slf4j Logback" href="https://github.com/grgrzybek/tomcat-slf4j-logback" />
         </links>
         <menu ref="reports" />
     </body>
