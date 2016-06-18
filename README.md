@@ -17,13 +17,13 @@ into $CATALINA_HOME.  Beware! - doing so will replace server.xml with default ve
 
 Previous versions are available and may be downloaded from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/)
 
-New versions are available and may be downloaded from [releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
+New versions are available and may be downloaded from github [releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
 
 Some rather old versions are not predefined for direct exploding into $CATALINA_HOME.
 
 The following directions are for manual setup.
 
-After downloading copy (from the [archive](https://sourceforge.net/projects/tc-slf4jlogback/files/)):
+After downloading copy as follows:
 
 * `bin/tomcat-juli.jar` to `$CATALINA_HOME/bin` (replacing existing `tomcat-juli.jar`)
 * `bin/setenv.sh` or `bin\setenv.bat` to `$CATALINA_HOME/bin` (this script contains proper variable name
@@ -185,7 +185,7 @@ Configuration of logback-access doesn't require renamed packages, as the require
 _common class loader_.
 
 Sample `logback.xml` reflecting the configuration from standard `$CATALINA_HOME/conf/logging.properties`
-can be found in conf/logback.xml from [archive](https://sourceforge.net/projects/tc-slf4jlogback/files/).
+can be found in conf/logback.xml from github [releases] (https://github.com/grgrzybek/tomcat-slf4j-logback/releases).
 
 
 ## Tomcat Customization ##
