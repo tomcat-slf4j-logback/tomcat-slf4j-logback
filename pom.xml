@@ -8,7 +8,7 @@
 
     <!-- <version>6.0.45-SNAPSHOT</version> -->
     <!-- <version>7.0.69-SNAPSHOT</version> -->
-    <version>8.0.35-SNAPSHOT</version>
+    <version>8.0.36-SNAPSHOT</version>
     <!-- <version>8.5.2-SNAPSHOT</version> -->
     <!-- <version>9.0.0.M6-SNAPSHOT</version> -->
 
@@ -134,7 +134,7 @@
 
         <tomcat6.version>6.0.45</tomcat6.version>
         <tomcat7.version>7.0.69</tomcat7.version>
-        <tomcat8.version>8.0.35</tomcat8.version>
+        <tomcat8.version>8.0.36</tomcat8.version>
         <tomcat85.version>8.5.2</tomcat85.version>
         <tomcat9.version>9.0.0.M6</tomcat9.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
