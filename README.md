@@ -1,6 +1,5 @@
 ﻿# Tomcat + SLF4J + Logback #
 
-[![Download tomcat-slf4j-logback](https://img.shields.io/sourceforge/dw/tc-slf4jlogback.svg)](https://sourceforge.net/projects/tc-slf4jlogback/files/latest/download)
 [![Build Status](https://travis-ci.org/hazendaz/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/hazendaz/tomcat-slf4j-logback)
 [![Dependency Status](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142)
 
@@ -12,12 +11,8 @@ free to test this functionality and report back.
 ## Quick Start ##
 
 If you quickly want to configure Tomcat to use Slf4J and Logback, just download latest package available
-from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/) and explode zip file directly
+from github [releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
 into $CATALINA_HOME.  Beware! - doing so will replace server.xml with default version and logging valve.
-
-Previous versions are available and may be downloaded from [SourceForge](https://sourceforge.net/projects/tc-slf4jlogback/files/)
-
-New versions are available and may be downloaded from github [releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
 
 Some rather old versions are not predefined for direct exploding into $CATALINA_HOME.
 
