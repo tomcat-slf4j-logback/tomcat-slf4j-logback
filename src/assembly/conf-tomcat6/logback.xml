@@ -78,16 +78,16 @@
         <appender-ref ref="FILE-CATALINA" />
     </logger>
 
-    <logger name="org.apache.catalina.core.ContainerBase.[Catalina].[localhost]" level="INFO" additivity="false">
+    <logger name="org.apache.catalina.core.ContainerBase.[Catalina]" level="INFO" additivity="false">
         <appender-ref ref="FILE-LOCALHOST" />
     </logger>
 
-    <logger name="org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager]" level="INFO"
+    <logger name="org.apache.catalina.core.ContainerBase.[Catalina].[/manager]" level="INFO"
         additivity="false">
         <appender-ref ref="FILE-MANAGER" />
     </logger>
 
-    <logger name="org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager]" level="INFO"
+    <logger name="org.apache.catalina.core.ContainerBase.[Catalina].[/host-manager]" level="INFO"
         additivity="false">
         <appender-ref ref="FILE-HOST-MANAGER" />
     </logger>
