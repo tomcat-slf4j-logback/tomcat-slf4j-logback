@@ -137,8 +137,7 @@
 
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html -->
-        <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true"
-               filename="${catalina.home}/conf/logback-access-localhost.xml" />
+        <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true" />
 
       </Host>
     </Engine>
