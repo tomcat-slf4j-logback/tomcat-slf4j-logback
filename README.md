@@ -3,18 +3,34 @@
 [![Build Status](https://travis-ci.org/hazendaz/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/hazendaz/tomcat-slf4j-logback)
 [![Dependency Status](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142)
 
+Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all internal logging to use our favorite slf4j/logback libraries.
+
 ## NOTICE ##
 
-Build pom is configured to allow for building out the tomcat embedded juli version but as of 11/14/2014 has not be tested.  Please feel
-free to test this functionality and report back.
+Tomcat embedded can be built here but has not been tested and therefore we are currently not providing pre-built releases.  If you happen to test that and it works, please advise
+and we will start adding embedded pre-built releases.
+
+As of logback 1.1.7, it is no longer necessary to include `${catalina.home}` in server.xml for logback-access.  We have also realligned our code to better match logback in all ways.
+Throughout this documentation you will read about the prior setup and the new setup.  Both should work without problems.
+
+## RELEASES ##
+
+Releases are grouped by tomcat version.  Pick the version most appropriate to your usecase.  If you would like a prebuilt version not listed please open an issue.
+
+[tomcat6](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat6)
+[tomcat7](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat7)
+[tomcat8](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat8)
+[tomcat85](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat85)
+[tomcat9](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat9)
 
 ## Quick Start ##
 
 If you quickly want to configure Tomcat to use Slf4J and Logback, just download latest package available
 from github [releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
-into $CATALINA_HOME.  Beware! - doing so will replace server.xml with default version and logging valve.
+into $CATALINA_HOME.  Be advised doing so will replace server.xml with default version and logging valve!
 
-Some rather old versions are not predefined for direct exploding into $CATALINA_HOME.
+Some rather old versions are not predefined for direct exploding into $CATALINA_HOME.  If you would like that changed,
+please raise an issue.
 
 The following directions are for manual setup.
 
@@ -61,12 +77,12 @@ Final step: run `$CATALINA_HOME/bin/startup.sh` (or `startup.bat`). Voila!
 
 ## Git Bash ##
 
-Master current of 6/18/16 builds has modified setenv.sh file such that it is now possible to use
-git bash to run using *nix based files.
+Git Bash in Windows now supports *nix based running.  This was accomplished by removing undocumented logback
+setting `file:` from logback.configurationFile.
 
 ## Maven Central Distribution ##
 
-Maven central distribution is primarily for users building tomcat distributions.
+Maven central distribution is primarily for users building tomcat distributions.  We are still working on this feature.
 
 For developers to release, source jar and zip need deleted on distribution before release can proceed.
 
@@ -84,7 +100,7 @@ The tomcat-slfj4-logback binary must be renamed as tomcat-juli to use within a t
 
 ## Site Page ##
 
-Site page is located [here](http://grgrzybek.github.io/tomcat-slf4j-logback/)
+Site page is located [here](https://grgrzybek.github.io/tomcat-slf4j-logback/)
 
 ## Details ##
 
@@ -203,8 +219,8 @@ can be found in conf/logback.xml from github [releases] (https://github.com/grgr
 
 #### Tomcat 6.0.x 7.0.x 8.0.x 8.5.x 9.0.x ####
 
-After unpacking `apache-tomcat-6.0.x.tgz`, `apache-tomcat-7.0.x.tgz`, `apache-tomcat-8.0.x.tgz`, `apache-tomcat-8.5.x.tgz`
-or `apache-tomcat-9.0.x.tgz` one can run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running
+After unpacking `apache-tomcat-6.0.x.zip`, `apache-tomcat-7.0.x.zip`, `apache-tomcat-8.0.x.zip`, `apache-tomcat-8.5.x.zip`
+or `apache-tomcat-9.0.x.zip` one can run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running
 Tomcat with standard java.util.logging enabled. The standard commandline is:
 
     "java" \
