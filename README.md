@@ -83,9 +83,11 @@ setting `file:` from logback.configurationFile.
 
 ## Maven Central Distribution ##
 
-Maven central distribution is primarily for users building tomcat distributions.  We are still working on this feature.
+Maven central distribution is primarily for users building tomcat distributions.
 
-For developers to release, source jar and zip need deleted on distribution before release can proceed.
+For developers to release
+
+ - mvn deploy -Prelease
 
 For users to get release, use dependency as follows.
 
