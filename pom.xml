@@ -853,6 +853,74 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Build-Time>${maven.build.timestamp}</Build-Time>
+                            <copyright>${copyright}</copyright>
+                            <!-- Git Commit Id property is auto generated -->
+                            <Git-Revision>${git.commit.id}</Git-Revision>
+                            <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
+                            <Slf4j-Version>${slf4j.version}</Slf4j-Version>
+                            <Logback-Version>${logback.version}</Logback-Version>
+                            <Os-Name>${os.name}</Os-Name>
+                            <Os-Arch>${os.arch}</Os-Arch>
+                            <Os-Version>${os.version}</Os-Version>
+                            <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                            <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Build-Time>${maven.build.timestamp}</Build-Time>
+                            <copyright>${copyright}</copyright>
+                            <!-- Git Commit Id property is auto generated -->
+                            <Git-Revision>${git.commit.id}</Git-Revision>
+                            <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
+                            <Slf4j-Version>${slf4j.version}</Slf4j-Version>
+                            <Logback-Version>${logback.version}</Logback-Version>
+                            <Os-Name>${os.name}</Os-Name>
+                            <Os-Arch>${os.arch}</Os-Arch>
+                            <Os-Version>${os.version}</Os-Version>
+                            <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                            <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
