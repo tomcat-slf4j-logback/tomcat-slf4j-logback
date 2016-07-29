@@ -44,7 +44,7 @@
             <directory>${project.basedir}/src/assembly/conf-tomcat6</directory>
             <outputDirectory>conf</outputDirectory>
             <includes>
-                <include>logback-access-localhost.xml</include>
+                <include>logback-access.xml</include>
                 <include>logback.xml</include>
                 <include>server.xml</include>
             </includes>
