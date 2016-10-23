@@ -7,13 +7,13 @@
     <packaging>jar</packaging>
 
     <!-- Set version when deploying to central -->
-    <version>8.0.36</version>
+    <version>8.0.38</version>
 
-    <!-- <version>6.0.45-SNAPSHOT</version> -->
-    <!-- <version>7.0.70-SNAPSHOT</version> -->
-    <!-- <version>8.0.36-SNAPSHOT</version> -->
-    <!-- <version>8.5.4-SNAPSHOT</version> -->
-    <!-- <version>9.0.0.M9-SNAPSHOT</version> -->
+    <!-- <version>6.0.47-SNAPSHOT</version> -->
+    <!-- <version>7.0.72-SNAPSHOT</version> -->
+    <!-- <version>8.0.38-SNAPSHOT</version> -->
+    <!-- <version>8.5.6-SNAPSHOT</version> -->
+    <!-- <version>9.0.0.M11-SNAPSHOT</version> -->
 
     <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
@@ -134,11 +134,11 @@
         <logback-for-tomcat6.version>0.9.30</logback-for-tomcat6.version>
         <slf4j.version>1.7.21</slf4j.version>
 
-        <tomcat6.version>6.0.45</tomcat6.version>
-        <tomcat7.version>7.0.70</tomcat7.version>
-        <tomcat8.version>8.0.36</tomcat8.version>
-        <tomcat85.version>8.5.4</tomcat85.version>
-        <tomcat9.version>9.0.0.M9</tomcat9.version>
+        <tomcat6.version>6.0.47</tomcat6.version>
+        <tomcat7.version>7.0.72</tomcat7.version>
+        <tomcat8.version>8.0.38</tomcat8.version>
+        <tomcat85.version>8.5.6</tomcat85.version>
+        <tomcat9.version>9.0.0.M11</tomcat9.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
     </properties>
 
