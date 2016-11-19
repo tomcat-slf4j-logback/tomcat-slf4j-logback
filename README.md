@@ -125,7 +125,7 @@ Then all classes are refactored under `org.apache.juli.logging` package/subpacka
 
 To allow web applications to use their own slf4j-api and logback-classic, classes used by Tomcat (particularly
 jcl-over-slf4j) must go into different, non-standard packages. According to 
-[Tomcat Documentation](http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions)
+[Tomcat Documentation](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions)
 web application looks up classes in their `WEB-INF/classes` directory and `WEB-INF/lib/*.jar` files before looking
 them in `$CATALINA_HOME/lib`, but **after** looking them in _system class loader_. So Tomcat needs only to
 have `tomcat-juli` replaced with versions of `jcl-over-slf4j`, `slf4j-api`, `logback-core`, and `logback-classic`
