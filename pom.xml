@@ -134,11 +134,11 @@
         <logback-for-tomcat6.version>0.9.30</logback-for-tomcat6.version>
         <slf4j.version>1.7.21</slf4j.version>
 
-        <tomcat6.version>6.0.47</tomcat6.version>
-        <tomcat7.version>7.0.72</tomcat7.version>
-        <tomcat8.version>8.0.38</tomcat8.version>
-        <tomcat85.version>8.5.6</tomcat85.version>
-        <tomcat9.version>9.0.0.M11</tomcat9.version>
+        <tomcat6.version>6.0.48</tomcat6.version>
+        <tomcat7.version>7.0.73</tomcat7.version>
+        <tomcat8.version>8.0.39</tomcat8.version>
+        <tomcat85.version>8.5.8</tomcat85.version>
+        <tomcat9.version>9.0.0.M13</tomcat9.version>
         <tomcat.version>${tomcat8.version}</tomcat.version>
     </properties>
 
@@ -580,7 +580,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changes-plugin</artifactId>
-                    <version>2.12</version>
+                    <version>2.12.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -678,7 +678,7 @@
                         <dependency>
                             <groupId>org.apache.maven.skins</groupId>
                             <artifactId>maven-fluido-skin</artifactId>
-                            <version>1.5</version>
+                            <version>1.6</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.wagon</groupId>
