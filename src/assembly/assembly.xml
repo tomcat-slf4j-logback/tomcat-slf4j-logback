@@ -24,7 +24,7 @@
 
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}/src/assembly</directory>
+            <directory>${main.basedir}/src/assembly</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>LICENSE-logback.txt</include>
@@ -33,7 +33,7 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/src/assembly/bin</directory>
+            <directory>${main.basedir}/src/assembly/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
                 <include>setenv.bat</include>
@@ -41,7 +41,7 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/src/assembly/conf</directory>
+            <directory>${main.basedir}/src/assembly/conf</directory>
             <outputDirectory>conf</outputDirectory>
             <includes>
                 <include>logback-access.xml</include>
