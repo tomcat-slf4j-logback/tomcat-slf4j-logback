@@ -40,7 +40,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <descriptor>${main.basedir}/src/assembly/assembly.xml</descriptor>
+                    <descriptors>
+                        <descriptor>${main.basedir}/src/assembly/assembly.xml</descriptor>
+                    </descriptors>
                 </configuration>
                 <executions>
                     <execution>
