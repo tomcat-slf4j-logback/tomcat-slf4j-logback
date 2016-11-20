@@ -169,7 +169,7 @@ as commons-logging is transformed in Tomcat's build process. It is eventually co
 
 * `jcl-over-slf4j` - commons logging over SLF4J JAR.
 * `slf4j-api` - main SLF4J JAR.
-* `logback-core* - core Logback JAR.
+* `logback-core` - core Logback JAR.
 * `logback-classic` - actual SLF4J binding JAR.
 
 Prior builds of this project contained 4 separate jars where tomcat-juli noted these in the manifest in
@@ -203,8 +203,8 @@ variables - in `catalina.sh`, `setenv.sh` or other):
 
     -Djuli-logback.configurationFile=file:<logback.xml location>
 
-	Alternative to allow git bash, remove the `file:` marker.  This works on newer tomcat versions but has not been
-	tested on older copies.  It works using the bat or sh in this mode.
+Alternative to allow git bash, remove the `file:` marker.  This works on newer tomcat versions but has not been
+tested on older copies.  It works using the bat or sh in this mode.
 	
 	-Djuli-logback.configurationFile=<logback.xml location>
 
