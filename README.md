@@ -80,11 +80,7 @@ setting `file:` from logback.configurationFile.
 
 ## Maven Central Distribution ##
 
-Maven central distribution is primarily for users building tomcat distributions.
-
-For developers to release
-
- - mvn deploy -Prelease
+Maven central distribution is available.  Zip binaries contain same as github releases.  Below are tomcat-juli jars.
 
 For users to get release, use dependency as follows.
 
@@ -171,10 +167,10 @@ as commons-logging is transformed in Tomcat's build process. It is eventually co
    constructing _system class loader_. This JAR is transformed and placed in
    `$CATALINA_HOME/bin/tomcat-juli.jar` file.:
 
-* *jcl-over-slf4j* - commons logging over SLF4J JAR.
-* *slf4j-api* - main SLF4J JAR.
-* *logback-core* - core Logback JAR.
-* *logback-classic* - actual SLF4J binding JAR.
+* `jcl-over-slf4j` - commons logging over SLF4J JAR.
+* `slf4j-api` - main SLF4J JAR.
+* `logback-core* - core Logback JAR.
+* `logback-classic` - actual SLF4J binding JAR.
 
 Prior builds of this project contained 4 separate jars where tomcat-juli noted these in the manifest in
 order to avoid further touching of tomcat configuration files for security purposes.  Current build 
