@@ -8,9 +8,6 @@ Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all intern
 
 ## NOTICE ##
 
-Tomcat embedded can be built here but has not been tested and therefore we are currently not providing pre-built releases.  If you happen to test that and it works, please advise
-and we will start adding embedded pre-built releases.
-
 As of logback 1.1.7, it is no longer necessary to include `${catalina.home}` in server.xml for logback-access.  We have also realligned our code to better match logback in all ways.
 Throughout this documentation you will read about the prior setup and the new setup.  Both should work without problems.
 
@@ -94,7 +91,39 @@ For users to get release, use dependency as follows.
 ```xml
 <dependency>
     <groupId>com.github.grgrzybek</groupId>
-    <artifactId>tomcat-slf4j-logback</artifactId>
+    <artifactId>tomcat6-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat7-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat8-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat85-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat9-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>
 ```
@@ -159,14 +188,9 @@ Type:
 
     mvn clean install
 
-If you want to do a build for different Tomcat versions (Tomcat 7 and above), just append
-`-Dtomcat.version=x.x.x` option.
+Tomcat versions for 6, 7, 8, 8.5, and 9 will build.  Specifically for tomcat 6, it will only use Logback below version 1.0.0!
 
-If you want to build for Tomcat 6 (only Logback versions below 1.0.0!), type:
-
-    mvn clean install -Ptomcat6 -P-tomcat7+
-
-And move tomcat-juli JAR from `target` directory to `$CATALINA_HOME/bin` directory.
+And move tomcat-juli JAR for your tomcat version from `target` directory to `$CATALINA_HOME/bin` directory.
 
 More detailed instruction:
 

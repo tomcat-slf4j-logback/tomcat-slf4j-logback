@@ -6,6 +6,6 @@ package com.github.grgrzybek.notice;
  *
  * @see <a href="https://github.com/grgrzybek/tomcat-slf4j-logback">https://github.com/grgrzybek/tomcat-slf4j-logback</a>
  */
-public class TomcatSlf4jLogback {
-    // Marker Class
+public interface TomcatSlf4jLogback {
+    // Empty class to force javadoc generation.
 }
