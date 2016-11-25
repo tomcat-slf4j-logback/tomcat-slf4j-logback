@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+<assembly xmlns="https:://maven.apache.org/plugins/maven-assembly-plugin/assembly/2.0.0" xmlns:xsi="https:://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https:://maven.apache.org/plugins/maven-assembly-plugin/assembly/2.0.0 https:://maven.apache.org/xsd/assembly-2.0.0.xsd">
 
     <id>${tomcat.version}-slf4j-${slf4j.version}-logback-${logback.version}</id>
 
@@ -24,7 +24,7 @@
 
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}/src/assembly</directory>
+            <directory>${main.basedir}/src/assembly</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>LICENSE-logback.txt</include>
@@ -33,7 +33,7 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/src/assembly/bin</directory>
+            <directory>${main.basedir}/src/assembly/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
                 <include>setenv.bat</include>
@@ -41,7 +41,7 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/src/assembly/conf</directory>
+            <directory>${main.basedir}/src/assembly/conf</directory>
             <outputDirectory>conf</outputDirectory>
             <includes>
                 <include>logback-access.xml</include>

@@ -8,9 +8,6 @@ Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all intern
 
 ## NOTICE ##
 
-Tomcat embedded can be built here but has not been tested and therefore we are currently not providing pre-built releases.  If you happen to test that and it works, please advise
-and we will start adding embedded pre-built releases.
-
 As of logback 1.1.7, it is no longer necessary to include `${catalina.home}` in server.xml for logback-access.  We have also realligned our code to better match logback in all ways.
 Throughout this documentation you will read about the prior setup and the new setup.  Both should work without problems.
 
@@ -83,18 +80,46 @@ setting `file:` from logback.configurationFile.
 
 ## Maven Central Distribution ##
 
-Maven central distribution is primarily for users building tomcat distributions.
-
-For developers to release
-
- - mvn deploy -Prelease
+Maven central distribution is available.  Zip binaries contain same as github releases.  Below are tomcat-juli jars.
 
 For users to get release, use dependency as follows.
 
 ```xml
 <dependency>
     <groupId>com.github.grgrzybek</groupId>
-    <artifactId>tomcat-slf4j-logback</artifactId>
+    <artifactId>tomcat6-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat7-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat8-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat85-slf4j-logback</artifactId>
+	<version>${tomcat.version}</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat9-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>
 ```
@@ -125,7 +150,7 @@ Then all classes are refactored under `org.apache.juli.logging` package/subpacka
 
 To allow web applications to use their own slf4j-api and logback-classic, classes used by Tomcat (particularly
 jcl-over-slf4j) must go into different, non-standard packages. According to 
-[Tomcat Documentation](http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions)
+[Tomcat Documentation](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html#Class_Loader_Definitions)
 web application looks up classes in their `WEB-INF/classes` directory and `WEB-INF/lib/*.jar` files before looking
 them in `$CATALINA_HOME/lib`, but **after** looking them in _system class loader_. So Tomcat needs only to
 have `tomcat-juli` replaced with versions of `jcl-over-slf4j`, `slf4j-api`, `logback-core`, and `logback-classic`
@@ -142,10 +167,10 @@ as commons-logging is transformed in Tomcat's build process. It is eventually co
    constructing _system class loader_. This JAR is transformed and placed in
    `$CATALINA_HOME/bin/tomcat-juli.jar` file.:
 
-* *jcl-over-slf4j* - commons logging over SLF4J JAR.
-* *slf4j-api* - main SLF4J JAR.
-* *logback-core* - core Logback JAR.
-* *logback-classic* - actual SLF4J binding JAR.
+* `jcl-over-slf4j` - commons logging over SLF4J JAR.
+* `slf4j-api` - main SLF4J JAR.
+* `logback-core` - core Logback JAR.
+* `logback-classic` - actual SLF4J binding JAR.
 
 Prior builds of this project contained 4 separate jars where tomcat-juli noted these in the manifest in
 order to avoid further touching of tomcat configuration files for security purposes.  Current build 
@@ -159,14 +184,9 @@ Type:
 
     mvn clean install
 
-If you want to do a build for different Tomcat versions (Tomcat 7 and above), just append
-`-Dtomcat.version=x.x.x` option.
+Tomcat versions for 6, 7, 8, 8.5, and 9 will build.  Specifically for tomcat 6, it will only use Logback below version 1.0.0!
 
-If you want to build for Tomcat 6 (only Logback versions below 1.0.0!), type:
-
-    mvn clean install -Ptomcat6 -P-tomcat7+
-
-And move tomcat-juli JAR from `target` directory to `$CATALINA_HOME/bin` directory.
+And move tomcat-juli JAR for your tomcat version from `target` directory to `$CATALINA_HOME/bin` directory.
 
 More detailed instruction:
 
@@ -183,8 +203,8 @@ variables - in `catalina.sh`, `setenv.sh` or other):
 
     -Djuli-logback.configurationFile=file:<logback.xml location>
 
-	Alternative to allow git bash, remove the `file:` marker.  This works on newer tomcat versions but has not been
-	tested on older copies.  It works using the bat or sh in this mode.
+Alternative to allow git bash, remove the `file:` marker.  This works on newer tomcat versions but has not been
+tested on older copies.  It works using the bat or sh in this mode.
 	
 	-Djuli-logback.configurationFile=<logback.xml location>
 

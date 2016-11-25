@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.grgrzybek</groupId>
+        <artifactId>tomcat-slf4j-logback</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.github.grgrzybek</groupId>
+    <artifactId>tomcat6-slf4j-logback</artifactId>
+    <version>6.0.48-SNAPSHOT</version>
+
+    <name>tomcat6-slf4j-logback</name>
+    <description>Tomcat6 Slf4j Logback Integration</description>
+
+    <scm>
+        <connection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</developerConnection>
+        <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <!-- Logback 0.9.30 needed for tomcat 6 support -->
+        <logback.version>0.9.30</logback.version>
+
+        <tomcat.version>6.0.48</tomcat.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>juli</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+     </dependencies>
+  
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <!-- Maven Hack to prevent deployment issue, defined twice as it causes downstream issue! -->
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <createSourcesJar>true</createSourcesJar>
+                            <shadeSourcesContent>true</shadeSourcesContent>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.apache.tomcat:juli</include>
+
+                                    <include>org.slf4j:jcl-over-slf4j</include>
+                                    <include>org.slf4j:slf4j-api</include>
+                                    <include>ch.qos.logback:logback-classic</include>
+                                    <include>ch.qos.logback:logback-core</include>
+                                </includes>
+                            </artifactSet>
+
+                            <filters>
+                                <filter>
+                                    <artifact>org.apache.tomcat:juli</artifact>
+                                    <includes>
+                                        <include>org/apache/juli/ClassLoaderLogManager**</include>
+                                        <include>META-INF/LICENSE</include>
+                                        <include>META-INF/NOTICE</include>
+                                    </includes>
+                                </filter>
+
+                                <filter>
+                                    <artifact>org.slf4j:jcl-over-slf4j</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/services/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.apache.commons.logging</pattern>
+                                    <shadedPattern>org.apache.juli.logging</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.slf4j</pattern>
+                                    <shadedPattern>org.apache.juli.logging.org.slf4j</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>ch.qos.logback</pattern>
+                                    <shadedPattern>org.apache.juli.logging.ch.qos.logback</shadedPattern>
+                                </relocation>
+                                <!-- Located in org.apache.juli.logging.ch.qos.logback.classic.util -->
+                                <relocation>
+                                    <pattern>logback.configurationFile</pattern>
+                                    <shadedPattern>juli-logback.configurationFile</shadedPattern>
+                                </relocation>
+                                <!-- Located in org.apache.juli.logging.org.slf4j.MarkerFactory -->
+                                <relocation>
+                                    <pattern>logback.ContextSelector</pattern>
+                                    <shadedPattern>juli-logback.ContextSelector</shadedPattern>
+                                </relocation>
+                            </relocations>
+
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                    <resource>META-INF/LICENSE-logback.txt</resource>
+                                    <file>${main.basedir}/src/assembly/LICENSE-logback.txt</file>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                    <resource>META-INF/LICENSE-slf4j.txt</resource>
+                                    <file>${main.basedir}/src/assembly/LICENSE-slf4j.txt</file>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                                    <resource>META-INF/services/org.apache.commons.logging.LogFactory</resource>
+                                    <file>${main.basedir}/src/assembly/services/org.apache.commons.logging.LogFactory</file>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
