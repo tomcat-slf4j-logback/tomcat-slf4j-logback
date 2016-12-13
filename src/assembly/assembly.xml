@@ -46,6 +46,12 @@
             <includes>
                 <include>logback-access.xml</include>
                 <include>logback.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/assembly/conf</directory>
+            <outputDirectory>conf</outputDirectory>
+            <includes>
                 <include>server.xml</include>
             </includes>
         </fileSet>
