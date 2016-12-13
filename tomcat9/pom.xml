@@ -32,7 +32,7 @@
             <artifactId>tomcat-juli</artifactId>
             <version>${tomcat.version}</version>
         </dependency>
-     </dependencies>
+    </dependencies>
 
     <build>
         <plugins>
