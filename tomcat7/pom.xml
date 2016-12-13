@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.github.grgrzybek</groupId>
         <artifactId>tomcat-slf4j-logback</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.github.grgrzybek</groupId>
     <artifactId>tomcat7-slf4j-logback</artifactId>
-    <version>7.0.73</version>
+    <version>7.0.74-SNAPSHOT</version>
 
     <name>tomcat7-slf4j-logback</name>
     <description>Tomcat7 Slf4j Logback Integration</description>

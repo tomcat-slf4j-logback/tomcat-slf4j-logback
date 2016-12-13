@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.github.grgrzybek</groupId>
         <artifactId>tomcat-slf4j-logback</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.github.grgrzybek</groupId>
     <artifactId>tomcat9-slf4j-logback</artifactId>
-    <version>9.0.0.M15</version>
+    <version>9.0.0.M16-SNAPSHOT</version>
 
     <name>tomcat9-slf4j-logback</name>
     <description>Tomcat9 Slf4j Logback Integration</description>
