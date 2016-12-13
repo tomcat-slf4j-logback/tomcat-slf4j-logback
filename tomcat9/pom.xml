@@ -32,19 +32,10 @@
             <artifactId>tomcat-juli</artifactId>
             <version>${tomcat.version}</version>
         </dependency>
-     </dependencies>
+    </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <!-- Maven Hack to prevent deployment issue, defined twice as it causes downstream issue! -->
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
