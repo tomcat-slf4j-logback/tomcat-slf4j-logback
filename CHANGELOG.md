@@ -1,12 +1,25 @@
-Next Release
-============
+Notable Changes
+---------------
+* [#124](https://github.com/grgrgzybek/tomcat-slf4j-logback/pull/124): Correct server.xml per version [@hazendaz]
 
-NOTE: Embedded tomcat piece is still not officially in working order.  Anyone using embedded, please try to get this working...
+* [#120](https://github.com/grgrgzybek/tomcat-slf4j-logback/pull/120): Multi-module revamp [@hazendaz]
 
-Misc
-----
+* [#111](https://github.com/grgrgzybek/tomcat-slf4j-logback/pull/111): Better sonatype support [@hazendaz]
+
+* [#108](https://github.com/grgrgzybek/tomcat-slf4j-logback/pull/108): Revamp logback support [@hazendaz]
+
+* [#107](https://github.com/grgrgzybek/tomcat-slf4j-logback/pull/107): Drop sourceforce [@hazendaz]
+
+* [#73](https://github.com/grgrgzybek/tomcat-slf4j-logback/pull/73): Add versioneye [@hazendaz]
+
+* [#62](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/62): Aligning to maven central [@hazendaz]
+
 * [#57](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/57): Embedded breakout [@hazendaz](https://github.com/hazendaz).
   * Embedded support was listed mixed throughout and commented out.  Now it is a profile as 'embedded'
+
+* [#53](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/53): Cleanup build / support embedded [@hazendaz]
+
+* [#48](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/48): Added travis-ci [@hazendaz]
 
 * [#33](https://github.com/grgrzybek/tomcat-slf4j-logback/pull/33): Merged Maven to Master [@hazendaz](https://github.com/hazendaz).
   * Maven build merged to master removing prior ant/ivy build

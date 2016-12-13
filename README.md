@@ -11,6 +11,8 @@ Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all intern
 As of logback 1.1.7, it is no longer necessary to include `${catalina.home}` in server.xml for logback-access.  We have also realligned our code to better match logback in all ways.
 Throughout this documentation you will read about the prior setup and the new setup.  Both should work without problems.
 
+Drop in support 'server.xml' is correct on latest release.  Issues existed in tomcat 8.0, 8.5, and 9.0 with Jasper listener being present.  Remove that listener to use older builds.
+
 ## RELEASES ##
 
 Releases are grouped by tomcat version.  Pick the version most appropriate to your usecase.  If you would like a prebuilt version not listed please open an issue.
@@ -41,8 +43,8 @@ and doesn't require any changes, unless you have your own version of `setenv.sh`
 * `conf/logback-access.xml` to `$CATALINA_HOME/conf` (older version was called `logback-access-localhost.xml`)
 * `conf/server.xml` to `$CATALINA_HOME/conf` (this file contains proper valve and doesn't require any
 changes, unless you have your own version of `server.xml`)
-* `lib/logback-core-1.1.7.jar` to `$CATALINA_HOME/lib`
-* `lib/logback-access-1.1.7.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-core-1.1.8.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-access-1.1.8.jar` to `$CATALINA_HOME/lib`
 
 Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off `java.util.logging` completely.
 
@@ -54,13 +56,13 @@ Add (if using legacy `logback-access-localhost.xml`):
 
     <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true"
        filename="${catalina.home}/conf/logback-access-localhost.xml" />
-	   
-	note: if using logback 1.1.7+, the `${catalina.home}` can be removed
+
+    note: if using logback 1.1.7+, the `${catalina.home}` can be removed
 
 Add (if using logback defined naming `logback-access.xml` which allows it to auto discover)
 
     <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true" />
-	   
+
 to `$CATALINA_HOME/conf/server.xml`.
 
 Remove:
