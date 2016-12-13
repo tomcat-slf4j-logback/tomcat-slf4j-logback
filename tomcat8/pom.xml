@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.github.grgrzybek</groupId>
         <artifactId>tomcat-slf4j-logback</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.github.grgrzybek</groupId>
     <artifactId>tomcat8-slf4j-logback</artifactId>
-    <version>8.0.39-SNAPSHOT</version>
+    <version>8.0.40-SNAPSHOT</version>
 
     <name>tomcat8-slf4j-logback</name>
     <description>Tomcat8 Slf4j Logback Integration</description>
@@ -47,7 +47,7 @@
                 <executions>
                     <execution>
                         <id>make-assembly</id>
-                        <phase>install</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
