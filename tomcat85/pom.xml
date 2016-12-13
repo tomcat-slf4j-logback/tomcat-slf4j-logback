@@ -10,7 +10,7 @@
 
     <groupId>com.github.grgrzybek</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
-    <version>8.5.8-SNAPSHOT</version>
+    <version>8.5.9-SNAPSHOT</version>
 
     <name>tomcat85-slf4j-logback</name>
     <description>Tomcat85 Slf4j Logback Integration</description>
@@ -23,7 +23,7 @@
     </scm>
 
     <properties>
-        <tomcat.version>8.5.8</tomcat.version>
+        <tomcat.version>8.5.9</tomcat.version>
     </properties>
 
     <dependencies>
