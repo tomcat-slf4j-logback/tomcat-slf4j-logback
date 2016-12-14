@@ -1,6 +1,6 @@
 ﻿# Tomcat + SLF4J + Logback #
 
-[![Build Status](https://travis-ci.org/hazendaz/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/hazendaz/tomcat-slf4j-logback)
+[![Build Status](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback)
 [![Dependency Status](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142)
 [![Github All Releases](https://img.shields.io/github/downloads/grgrzybek/tomcat-slf4j-logback/total.svg)]()
 
