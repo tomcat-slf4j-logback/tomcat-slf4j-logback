@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback)
 [![Dependency Status](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142)
-[![Github All Releases](https://img.shields.io/github/downloads/grgrzybek/tomcat-slf4j-logback/total.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/tomcat-slf4j-logback/tomcat-slf4j-logback/total.svg)]()
 
 Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all internal logging to use our favorite slf4j/logback libraries.
 
@@ -17,16 +17,16 @@ Drop in support 'server.xml' is correct on latest release.  Issues existed in to
 
 Releases are grouped by tomcat version.  Pick the version most appropriate to your usecase.  If you would like a prebuilt version not listed please open an issue.
 
-[tomcat6](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat6)
-[tomcat7](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat7)
-[tomcat8](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat8)
-[tomcat85](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat85)
-[tomcat9](https://github.com/grgrzybek/tomcat-slf4j-logback/releases/tag/tomcat9)
+[tomcat6](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat6)
+[tomcat7](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat7)
+[tomcat8](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat8)
+[tomcat85](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat85)
+[tomcat9](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat9)
 
 ## Quick Start ##
 
 If you quickly want to configure Tomcat to use Slf4J and Logback, just download latest package available
-from github [releases](https://github.com/grgrzybek/tomcat-slf4j-logback/releases)
+from github [releases](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases)
 into $CATALINA_HOME.  Be advised doing so will replace server.xml with default version and logging valve!
 
 Some rather old versions are not predefined for direct exploding into $CATALINA_HOME.  If you would like that changed,
@@ -130,7 +130,7 @@ The tomcat-slfj4-logback binary must be renamed as tomcat-juli to use within a t
 
 ## Site Page ##
 
-Site page is located [here](https://grgrzybek.github.io/tomcat-slf4j-logback/)
+Site page is located [here](https://tomcat-slf4j-logback.github.io/tomcat-slf4j-logback/)
 
 ## Details ##
 
@@ -237,7 +237,7 @@ Configuration of logback-access doesn't require renamed packages, as the require
 _common class loader_.
 
 Sample `logback.xml` reflecting the configuration from standard `$CATALINA_HOME/conf/logging.properties`
-can be found in conf/logback.xml from github [releases] (https://github.com/grgrzybek/tomcat-slf4j-logback/releases).
+can be found in conf/logback.xml from github [releases] (https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases).
 
 
 ## Tomcat Customization ##
