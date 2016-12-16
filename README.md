@@ -88,7 +88,7 @@ For users to get release, use dependency as follows.
 
 ```xml
 <dependency>
-    <groupId>com.github.grgrzybek</groupId>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat6-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>
@@ -96,7 +96,7 @@ For users to get release, use dependency as follows.
 
 ```xml
 <dependency>
-    <groupId>com.github.grgrzybek</groupId>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat7-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>
@@ -104,7 +104,7 @@ For users to get release, use dependency as follows.
 
 ```xml
 <dependency>
-    <groupId>com.github.grgrzybek</groupId>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat8-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>
@@ -112,7 +112,7 @@ For users to get release, use dependency as follows.
 
 ```xml
 <dependency>
-    <groupId>com.github.grgrzybek</groupId>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>
@@ -120,7 +120,7 @@ For users to get release, use dependency as follows.
 
 ```xml
 <dependency>
-    <groupId>com.github.grgrzybek</groupId>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat9-slf4j-logback</artifactId>
 	<version>${tomcat.version}</artifactId>
 </dependency>

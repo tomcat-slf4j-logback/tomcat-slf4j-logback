@@ -22,7 +22,7 @@
     </custom>
     <body>
         <links>
-            <item name="Tomcat Slf4j Logback" href="https://github.com/grgrzybek/tomcat-slf4j-logback" />
+            <item name="Tomcat Slf4j Logback" href="https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback" />
         </links>
         <menu ref="reports" />
     </body>

@@ -23,7 +23,7 @@ echo "Current commit detected: ${commit_message}"
 #    a. Use -q option to only display Maven errors and warnings.
 #    b. Use --settings to force the usage of our "settings.xml" file.
 
-if [ "$upstream_repo" == "grgrzybek/tomcat-slf4j-logback" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [[ "$commit_message" != *"[maven-release-plugin]"* ]]; then
+if [ "$upstream_repo" == "tomcat-slf4j-logback/tomcat-slf4j-logback" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [[ "$commit_message" != *"[maven-release-plugin]"* ]]; then
 
   if [ $TRAVIS_JDK_VERSION == "oraclejdk8" ]; then
     # Deploy sonatype (clean is required to avoid duplication issues in deployment)
