@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.grgrzybek</groupId>
+        <groupId>com.github.tomcat-slf4j-logback</groupId>
         <artifactId>tomcat-slf4j-logback</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.github.grgrzybek</groupId>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat8-slf4j-logback</artifactId>
     <version>8.0.40-SNAPSHOT</version>
 
@@ -16,9 +16,9 @@
     <description>Tomcat8 Slf4j Logback Integration</description>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</developerConnection>
-        <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
+        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</developerConnection>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
         <tag>HEAD</tag>
     </scm>
 

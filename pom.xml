@@ -2,7 +2,7 @@
 <project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.grgrzybek</groupId>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat-slf4j-logback</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -10,7 +10,7 @@
     <name>tomcat-slf4j-logback-parent</name>
     <description>Tomcat Slf4j Logback Integration</description>
 
-    <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
+    <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
     <inceptionYear>2010</inceptionYear>
 
     <prerequisites>
@@ -18,8 +18,8 @@
     </prerequisites>
 
     <organization>
-        <name>grgrzybek</name>
-        <url>https://github.com/grgrzybek/</url>
+        <name>tomcat-slf4j-logback</name>
+        <url>https://github.com/tomcat-slf4j-logback/</url>
     </organization>
 
     <developers>
@@ -60,18 +60,18 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/grgrzybek/tomcat-slf4j-logback/issues</url>
+        <url>https://github.com/tomcat-slf4j-logack/tomcat-slf4j-logback/issues</url>
     </issueManagement>
     <ciManagement>
         <system>travis-ci</system>
-        <url>https://travis-ci.org/grgrzybek/tomcat-slf4j-logback</url>
+        <url>https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
     </ciManagement>
 
     <distributionManagement>
         <site>
             <id>gh-pages</id>
             <name>Tomcat Slf4j Logback GitHub Pages</name>
-            <url>git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git?gh-pages#</url>
+            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git?gh-pages#</url>
         </site>
         <snapshotRepository>
             <id>ossrh</id>
@@ -105,9 +105,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/grgrzybek/tomcat-slf4j-logback.git</developerConnection>
-        <url>https://github.com/grgrzybek/tomcat-slf4j-logback</url>
+        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</developerConnection>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
         <tag>HEAD</tag>
     </scm>
 
