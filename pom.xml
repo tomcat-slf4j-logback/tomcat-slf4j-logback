@@ -644,6 +644,7 @@
 
     <reporting>
         <plugins>
+            <!-- TODO: This is causing a 404 error, ignore for now
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
@@ -655,6 +656,7 @@
                     </reportSet>
                 </reportSets>
             </plugin>
+            -->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
