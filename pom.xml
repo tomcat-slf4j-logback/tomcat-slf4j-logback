@@ -7,7 +7,7 @@
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>tomcat-slf4j-logback-parent</name>
+    <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
 
     <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
