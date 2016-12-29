@@ -7,7 +7,7 @@
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>tomcat-slf4j-logback-parent</name>
+    <name>tomcat-slf4j-logback</name>
     <description>Tomcat Slf4j Logback Integration</description>
 
     <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
@@ -306,7 +306,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.10</version>
+                    <version>3.0.0</version>
                 </plugin>
 
                 <plugin>
@@ -535,7 +535,7 @@
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>4.5.0.201609210915-r</version>
+                            <version>4.6.0.201612231935-r</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
@@ -644,6 +644,7 @@
 
     <reporting>
         <plugins>
+            <!-- TODO: This is causing a 404 error, ignore for now
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
@@ -655,6 +656,7 @@
                     </reportSet>
                 </reportSets>
             </plugin>
+            -->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
