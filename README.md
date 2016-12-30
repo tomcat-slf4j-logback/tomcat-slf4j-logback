@@ -90,7 +90,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat6-slf4j-logback</artifactId>
-	<version>${tomcat.version}</artifactId>
+	<version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -98,7 +98,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat7-slf4j-logback</artifactId>
-	<version>${tomcat.version}</artifactId>
+	<version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -106,7 +106,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat8-slf4j-logback</artifactId>
-	<version>${tomcat.version}</artifactId>
+	<version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -114,7 +114,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
-	<version>${tomcat.version}</artifactId>
+	<version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -122,7 +122,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat9-slf4j-logback</artifactId>
-	<version>${tomcat.version}</artifactId>
+	<version>${tomcat.version}</version>
 </dependency>
 ```
 
