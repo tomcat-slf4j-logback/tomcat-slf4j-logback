@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback)
 [![Dependency Status](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55ff4f0b601dd9001f000142)
+[![Project Stats](https://www.openhub.net/p/tomcat-slf4j-logback/widgets/project_thin_badge.gif)](https://www.openhub.net/p/tomcat-slf4j-logback)
 [![Github All Releases](https://img.shields.io/github/downloads/tomcat-slf4j-logback/tomcat-slf4j-logback/total.svg)]()
 
 Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all internal logging to use our favorite slf4j/logback libraries.
@@ -18,10 +19,19 @@ Drop in support 'server.xml' is correct on latest release.  Issues existed in to
 Releases are grouped by tomcat version.  Pick the version most appropriate to your usecase.  If you would like a prebuilt version not listed please open an issue.
 
 [tomcat6](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat6)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat6-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat6-slf4j-logback)
+
 [tomcat7](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat7)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat7-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat7-slf4j-logback)
+
 [tomcat8](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat8)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat8-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat8-slf4j-logback)
+
 [tomcat85](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat85)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback)
+
 [tomcat9](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat9)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat9-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat9-slf4j-logback)
 
 ## Quick Start ##
 
