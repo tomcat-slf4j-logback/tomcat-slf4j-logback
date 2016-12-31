@@ -18,6 +18,8 @@ Drop in support 'server.xml' is correct on latest release.  Issues existed in to
 
 Releases are grouped by tomcat version.  Pick the version most appropriate to your usecase.  If you would like a prebuilt version not listed please open an issue.  Both github releases and maven central are listed below.
 
+### NOTE: The github releases all say 9 due to glitch in badge.  Each one properly alignes to version you want ###
+
 [![tomcat6](http://github-release-version.herokuapp.com/github/tomcat-slf4j-logback/tomcat-slf4j-logback/release.svg?style=flat)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat6)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat6-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat6-slf4j-logback)
 
