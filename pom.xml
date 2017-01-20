@@ -120,7 +120,7 @@
     </modules>
     
     <properties>
-        <copyright>2015</copyright>
+        <copyright>2017</copyright>
         <github.global.server>github</github.global.server>
 
         <maven.compiler.source>1.6</maven.compiler.source>
