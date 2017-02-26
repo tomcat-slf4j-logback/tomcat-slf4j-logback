@@ -14,7 +14,7 @@
     <inceptionYear>2010</inceptionYear>
 
     <prerequisites>
-        <maven>3.2.5</maven>
+        <maven>${maven.min-version}</maven>
     </prerequisites>
 
     <organization>
@@ -126,14 +126,14 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.min-version>3.2.5</maven.min-version>
+        <maven.min-version>3.3.9</maven.min-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <logback.version>1.1.8</logback.version>
-        <slf4j.version>1.7.22</slf4j.version>
+        <logback.version>1.2.1</logback.version>
+        <slf4j.version>1.7.24</slf4j.version>
     </properties>
 
     <dependencies>
