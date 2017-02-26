@@ -78,6 +78,14 @@
                                         <exclude>META-INF/services/**</exclude>
                                     </excludes>
                                 </filter>
+
+                                <!-- Exclude services from logback-classic as we redefine them -->
+                                <filter>
+                                    <artifact>ch.qos.logback:logback-classic</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/services/**</exclude>
+                                    </excludes>
+                                </filter>
                             </filters>
 
                             <relocations>
