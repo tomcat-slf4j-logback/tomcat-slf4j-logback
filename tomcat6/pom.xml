@@ -73,6 +73,7 @@
                                     </includes>
                                 </filter>
 
+                                <!-- Exclude services from jcl-over-slf4j as we redefine them -->
                                 <filter>
                                     <artifact>org.slf4j:jcl-over-slf4j</artifact>
                                     <excludes>
@@ -94,12 +95,14 @@
                                     <pattern>ch.qos.logback</pattern>
                                     <shadedPattern>org.apache.juli.logging.ch.qos.logback</shadedPattern>
                                 </relocation>
-                                <!-- Located in org.apache.juli.logging.ch.qos.logback.classic.util -->
+
+                                <!-- Located in org.apache.juli.logging.ch.qos.logback.classic.util.ContextInitializer -->
                                 <relocation>
                                     <pattern>logback.configurationFile</pattern>
                                     <shadedPattern>juli-logback.configurationFile</shadedPattern>
                                 </relocation>
-                                <!-- Located in org.apache.juli.logging.org.slf4j.MarkerFactory -->
+
+                                <!-- Located in org.apache.juli.logging.ch.qos.logback.classic.ClassicConstants -->
                                 <relocation>
                                     <pattern>logback.ContextSelector</pattern>
                                     <shadedPattern>juli-logback.ContextSelector</shadedPattern>
