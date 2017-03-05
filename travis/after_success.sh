@@ -1,13 +1,14 @@
 #!/bin/bash
 #
-# Licensed under the GPL License. You may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Tomcat-Slf4j-Logback (https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/)
 #
-#   https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+# Copyright (c) 2010-2017 Tomcat-Slf4j-Logback.
 #
-# THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING,
-# WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR
-# PURPOSE.
+# All rights reserved. This program and the accompanying materials are made available under the
+# terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available
+# at https://www.eclipse.org/legal/epl-v10.html.
+#
+# Contributors: Tomcat-Slf4j-Logback Team.
 #
 
 # Get Commit Message
