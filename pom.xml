@@ -453,7 +453,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>2.4.3</version> <!-- TODO: There is a bug in 3.0.0 preventing tomcat 6 from working when it cannot find original source since that isn't in central. -->
                 </plugin>
 
                 <plugin>
