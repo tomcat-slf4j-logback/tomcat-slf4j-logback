@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Tomcat-Slf4j-Logback (https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/)
+
+    Copyright (c) 2010-2017 Tomcat-Slf4j-Logback.
+
+    All rights reserved. This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available
+    at https://www.eclipse.org/legal/epl-v10.html.
+
+    Contributors: Tomcat-Slf4j-Logback Team.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -85,6 +98,11 @@
 
     <licenses>
         <license>
+            <name>Eclipse Public License</name>
+            <url>https://raw.github.com/Waffle/waffle/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+        <license>
             <name>Tomcat License</name>
             <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>manual</distribution>
@@ -118,7 +136,7 @@
         <module>tomcat85</module>
         <module>tomcat9</module>
     </modules>
-    
+
     <properties>
         <copyright>2017</copyright>
         <github.global.server>github</github.global.server>
@@ -221,24 +239,6 @@
                         </plugin>
                     </plugins>
                 </pluginManagement>
-
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-clean-plugin</artifactId>
-                        <configuration>
-                            <excludeDefaultDirectories>true</excludeDefaultDirectories>
-                            <filesets>
-                                <fileset>
-                                    <directory>${project.build.directory}</directory>
-                                    <includes>
-                                        <include>**/*</include>
-                                    </includes>
-                                </fileset>
-                            </filesets>
-                        </configuration>
-                    </plugin>
-                </plugins>
             </build>
         </profile>
 
@@ -285,6 +285,33 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changes-plugin</artifactId>
                     <version>2.12.1</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-provider-jgit</artifactId>
+                            <version>1.9.5</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.googlecode.javaewah</groupId>
+                            <artifactId>JavaEWAH</artifactId>
+                            <version>1.1.6</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.jcraft</groupId>
+                            <artifactId>jsch</artifactId>
+                            <version>0.1.54</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.eclipse.jgit</groupId>
+                            <artifactId>org.eclipse.jgit</artifactId>
+                            <version>4.6.0.201612231935-r</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.plexus</groupId>
+                            <artifactId>plexus-utils</artifactId>
+                            <version>3.0.24</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <plugin>
@@ -551,10 +578,73 @@
                     <artifactId>directory-maven-plugin</artifactId>
                     <version>0.1</version>
                 </plugin>
+
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>3.0</version>
+                    <configuration>
+                        <header>${main.basedir}/license.txt</header>
+                        <excludes>
+                            <exclude>.factorypath</exclude>
+                            <exclude>.gitattributes</exclude>
+                            <exclude>.mvn/**</exclude>
+                            <exclude>mvnw</exclude>
+                            <exclude>mvnw.bat</exclude>
+                            <exclude>license.txt</exclude>
+                            <exclude>LICENSE</exclude>
+                            <exclude>**/LICENSE-logback.txt</exclude>
+                            <exclude>**/LICENSE-slf4j.txt</exclude>
+                            <exclude>**/LICENSE-tomcat.txt</exclude>
+                            <exclude>**/org.apache.juli.logging.LogFactory</exclude>
+                            <exclude>**/server.xml</exclude>
+                        </excludes>
+                        <mapping>
+                            <conf>DOUBLESLASH_STYLE</conf>
+                            <policy>DOUBLESLASH_STYLE</policy>
+                        </mapping>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.mycila</groupId>
+                            <artifactId>license-maven-plugin-git</artifactId>
+                            <version>3.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.build.directory}</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -644,7 +734,6 @@
 
     <reporting>
         <plugins>
-            <!-- TODO: This is causing a 404 error, ignore for now
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
@@ -656,7 +745,6 @@
                     </reportSet>
                 </reportSets>
             </plugin>
-            -->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
