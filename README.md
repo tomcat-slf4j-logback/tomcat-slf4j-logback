@@ -15,6 +15,8 @@ Throughout this documentation you will read about the prior setup and the new se
 
 Drop in support 'server.xml' is correct on latest release.  Issues existed in tomcat 8.0, 8.5, and 9.0 with Jasper listener being present.  Remove that listener to use older builds.
 
+Tomcat 6 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat6.  Please use our downloads and/or checkout project before removal was performed.
+
 ## RELEASES ##
 
 Releases are grouped by tomcat version.  Pick the version most appropriate to your usecase.  If you would like a prebuilt version not listed please open an issue.  Both github releases and maven central are listed below.
