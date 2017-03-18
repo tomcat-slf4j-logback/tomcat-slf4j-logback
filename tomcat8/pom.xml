@@ -83,7 +83,7 @@
                                     </includes>
                                 </filter>
 
-                                <!-- Exclude services from jcl-over-slf4j as we redefine them -->
+                                <!-- Exclude services from jcl-over-slf4j as not needed in this classloader-->
                                 <filter>
                                     <artifact>org.slf4j:jcl-over-slf4j</artifact>
                                     <excludes>
@@ -91,7 +91,7 @@
                                     </excludes>
                                 </filter>
 
-                                <!-- Exclude services from logback-classic as we redefine them -->
+                                <!-- Exclude services from logback-classic as not needed in this classloader -->
                                 <filter>
                                     <artifact>ch.qos.logback:logback-classic</artifact>
                                     <excludes>
@@ -143,10 +143,6 @@
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>META-INF/LICENSE-tomcat.txt</resource>
                                     <file>${main.basedir}/src/assembly/LICENSE-tomcat.txt</file>
-                                </transformer>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                                    <resource>META-INF/services/org.apache.commons.logging.LogFactory</resource>
-                                    <file>${main.basedir}/src/assembly/services/org.apache.commons.logging.LogFactory</file>
                                 </transformer>
                             </transformers>
                         </configuration>
