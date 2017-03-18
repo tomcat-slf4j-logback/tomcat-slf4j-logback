@@ -23,7 +23,7 @@
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat6-slf4j-logback</artifactId>
-    <version>6.0.49-SNAPSHOT</version>
+    <version>6.0.51-SNAPSHOT</version>
 
     <name>tomcat6-slf4j-logback</name>
     <description>Tomcat6 Slf4j Logback Integration</description>
@@ -39,7 +39,7 @@
         <!-- Logback 0.9.30 needed for tomcat 6 support -->
         <logback.version>0.9.30</logback.version>
 
-        <tomcat.version>6.0.48</tomcat.version>
+        <tomcat.version>6.0.51</tomcat.version>
     </properties>
 
     <dependencies>
