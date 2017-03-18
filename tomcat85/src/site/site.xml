@@ -19,8 +19,8 @@
         <href>https://tomcat.apache.org/</href>
     </bannerLeft>
     <bannerRight>
-        <src>http://logback.qos.ch/images/logos/lblogo.jpg</src>
-        <href>http://logback.qos.ch/</href>
+        <src>https://logback.qos.ch/images/logos/lblogo.jpg</src>
+        <href>https://logback.qos.ch/</href>
     </bannerRight>
     <skin>
         <groupId>org.apache.maven.skins</groupId>
