@@ -15,7 +15,7 @@ Throughout this documentation you will read about the prior setup and the new se
 
 Drop in support 'server.xml' is correct on latest release.  Issues existed in tomcat 8.0, 8.5, and 9.0 with Jasper listener being present.  Remove that listener to use older builds.
 
-Tomcat 6 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat6.  Please use our downloads and/or checkout project before removal was performed.
+Tomcat 6 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat6.  Please use our downloads and/or checkout project before removal was performed at [f047273](https://github.com/hazendaz/tomcat-slf4j-logback/commit/f0472736559b2b30038009e57593a7fe899929c9).
 
 ## RELEASES ##
 
@@ -58,8 +58,8 @@ and doesn't require any changes, unless you have your own version of `setenv.sh`
 * `conf/logback-access.xml` to `$CATALINA_HOME/conf` (older version was called `logback-access-localhost.xml`)
 * `conf/server.xml` to `$CATALINA_HOME/conf` (this file contains proper valve and doesn't require any
 changes, unless you have your own version of `server.xml`)
-* `lib/logback-core-1.1.8.jar` to `$CATALINA_HOME/lib`
-* `lib/logback-access-1.1.8.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-core-1.2.1.jar` to `$CATALINA_HOME/lib`
+* `lib/logback-access-1.2.1.jar` to `$CATALINA_HOME/lib`
 
 Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off `java.util.logging` completely.
 
@@ -201,7 +201,7 @@ Type:
 
     mvn clean install
 
-Tomcat versions for 6, 7, 8, 8.5, and 9 will build.  Specifically for tomcat 6, it will only use Logback below version 1.0.0!
+Tomcat versions for 7, 8, 8.5, and 9 will build.  Tomcat 6 is no longer provided on repo.
 
 And move tomcat-juli JAR for your tomcat version from `target` directory to `$CATALINA_HOME/bin` directory.
 
