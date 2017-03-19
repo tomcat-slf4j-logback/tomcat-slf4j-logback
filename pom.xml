@@ -207,20 +207,6 @@
                                     <pluginExecutions>
                                         <pluginExecution>
                                             <pluginExecutionFilter>
-                                                <groupId>org.commonjava.maven.plugins</groupId>
-                                                <artifactId>directory-maven-plugin</artifactId>
-                                                <versionRange>[0.1,)</versionRange>
-                                                <goals>
-                                                    <goal>highest-basedir</goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore />
-                                            </action>
-                                        </pluginExecution>
-
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
                                                 <groupId>org.apache.maven.plugins</groupId>
                                                 <artifactId>maven-enforcer-plugin</artifactId>
                                                 <versionRange>[1.4.1,)</versionRange>
@@ -280,6 +266,12 @@
                     <version>3.0.0</version>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changes-plugin</artifactId>
@@ -566,13 +558,6 @@
                     </dependencies>
                 </plugin>
 
-                <!-- Find maven root -->
-                <plugin>
-                    <groupId>org.commonjava.maven.plugins</groupId>
-                    <artifactId>directory-maven-plugin</artifactId>
-                    <version>0.1</version>
-                </plugin>
-
                 <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
@@ -609,6 +594,23 @@
         </pluginManagement>
 
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>root-location</id>
+                        <goals>
+                            <goal>rootlocation</goal>
+                        </goals>
+                        <configuration>
+                            <rootLocationProperty>main.basedir</rootLocationProperty>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -701,24 +703,6 @@
                         <goals>
                             <goal>jar-no-fork</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Find maven root -->
-            <plugin>
-                <groupId>org.commonjava.maven.plugins</groupId>
-                <artifactId>directory-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>directories</id>
-                        <goals>
-                            <goal>highest-basedir</goal>
-                        </goals>
-                        <phase>initialize</phase>
-                        <configuration>
-                            <property>main.basedir</property>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
