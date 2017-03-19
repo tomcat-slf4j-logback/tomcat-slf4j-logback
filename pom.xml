@@ -149,8 +149,8 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <logback.version>1.2.1</logback.version>
-        <slf4j.version>1.7.24</slf4j.version>
+        <logback.version>1.2.2</logback.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
 
     <dependencies>
@@ -452,7 +452,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>2.4.3</version> <!-- TODO: There is a bug in 3.0.0 preventing tomcat 6 from working when it cannot find original source since that isn't in central. -->
+                    <version>3.0.0</version>
                 </plugin>
 
                 <plugin>
@@ -590,7 +590,6 @@
                             <exclude>**/LICENSE-logback.txt</exclude>
                             <exclude>**/LICENSE-slf4j.txt</exclude>
                             <exclude>**/LICENSE-tomcat.txt</exclude>
-                            <exclude>**/org.apache.juli.logging.LogFactory</exclude>
                             <exclude>**/server.xml</exclude>
                         </excludes>
                         <mapping>
