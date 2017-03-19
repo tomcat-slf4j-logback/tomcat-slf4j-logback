@@ -590,7 +590,6 @@
                             <exclude>**/LICENSE-logback.txt</exclude>
                             <exclude>**/LICENSE-slf4j.txt</exclude>
                             <exclude>**/LICENSE-tomcat.txt</exclude>
-                            <exclude>**/org.apache.juli.logging.LogFactory</exclude>
                             <exclude>**/server.xml</exclude>
                         </excludes>
                         <mapping>
