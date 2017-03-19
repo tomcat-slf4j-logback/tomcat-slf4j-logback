@@ -63,6 +63,11 @@ changes, unless you have your own version of `server.xml`)
 
 Delete `$CATALINA_HOME/conf/logging.properties`. This will turn off `java.util.logging` completely.
 
+If you use your own `setenv.sh` in `$CATALINA_BASE/bin`, the default one `$CATALINA_HOME/bin/setenv.sh` will not be used,
+so you have to define `juli-logback.configurationFile` Java property in your local `setenv.sh` manually. 
+You can define it to use default configuration file like in `bin/setenv.sh` or to use any other located on your filesystem, 
+just make sure that Tomcat process will have enough privileges to read it.
+
 `conf/logback.xml` tries to reflect original Tomcat logging configuration. Feel free to change it.
 
 When using your own preconfigured `server.xml`, the following will need applied.
