@@ -573,7 +573,7 @@
                             <exclude>.gitattributes</exclude>
                             <exclude>.mvn/**</exclude>
                             <exclude>mvnw</exclude>
-                            <exclude>mvnw.bat</exclude>
+                            <exclude>mvnw.cmd</exclude>
                             <exclude>license.txt</exclude>
                             <exclude>LICENSE</exclude>
                             <exclude>**/LICENSE-logback.txt</exclude>
