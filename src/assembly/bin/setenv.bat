@@ -10,4 +10,4 @@
 @REM Contributors: Tomcat-Slf4j-Logback Team.
 @REM
 
-set JAVA_OPTS=%JAVA_OPTS% -Djuli-logback.configurationFile=%CATALINA_HOME%\conf\logback.xml
+set JAVA_OPTS=%JAVA_OPTS% -Djuli-logback.configurationFile="%CATALINA_HOME%\conf\logback.xml"
