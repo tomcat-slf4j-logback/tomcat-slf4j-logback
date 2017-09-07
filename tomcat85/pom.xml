@@ -23,7 +23,7 @@
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
-    <version>8.5.17-SNAPSHOT</version>
+    <version>8.5.20-SNAPSHOT</version>
 
     <name>tomcat85-slf4j-logback</name>
     <description>Tomcat85 Slf4j Logback Integration</description>

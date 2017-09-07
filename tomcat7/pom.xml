@@ -23,7 +23,7 @@
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat7-slf4j-logback</artifactId>
-    <version>7.0.80-SNAPSHOT</version>
+    <version>7.0.81-SNAPSHOT</version>
 
     <name>tomcat7-slf4j-logback</name>
     <description>Tomcat7 Slf4j Logback Integration</description>
@@ -36,7 +36,7 @@
     </scm>
 
     <properties>
-        <tomcat.version>7.0.79</tomcat.version>
+        <tomcat.version>7.0.81</tomcat.version>
     </properties>
 
     <dependencies>
