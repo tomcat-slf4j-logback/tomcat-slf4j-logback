@@ -79,6 +79,10 @@
                                     <includes>
                                         <include>org/apache/juli/ClassLoaderLogManager**</include>
                                         <include>org/apache/juli/WebappProperties.class</include>
+                                        <include>org/apache/juli/AsyncFileHandler*.class</include>
+                                        <include>org/apache/juli/FileHandler*.class</include>
+                                        <include>org/apache/juli/OneLineFormatter*.class</include>
+                                        <include>org/apache/juli/DateFormatCache*.class</include>
                                         <include>META-INF/NOTICE</include>
                                     </includes>
                                 </filter>
