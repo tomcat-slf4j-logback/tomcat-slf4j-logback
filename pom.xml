@@ -517,7 +517,7 @@
                     <version>2.2.4</version>
                     <configuration>
                         <failOnNoGitDirectory>false</failOnNoGitDirectory>
-                        <!-- Fixes occassional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+                        <!-- Fixes occasional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
                         <gitDescribe>
                             <always>true</always>
                         </gitDescribe>
