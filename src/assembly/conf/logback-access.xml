@@ -30,7 +30,7 @@
             <pattern>common</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${catalina.base}/logs/archive/localhost-access-%d{yyyyMMdd}-%i.log.zip</fileNamePattern> 
+            <fileNamePattern>${catalina.base}/logs/archive/localhost-access-%d{yyyyMMdd}-%i.log.tar.gz</fileNamePattern> 
             <maxHistory>${max.retention.days}</maxHistory>
             <maxFileSize>20MB</maxFileSize>
         </rollingPolicy>
