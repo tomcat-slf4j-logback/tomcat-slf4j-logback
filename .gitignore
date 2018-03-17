@@ -5,3 +5,4 @@ target
 *.iml
 .idea/
 *.swp
+.mvn/wrapper/maven-wrapper.jar
