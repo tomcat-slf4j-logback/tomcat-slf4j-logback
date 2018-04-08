@@ -30,7 +30,7 @@
             <pattern>%d{HH:mm:ss.SSS} %-5level {%thread} [%logger{40}] : %msg%n</pattern>
         </encoder>
         <rollingPolicy class="org.apache.juli.logging.ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${catalina.base}/logs/archive/catalina-%d{yyyyMMdd}-%i.log.tar.gz</fileNamePattern> 
+            <fileNamePattern>${catalina.base}/logs/archive/catalina-%d{yyyyMMdd}-%i.log.gz</fileNamePattern> 
             <maxHistory>${max.retention.days}</maxHistory>
             <cleanHistoryOnStart>true</cleanHistoryOnStart>
             <maxFileSize>20MB</maxFileSize>
@@ -45,7 +45,7 @@
             <pattern>%d{HH:mm:ss.SSS} %logger{0} {%thread} %level : %msg%n</pattern>
         </encoder>
         <rollingPolicy class="org.apache.juli.logging.ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${catalina.base}/logs/archive/localhost-%d{yyyyMMdd}-%i.log.tar.gz</fileNamePattern> 
+            <fileNamePattern>${catalina.base}/logs/archive/localhost-%d{yyyyMMdd}-%i.log.gz</fileNamePattern> 
             <maxHistory>${max.retention.days}</maxHistory>
             <maxFileSize>20MB</maxFileSize>
         </rollingPolicy>
@@ -59,7 +59,7 @@
             <pattern>%d{HH:mm:ss.SSS} %logger{0} {%thread} %level : %msg%n</pattern>
         </encoder>
         <rollingPolicy class="org.apache.juli.logging.ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${catalina.base}/logs/archive/manager-%d{yyyyMMdd}-%i.log.tar.gz</fileNamePattern> 
+            <fileNamePattern>${catalina.base}/logs/archive/manager-%d{yyyyMMdd}-%i.log.gz</fileNamePattern> 
             <maxHistory>${max.retention.days}</maxHistory>
             <maxFileSize>20MB</maxFileSize>
         </rollingPolicy>
@@ -73,7 +73,7 @@
             <pattern>%d{HH:mm:ss.SSS} %logger{0} {%thread} %level : %msg%n</pattern>
         </encoder>
         <rollingPolicy class="org.apache.juli.logging.ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${catalina.base}/logs/archive/host-manager-%d{yyyyMMdd}-%i.log.tar.gz</fileNamePattern> 
+            <fileNamePattern>${catalina.base}/logs/archive/host-manager-%d{yyyyMMdd}-%i.log.gz</fileNamePattern> 
             <maxHistory>${max.retention.days}</maxHistory>
             <maxFileSize>20MB</maxFileSize>
         </rollingPolicy>
