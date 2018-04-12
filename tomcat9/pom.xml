@@ -18,12 +18,12 @@
     <parent>
         <groupId>com.github.tomcat-slf4j-logback</groupId>
         <artifactId>tomcat-slf4j-logback</artifactId>
-        <version>1.0.10</version>
+        <version>1.0.11-SNAPSHOT</version>
     </parent>
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat9-slf4j-logback</artifactId>
-    <version>9.0.6</version>
+    <version>9.0.7-SNAPSHOT</version>
 
     <name>tomcat9-slf4j-logback</name>
     <description>Tomcat9 Slf4j Logback Integration</description>
@@ -32,7 +32,7 @@
         <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</developerConnection>
         <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
-        <tag>tomcat-slf4j-logback-1.0.10</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
