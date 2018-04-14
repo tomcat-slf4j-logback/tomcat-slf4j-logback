@@ -69,7 +69,7 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/tomcat-slf4j-logack/tomcat-slf4j-logback/issues</url>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/issues</url>
     </issueManagement>
     <ciManagement>
         <system>travis-ci</system>
