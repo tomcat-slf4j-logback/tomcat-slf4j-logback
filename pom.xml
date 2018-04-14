@@ -706,6 +706,14 @@
                 </executions>
             </plugin>
         </plugins>
+
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>3.0.0</version>
+            </extension>
+        </extensions>
     </build>
 
     <reporting>
