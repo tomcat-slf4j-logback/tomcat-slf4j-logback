@@ -7,4 +7,4 @@ target
 *.swp
 .mvn/wrapper/maven-wrapper.jar
 *.releaseBackup
-*.properties
+release.properties
