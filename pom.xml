@@ -468,6 +468,11 @@
                             <artifactId>maven-fluido-skin</artifactId>
                             <version>1.7</version>
                         </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.wagon</groupId>
+                            <artifactId>wagon-ssh</artifactId>
+                            <version>3.0.0</version>
+                         </dependency>
                     </dependencies>
                 </plugin>
 
