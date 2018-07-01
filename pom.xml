@@ -139,7 +139,7 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.min-version>3.5.2</maven.min-version>
+        <maven.min-version>3.5.3</maven.min-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
@@ -276,7 +276,7 @@
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>1.9.5</version>
+                            <version>1.10.0</version>
                         </dependency>
                         <dependency>
                             <groupId>com.googlecode.javaewah</groupId>
@@ -324,7 +324,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.1.1</version>
                 </plugin>
 
                 <plugin>
@@ -389,7 +389,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.0.1</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -423,7 +423,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>2.9</version>
+                    <version>3.0.0</version>
                 </plugin>
 
                 <plugin>
@@ -438,7 +438,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>3.1.0</version>
                 </plugin>
 
                 <plugin>
@@ -450,7 +450,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7</version>
+                    <version>3.7.1</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
@@ -460,19 +460,19 @@
                         <dependency>
                             <groupId>net.trajano.wagon</groupId>
                             <artifactId>wagon-git</artifactId>
-                            <version>2.0.3</version>
+                            <version>2.0.3</version> <!-- Do not upgrade to 2.0.4 as it has ssh issues -->
                         </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.wagon</groupId>
+                            <artifactId>wagon-ssh</artifactId>
+                            <version>3.1.0</version>
+                         </dependency>
                         <!-- For reporting only of versions -->
                         <dependency>
                             <groupId>org.apache.maven.skins</groupId>
                             <artifactId>maven-fluido-skin</artifactId>
                             <version>1.7</version>
                         </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-ssh</artifactId>
-                            <version>3.0.0</version>
-                         </dependency>
                     </dependencies>
                 </plugin>
 
@@ -507,7 +507,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.21.0</version>
+                    <version>2.22.0</version>
                 </plugin>
 
                 <plugin>
@@ -533,12 +533,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
-                    <version>1.9.5</version>
+                    <version>1.10.0</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>1.9.5</version>
+                            <version>1.10.0</version>
                         </dependency>
                         <dependency>
                             <groupId>com.googlecode.javaewah</groupId>
@@ -716,7 +716,7 @@
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ssh</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0</version>
             </extension>
         </extensions>
     </build>
