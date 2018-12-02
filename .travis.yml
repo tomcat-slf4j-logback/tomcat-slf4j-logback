@@ -1,13 +1,14 @@
 language: java
 sudo: false
+
 jdk:
-  - oraclejdk9
+  - oraclejdk11
   - oraclejdk8
-  - openjdk8
-  - openjdk7
+
 after_success:
   - chmod -R 777 ./travis/after_success.sh
   - "./travis/after_success.sh"
+
 env:
   global:
   - secure: TNCpO/aNqx4YXjC06LVuv5mseDmg/uWs5TKh54v61tPfVPZfgLZucQjYg1Nt+aZ4O9zVlGG7Bz+6ZztdOc8tHdHVf97qUNEFwEbLKW8y09zsmhSwiDIkLtSV8A7Cl1ZSyMLLIvqeCqbm2ZxDEpteoxMIWc6+idOF0WfVEwb1t5g=
