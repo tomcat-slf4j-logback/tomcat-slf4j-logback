@@ -12,9 +12,11 @@ Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all intern
 As of logback 1.1.7, it is no longer necessary to include `${catalina.home}` in server.xml for logback-access.  We have also realligned our code to better match logback in all ways.
 Throughout this documentation you will read about the prior setup and the new setup.  Both should work without problems.
 
-Drop in support 'server.xml' is correct on latest release.  Issues existed in tomcat 8.0, 8.5, and 9.0 with Jasper listener being present.  Remove that listener to use older builds.
+Drop in support 'server.xml' is correct on latest release.  Issues existed in tomcat 8.5 and 9.0 with Jasper listener being present.  Remove that listener to use older builds.
 
 Tomcat 6 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat6.  Please use our downloads and/or checkout project before removal was performed at [f047273](https://github.com/hazendaz/tomcat-slf4j-logback/commit/f0472736559b2b30038009e57593a7fe899929c9).
+
+Tomcat 8 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat8.  Please use our downloads and/or checkout project before removal was performed at [bf0d9a2](https://github.com/hazendaz/tomcat-slf4j-logback/commit/bf0d9a2b4af6502306ab0faa8eb7d0327a494f97).
 
 ## RELEASES ##
 
@@ -207,7 +209,7 @@ Type:
 
     mvn clean install
 
-Tomcat versions for 7, 8, 8.5, and 9 will build.  Tomcat 6 is no longer provided on repo.
+Tomcat versions for 7, 8.5, and 9 will build.  Tomcat 6 and 8 is no longer provided on repo.
 
 And move tomcat-juli JAR for your tomcat version from `target` directory to `$CATALINA_HOME/bin` directory.
 
