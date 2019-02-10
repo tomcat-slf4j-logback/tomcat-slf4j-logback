@@ -126,7 +126,7 @@
     </scm>
 
     <modules>
-        <module>tomcat7</module>
+        <!-- <module>tomcat7</module> -->
         <module>tomcat85</module>
         <module>tomcat9</module>
     </modules>
