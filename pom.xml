@@ -132,7 +132,7 @@
     </modules>
 
     <properties>
-        <copyright>2018</copyright>
+        <copyright>2019</copyright>
         <github.global.server>github</github.global.server>
 
         <maven.compiler.source>1.6</maven.compiler.source>
