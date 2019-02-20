@@ -145,7 +145,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <logback.version>1.3.0-alpha4</logback.version>
-        <slf4j.version>1.8.0-beta2</slf4j.version>
+        <slf4j.version>1.8.0-beta4</slf4j.version>
     </properties>
 
     <dependencies>
