@@ -18,12 +18,12 @@
     <parent>
         <groupId>com.github.tomcat-slf4j-logback</groupId>
         <artifactId>tomcat-slf4j-logback</artifactId>
-        <version>1.0.18-SNAPSHOT</version>
+        <version>1.0.18</version>
     </parent>
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
-    <version>8.5.38-SNAPSHOT</version>
+    <version>8.5.38</version>
 
     <name>tomcat85-slf4j-logback</name>
     <description>Tomcat85 Slf4j Logback Integration</description>
@@ -32,7 +32,7 @@
         <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</developerConnection>
         <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
-        <tag>HEAD</tag>
+        <tag>tomcat-slf4j-logback-1.0.18</tag>
     </scm>
 
     <properties>
@@ -128,7 +128,7 @@
                             </relocations>
 
                             <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>META-INF/LICENSE</resource>
                                     <file>${main.basedir}/LICENSE</file>
