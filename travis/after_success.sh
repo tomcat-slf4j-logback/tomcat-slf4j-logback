@@ -28,7 +28,7 @@ if [ $TRAVIS_REPO_SLUG == "tomcat-slf4j-logback/tomcat-slf4j-logback" ] && [ $TR
 
   if [ $TRAVIS_JDK_VERSION == "oraclejdk8" ]; then
     # Deploy sonatype (clean is required to avoid duplication issues in deployment)
-    mvn clean deploy -q --settings ./travis/settings.xml
+    ./mvnw clean deploy -q --settings ./travis/settings.xml
     echo -e "Successfully deployed SNAPSHOT artifacts to Sonatype under Travis job ${TRAVIS_JOB_NUMBER}"
 
   fi
