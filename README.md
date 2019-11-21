@@ -26,6 +26,10 @@ Tomcat 6 is now End of Life.  As such, we no longer support it via repo as we ha
 
 Tomcat 8 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat8.  Please use our downloads and/or checkout project before removal was performed at [bf0d9a2](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/commit/bf0d9a2b4af6502306ab0faa8eb7d0327a494f97).
 
+## Java Support ##
+
+Java 7 through 14 is supported.
+
 ## RELEASES ##
 
 Releases are grouped by tomcat version.  Pick the version most appropriate to your use-case.  If you would like a pre-built version not listed please open an issue.  Both github releases and maven central are listed below.
@@ -121,7 +125,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat6-slf4j-logback</artifactId>
-	<version>${tomcat.version}</version>
+    <version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -129,7 +133,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat7-slf4j-logback</artifactId>
-	<version>${tomcat.version}</version>
+    <version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -137,7 +141,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat8-slf4j-logback</artifactId>
-	<version>${tomcat.version}</version>
+    <version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -145,7 +149,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
-	<version>${tomcat.version}</version>
+    <version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -153,7 +157,7 @@ For users to get release, use dependency as follows.
 <dependency>
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat9-slf4j-logback</artifactId>
-	<version>${tomcat.version}</version>
+    <version>${tomcat.version}</version>
 </dependency>
 ```
 
@@ -238,8 +242,8 @@ variables - in `catalina.sh`, `setenv.sh` or other):
 
 Alternative to allow git bash, remove the `file:` marker.  This works on newer tomcat versions but has not been
 tested on older copies.  It works using the bat or sh in this mode.
-	
-	-Djuli-logback.configurationFile=<logback.xml location>
+
+    -Djuli-logback.configurationFile=<logback.xml location>
 
 ## Configuration ##
 
@@ -309,12 +313,12 @@ Add (if using legacy `logback-access-localhost.xml`):
     <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true"
         filename="${catalina.home}/conf/logback-access-localhost.xml" />
 
-	note: if using logback 1.1.7+, the `${catalina.home}` can be removed
+    note: if using logback 1.1.7+, the `${catalina.home}` can be removed
 
 Add (if using logback defined naming `logback-access.xml` which allows it to auto discover)
 
     <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true" />
-		
+
 to `$CATALINA_HOME/conf/server.xml`, place properly configured `logback-access-localhost.xml` on
 `$CATALINA_HOME/conf` and place `logback-core` and `logback-access` JARs into `$CATALINA_HOME/lib`. This
 won't cause problems with individual WARs' slf4j+logback configuration, because `logback.xml` is read by
