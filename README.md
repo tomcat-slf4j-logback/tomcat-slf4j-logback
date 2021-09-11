@@ -36,7 +36,7 @@ Java 7 through 16 is supported.
 
 Releases are grouped by tomcat version.  Pick the version most appropriate to your use-case.  If you would like a pre-built version not listed please open an issue.  Both github releases and maven central are listed below.
 
-### NOTE: The github releases all say tomcat10 but resolve to version you want per label ###
+### NOTE: The github releases all say tomcat10 (latest) but resolve to version you want per label (left side) ###
 
 [![tomcat85](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat85)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat85)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback)
