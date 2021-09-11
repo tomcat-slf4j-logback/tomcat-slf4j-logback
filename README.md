@@ -36,26 +36,26 @@ Java 7 through 16 is supported.
 
 Releases are grouped by tomcat version.  Pick the version most appropriate to your use-case.  If you would like a pre-built version not listed please open an issue.  Both github releases and maven central are listed below.
 
-### NOTE: The github releases all say 9 due to glitch in badge.  Each one properly aligns to version you want ###
+### NOTE: The github releases all say tomcat10 but resolve to version you want per label ###
 
-[![tomcat85](http://github-release-version.herokuapp.com/github/tomcat-slf4j-logback/tomcat-slf4j-logback/release.svg?style=flat)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat85)
+[![tomcat85](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat85)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat85)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback)
 
-[![tomcat9](http://github-release-version.herokuapp.com/github/tomcat-slf4j-logback/tomcat-slf4j-logback/release.svg?style=flat)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat9)
+[![tomcat9](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat9)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat9)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat9-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat9-slf4j-logback)
 
-[![tomcat10](http://github-release-version.herokuapp.com/github/tomcat-slf4j-logback/tomcat-slf4j-logback/release.svg?style=flat)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat10)
+[![tomcat10](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat10)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat10)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat10-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat10-slf4j-logback)
 
 ** deprecated releases **
 
-[![tomcat6](http://github-release-version.herokuapp.com/github/tomcat-slf4j-logback/tomcat-slf4j-logback/release.svg?style=flat)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat6)
+[![tomcat6](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat6)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat6)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat6-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat6-slf4j-logback)
 
-[![tomcat7](http://github-release-version.herokuapp.com/github/tomcat-slf4j-logback/tomcat-slf4j-logback/release.svg?style=flat)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat7)
+[![tomcat7](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat7)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat7)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat7-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat7-slf4j-logback)
 
-[![tomcat8](http://github-release-version.herokuapp.com/github/tomcat-slf4j-logback/tomcat-slf4j-logback/release.svg?style=flat)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat8)
+[![tomcat8](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat8)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat8)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat8-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat8-slf4j-logback)
 
 ## Quick Start ##
