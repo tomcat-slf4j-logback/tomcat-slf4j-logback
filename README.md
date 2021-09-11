@@ -166,6 +166,14 @@ For users to get release, use dependency as follows.
 </dependency>
 ```
 
+```xml
+<dependency>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
+    <artifactId>tomcat10-slf4j-logback</artifactId>
+    <version>${tomcat.version}</version>
+</dependency>
+```
+
 The tomcat-slfj4-logback binary must be renamed as tomcat-juli to use within a tomcat build.
 
 ## Site Page ##
@@ -282,10 +290,10 @@ can be found in conf/logback.xml from github [releases] (https://github.com/tomc
 
 ## Tomcat Customization ##
 
-#### Tomcat 6.0.x 7.0.x 8.0.x 8.5.x 9.0.x ####
+#### Tomcat 6.0.x 7.0.x 8.0.x 8.5.x 9.0.x 10.0.x ####
 
 After unpacking `apache-tomcat-6.0.x.zip`, `apache-tomcat-7.0.x.zip`, `apache-tomcat-8.0.x.zip`, `apache-tomcat-8.5.x.zip`
-or `apache-tomcat-9.0.x.zip` one can run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running
+`apache-tomcat-9.0.x.zip`, or 'apache-tomcat-10.0.x.zip' one can run Tomcat by executing `$CATALINA_HOME/bin/startup.sh`. This will cause running
 Tomcat with standard java.util.logging enabled. The standard commandline is:
 
     "java" \
