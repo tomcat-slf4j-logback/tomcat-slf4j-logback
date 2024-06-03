@@ -9,7 +9,7 @@ Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all intern
 
 ## MODULE PROJECTS ##
 
-This is the releases repository for the Tomcat Slf4j Logback Project.  Please refer to [tomcat-slf4j-logback](https://github.com/tomcat-slf4j-logback) top level project for access to specific repos.
+This was the releases repository for the Tomcat Slf4j Logback Project.  Please refer to [tomcat-slf4j-logback](https://github.com/tomcat-slf4j-logback) top level project for access to specific repos.  Use maven central for downloads.
 
 ## LOGBACK NOTICE ##
 
@@ -28,9 +28,11 @@ Tomcat 7 is now End of Life.  As such, we no longer support it via repo as we ha
 
 Tomcat 8 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat8.  Please use our downloads and/or checkout project before removal was performed at [bf0d9a2](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/commit/bf0d9a2b4af6502306ab0faa8eb7d0327a494f97).
 
+Tomcat 8.5 is now End of Life.  As such, we no longer support it via repo as we have released all we will for tomcat85.  Please use our downloads and/or clone project module for tomcat85 to [build](https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback).
+
 ## Java Support ##
 
-Java 7 through 16 is supported.
+Java 7 through 23 is supported.
 
 ## RELEASES ##
 
@@ -38,14 +40,15 @@ Releases are grouped by tomcat version.  Pick the version most appropriate to yo
 
 ### NOTE: The github releases all say tomcat10 (latest) but resolve to version you want per label (left side) ###
 
-[![tomcat85](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat85)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat85)
-[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback)
-
 [![tomcat9](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat9)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat9)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat9-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat9-slf4j-logback)
 
 [![tomcat10](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat10)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat10)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat10-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat10-slf4j-logback)
+
+[![tomcat11](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat11)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat11)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat11-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat11-slf4j-logback)
+
 
 ** deprecated releases **
 
@@ -57,6 +60,9 @@ Releases are grouped by tomcat version.  Pick the version most appropriate to yo
 
 [![tomcat8](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat8)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat8)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat8-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat8-slf4j-logback)
+
+[![tomcat85](https://img.shields.io/github/v/tag/tomcat-slf4j-logback/tomcat-slf4j-logback?label=tomcat85)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases/tag/tomcat85)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.tomcat-slf4j-logback/tomcat85-slf4j-logback)
 
 ## Quick Start ##
 
@@ -174,6 +180,14 @@ For users to get release, use dependency as follows.
 </dependency>
 ```
 
+```xml
+<dependency>
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
+    <artifactId>tomcat11-slf4j-logback</artifactId>
+    <version>${tomcat.version}</version>
+</dependency>
+```
+
 The tomcat-slfj4-logback binary must be renamed as tomcat-juli to use within a tomcat build.
 
 ## Site Page ##
@@ -228,13 +242,13 @@ results in a single tomcat-juli file and thus no longer requires this.
 
 ## Installation ##
 
-Launching the build requires Maven install - everything will be downloaded upon build.
+Launching the build requires Maven install - everything will be downloaded upon build.  See individual repos for building modules.
 
 Type:
 
     mvn clean install
 
-Tomcat versions for 7, 8.5, and 9 will build.  Tomcat 6 and 8 is no longer provided on repo.
+Tomcat versions for 9, 10, and 11 will build from their respective modules.  Tomcat 6, 7, 8, and 8.5 are no longer provided on repo.
 
 And move tomcat-juli JAR for your tomcat version from `target` directory to `$CATALINA_HOME/bin` directory.
 

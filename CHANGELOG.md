@@ -1,3 +1,5 @@
+No longer used, see individual projects for releases
+
 Notable Changes
 ---------------
 * [#124](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/pull/124): Correct server.xml per version [@hazendaz]
