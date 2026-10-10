@@ -1,6 +1,6 @@
 ﻿# Tomcat + SLF4J + Logback #
 
-[![Build Status](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback.svg?branch=master)](https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback)
+[![Java CI](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/workflows/Java%20CI/badge.svg)](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/actions?query=workflow%3A%22Java+CI%22)
 [![Eclipse](https://img.shields.io/badge/license-Eclipse-blue.svg)](https://www.eclipse.org/legal/epl-v10.html)
 [![Project Stats](https://www.openhub.net/p/tomcat-slf4j-logback/widgets/project_thin_badge.gif)](https://www.openhub.net/p/tomcat-slf4j-logback)
 [![Github All Releases](https://img.shields.io/github/downloads/tomcat-slf4j-logback/tomcat-slf4j-logback/total.svg)]()
